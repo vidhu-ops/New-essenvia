@@ -31,11 +31,17 @@ npm run dev -- -p 4321
 
 This is the **approval package** before full platform development (NestJS API, PostgreSQL, Stripe, admin, warehouse, mobile app). Wireframes are lo-fi; the homepage demonstrates look & feel direction.
 
+## GitHub repository
+
+This New Project lives on **Cursor temporary git** until you attach GitHub. You will **not** see a repo on github.com until then.
+
+→ **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)** — click **Create repo** in this agent chat, or create `essentra-design` on GitHub manually.
+
 ## Deploy to Vercel (demo domain)
 
 See **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)** for import steps, project naming (`essentra-wireframes.vercel.app`), and stakeholder URL map.
 
-**Repository:** use Cursor **Create repo** in this chat to attach GitHub, then **Import** that repo in [Vercel New Project](https://vercel.com/new). No env vars needed for wireframes.
+After GitHub exists: **Import** the repo in [Vercel New Project](https://vercel.com/new). No env vars needed for wireframes.
 
 ## Next step
 
