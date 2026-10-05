@@ -31,11 +31,11 @@ npm run dev -- -p 4321
 
 This is the **approval package** before full platform development (NestJS API, PostgreSQL, Stripe, admin, warehouse, mobile app). Wireframes are lo-fi; the homepage demonstrates look & feel direction.
 
-## GitHub repository
+## Repository
 
-This New Project lives on **Cursor temporary git** until you attach GitHub. You will **not** see a repo on github.com until then.
+**Browse:** [cursor.com/codebase/vidhu-gupta/essentra-box](https://cursor.com/codebase/vidhu-gupta/essentra-box) (private by default)
 
-→ **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)** — click **Create repo** in this agent chat, or create `essentra-design` on GitHub manually.
+**Clone:** see **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)** for Origin CLI commands.
 
 ## Deploy to Vercel (demo domain)
 
