@@ -31,6 +31,12 @@ npm run dev -- -p 4321
 
 This is the **approval package** before full platform development (NestJS API, PostgreSQL, Stripe, admin, warehouse, mobile app). Wireframes are lo-fi; the homepage demonstrates look & feel direction.
 
+## Deploy to Vercel (demo domain)
+
+See **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)** for import steps, project naming (`essentra-wireframes.vercel.app`), and stakeholder URL map.
+
+**Repository:** use Cursor **Create repo** in this chat to attach GitHub, then **Import** that repo in [Vercel New Project](https://vercel.com/new). No env vars needed for wireframes.
+
 ## Next step
 
 Approve Phase 0 + Growth Foundation per the proposal, execute the Master Service Agreement, then begin fixed-price build phases.
