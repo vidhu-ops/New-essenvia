@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --essentra-forest: #1b4332;
+  --essentra-sage: #40916c;
+  --essentra-mint: #d8f3dc;
+  --essentra-canvas: #fafaf8;
+  --essentra-charcoal: #1a1a1a;
+  --background: var(--essentra-canvas);
+  --foreground: var(--essentra-charcoal);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-source-serif);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.font-serif {
+  font-family: var(--font-source-serif), Georgia, serif;
+}
