@@ -1,7 +1,18 @@
 import Link from "next/link";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
 
-const files = [
+const files: {
+  title: string;
+  file: string;
+  desc: string;
+  href?: string;
+}[] = [
+  {
+    title: "Combined design pack (HTML) — wireframes + journey",
+    file: "Essentra-IIDATECH-Complete-Design-Pack.html",
+    desc: "IIDATECH letterhead, logo, full colour switcher (Lagoon v2 + Lake/Spruce/Blue/Maple), nine-screen journey, website/app mockups, and all wireframes in one file.",
+    href: "/Essentra-IIDATECH-Complete-Design-Pack.html",
+  },
   {
     title: "Complete platform proposal (CAD) — PRIMARY",
     file: "Essentra-Platform-Design-Proposal-CAD.md",
@@ -80,12 +91,12 @@ export default function DocsPage() {
             <li key={f.file} className="rounded-xl border border-[#E2E8F0] bg-white p-5">
               <h2 className="font-semibold text-[#1B4332]">{f.title}</h2>
               <p className="mt-2 text-sm text-[#64748B]">{f.desc}</p>
-              <p className="mt-3 font-mono text-xs text-[#40916C]">docs/{f.file}</p>
+              <p className="mt-3 font-mono text-xs text-[#40916C]">{f.href ?? `docs/${f.file}`}</p>
               <Link
-                href={`/documents/${f.file}`}
+                href={f.href ?? `/documents/${f.file}`}
                 className="mt-3 inline-block text-sm font-medium text-[#1B4332] underline"
               >
-                Open raw markdown in browser →
+                {f.href ? "Open combined design pack →" : "Open raw markdown in browser →"}
               </Link>
             </li>
           ))}
