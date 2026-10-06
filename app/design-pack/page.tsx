@@ -3,6 +3,8 @@ import { MarketingLayout } from "@/components/essentra/MarketingLayout";
 
 const PDF = "/Essentra-IIDATECH-Complete-Design-Pack.pdf";
 const HTML = "/Essentra-IIDATECH-Complete-Design-Pack.html";
+const HTML_STANDALONE = "/Essentra-IIDATECH-Complete-Design-Pack-standalone.html";
+const ZIP = "/Essentra-IIDATECH-Complete-Design-Pack.zip";
 
 export default function DesignPackPage() {
   return (
@@ -37,6 +39,20 @@ export default function DesignPackPage() {
           >
             Open interactive HTML
           </Link>
+          <a
+            href={HTML_STANDALONE}
+            download="Essentra-IIDATECH-Complete-Design-Pack.html"
+            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
+          >
+            Download HTML (single file)
+          </a>
+          <a
+            href={ZIP}
+            download="Essentra-IIDATECH-Complete-Design-Pack.zip"
+            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
+          >
+            Download HTML + logo (zip)
+          </a>
         </div>
 
         <section className="mt-12 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-sm">
