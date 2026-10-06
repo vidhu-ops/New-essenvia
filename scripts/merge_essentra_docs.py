@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Merge Essentra wireframes (1) + how it works (2) into one IIDATECH document."""
-import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,16 +31,7 @@ script_start = HOW.find('<script>\n(function(){var scs')
 script_end = HOW.find("</script>", script_start) + len("</script>")
 doc2_scripts = HOW[script_start:script_end] if script_start != -1 else ""
 
-_WM_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="520" height="260" viewBox="0 0 520 260"><text x="24" y="130" fill="#10242B" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing=".04em" transform="rotate(-24 260 130)">CONFIDENTIAL · IIDATECH · DO NOT COPY OR SHARE</text><text x="24" y="158" fill="#10242B" font-family="system-ui,sans-serif" font-size="11" font-weight="600" transform="rotate(-24 260 130)">Unauthorized disclosure may result in legal action</text></svg>"""
-_WM_BG = "url('data:image/svg+xml," + urllib.parse.quote(_WM_SVG) + "')"
-
 LETTERHEAD_CSS = f"""
-.doc-watermark{{position:fixed;inset:0;pointer-events:none;z-index:40;
-  background-image:{_WM_BG},url("{LOGO_FILE}");
-  background-size:520px 260px,100px;
-  background-repeat:repeat,repeat;
-  opacity:.055;mix-blend-mode:multiply}}
-@media print{{.doc-watermark{{opacity:.14}}}}
 .iida-confidential-notice{{position:relative;z-index:45;background:#141413;color:#f5f5f4;padding:12px max(16px,3vw);font-size:12px;line-height:1.5;border-bottom:3px solid #b91c1c}}
 .iida-confidential-notice strong{{color:#fff;font-size:13px;display:block;margin-bottom:4px;letter-spacing:.02em}}
 .iida-letterhead{{position:relative;z-index:45;border-bottom:2px solid var(--line);background:var(--panel);padding:20px 0 16px;margin-bottom:0}}
@@ -58,13 +48,11 @@ LETTERHEAD_CSS = f"""
 #journey-pack{{margin-top:0;padding-top:8px}}
 #journey-pack .bar{{position:static;border:none;padding:0;background:transparent}}
 #journey-pack .w{{max-width:1240px;padding:0 max(16px,3vw)}}
-.wrap{{position:relative;z-index:1}}
 """
 
 IIDATECH_LOGO = f'<img class="iida-logo-mark" src="{LOGO_FILE}" width="56" height="54" alt="IIDATECH logo">'
 
 LETTERHEAD_HTML = f"""
-<div class="doc-watermark" aria-hidden="true"></div>
 <div class="iida-confidential-notice" role="note">
   <strong>STRICTLY CONFIDENTIAL — IIDATECH PROPRIETARY</strong>
   This document is furnished only to authorized Essentra recipients for internal review.
