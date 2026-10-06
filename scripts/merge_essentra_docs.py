@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Merge Essentra wireframes (1) + how it works (2) into one IIDATECH document."""
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 UP = Path("/home/ubuntu/.cursor/projects/workspace/uploads")
 OUT = ROOT / "public" / "Essentra-IIDATECH-Complete-Design-Pack.html"
+LOGO_FILE = "iidatech-logo.png"
+LOGO_SRC = ROOT / "public" / LOGO_FILE
 
 WIRE = (UP / "Essentra_Wireframes__1__4d3d.html").read_text(encoding="utf-8")
 HOW = (UP / "Essentra__how_it_works_and_how_it_looks__2__086a.html").read_text(encoding="utf-8")
@@ -29,28 +32,48 @@ script_start = HOW.find('<script>\n(function(){var scs')
 script_end = HOW.find("</script>", script_start) + len("</script>")
 doc2_scripts = HOW[script_start:script_end] if script_start != -1 else ""
 
-LETTERHEAD_CSS = """
-.iida-letterhead{border-bottom:2px solid var(--line);background:var(--panel);padding:20px 0 16px;margin-bottom:0}
-.iida-letterhead .inner{max-width:1240px;margin:0 auto;padding:0 max(16px,3vw);display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between}
-.iida-logo{display:flex;align-items:center;gap:14px}
-.iida-logo svg{flex:none}
-.iida-meta{text-align:right;font-size:13px;color:var(--muted);line-height:1.5}
-.iida-meta b{color:var(--fg);font-size:15px;display:block;margin-bottom:2px}
-.palette-global{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding:10px max(16px,3vw);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
-.palette-global button{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--panel);color:var(--fg);padding:6px 12px;border-radius:99px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
-.palette-global button i{width:14px;height:14px;border-radius:50%;display:block}
-.palette-global button[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 2px rgba(11,122,131,.15)}
-#journey-pack{margin-top:0;padding-top:8px}
-#journey-pack .bar{position:static;border:none;padding:0;background:transparent}
-#journey-pack .w{max-width:1240px;padding:0 max(16px,3vw)}
+_WM_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="520" height="260" viewBox="0 0 520 260"><text x="24" y="130" fill="#10242B" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing=".04em" transform="rotate(-24 260 130)">CONFIDENTIAL · IIDATECH · DO NOT COPY OR SHARE</text><text x="24" y="158" fill="#10242B" font-family="system-ui,sans-serif" font-size="11" font-weight="600" transform="rotate(-24 260 130)">Unauthorized disclosure may result in legal action</text></svg>"""
+_WM_BG = "url('data:image/svg+xml," + urllib.parse.quote(_WM_SVG) + "')"
+
+LETTERHEAD_CSS = f"""
+.doc-watermark{{position:fixed;inset:0;pointer-events:none;z-index:40;
+  background-image:{_WM_BG},url("{LOGO_FILE}");
+  background-size:520px 260px,100px;
+  background-repeat:repeat,repeat;
+  opacity:.055;mix-blend-mode:multiply}}
+@media print{{.doc-watermark{{opacity:.14}}}}
+.iida-confidential-notice{{position:relative;z-index:45;background:#141413;color:#f5f5f4;padding:12px max(16px,3vw);font-size:12px;line-height:1.5;border-bottom:3px solid #b91c1c}}
+.iida-confidential-notice strong{{color:#fff;font-size:13px;display:block;margin-bottom:4px;letter-spacing:.02em}}
+.iida-letterhead{{position:relative;z-index:45;border-bottom:2px solid var(--line);background:var(--panel);padding:20px 0 16px;margin-bottom:0}}
+.iida-letterhead .inner{{max-width:1240px;margin:0 auto;padding:0 max(16px,3vw);display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center;justify-content:space-between}}
+.iida-logo{{display:flex;align-items:center;gap:14px}}
+.iida-logo-mark{{flex:none;width:56px;height:auto;display:block}}
+.iida-meta{{text-align:right;font-size:13px;color:var(--muted);line-height:1.5;max-width:42ch}}
+.iida-meta b{{color:var(--fg);font-size:15px;display:block;margin-bottom:4px}}
+.iida-meta .legal{{display:block;margin-top:8px;font-size:11px;color:#7f1d1d;font-weight:600}}
+.palette-global{{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);padding:10px max(16px,3vw);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}}
+.palette-global button{{font:inherit;font-weight:600;border:1.5px solid var(--line);background:var(--panel);color:var(--fg);padding:6px 12px;border-radius:99px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}}
+.palette-global button i{{width:14px;height:14px;border-radius:50%;display:block}}
+.palette-global button[aria-pressed=true]{{border-color:var(--accent);box-shadow:0 0 0 2px rgba(11,122,131,.15)}}
+#journey-pack{{margin-top:0;padding-top:8px}}
+#journey-pack .bar{{position:static;border:none;padding:0;background:transparent}}
+#journey-pack .w{{max-width:1240px;padding:0 max(16px,3vw)}}
+.wrap{{position:relative;z-index:1}}
 """
 
-IIDATECH_LOGO = """<svg width="52" height="52" viewBox="0 0 52 52" aria-hidden="true"><rect width="52" height="52" rx="10" fill="#0B7A83"/><path d="M14 36V16h6v20h-6zm18 0V22h-8v-6h14v6h-8v14h-6z" fill="#fff"/><rect x="34" y="16" width="5" height="20" fill="#F4B63D"/></svg>"""
+IIDATECH_LOGO = f'<img class="iida-logo-mark" src="{LOGO_FILE}" width="56" height="54" alt="IIDATECH logo">'
 
 LETTERHEAD_HTML = f"""
+<div class="doc-watermark" aria-hidden="true"></div>
+<div class="iida-confidential-notice" role="note">
+  <strong>STRICTLY CONFIDENTIAL — IIDATECH PROPRIETARY</strong>
+  This document is furnished only to authorized Essentra recipients for internal review.
+  It may not be copied, forwarded, published, or discussed with third parties without written consent from IIDATECH.
+  Any unauthorized use or disclosure of this material may result in civil and criminal legal action.
+</div>
 <div class="iida-letterhead"><div class="inner">
   <div class="iida-logo">{IIDATECH_LOGO}<div><div style="font-family:Bricolage Grotesque,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.03em;color:var(--fg)">IIDATECH</div><div style="font-size:13px;color:var(--muted)">Digital product · Essentra engagement</div></div></div>
-  <div class="iida-meta"><b>Confidential — client review</b>Prepared for Josh and the Essentra team<br>October 2026 · Combined design pack v3</div>
+  <div class="iida-meta"><b>Confidential — client review only</b>Prepared for Josh and the Essentra team<br>October 2026 · Combined design pack v3<span class="legal">Sharing, screenshots, or distribution outside the authorized group is prohibited and may lead to legal action.</span></div>
 </div></div>
 <div class="palette-global" aria-label="Colour options for full document">
   <span style="font-weight:600;color:var(--muted)">Document colours:</span>
@@ -156,11 +179,14 @@ out = out.replace(
 )
 out = out.replace(
     '<footer class="end">Wireframes are mid-fidelity',
-    '<footer class="end"><b>IIDATECH</b> · Prepared for Essentra · Prices and figures are placeholders · Legal text awaiting counsel.<br><br>Wireframes are mid-fidelity',
+    '<footer class="end"><img src="' + LOGO_FILE + '" alt="" width="36" height="35" style="vertical-align:middle;margin-right:8px;opacity:.85" aria-hidden="true"><b>IIDATECH</b> · Strictly confidential · Prepared for Essentra · Unauthorized sharing prohibited — legal action may apply.<br>Prices and figures on screens are placeholders. Essentra legal wording awaiting counsel.<br><br>Wireframes are mid-fidelity',
 )
 # Fix doc2 journey bar duplicate - remove inner bar from journey_block first line? journey_block starts with bar - ok inside journey-pack
 
 out = out.replace("</body></html>", doc2_scripts + PALETTE_JS + "\n</body></html>")
+
+if not LOGO_SRC.is_file():
+    raise SystemExit(f"Missing logo at {LOGO_SRC} — add {LOGO_FILE} to public/")
 
 OUT.write_text(out, encoding="utf-8")
 print(f"Wrote {OUT} ({OUT.stat().st_size} bytes)")
