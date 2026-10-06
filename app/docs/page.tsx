@@ -10,8 +10,8 @@ const files: {
   {
     title: "Combined design pack (HTML) — wireframes + journey",
     file: "Essentra-IIDATECH-Complete-Design-Pack.html",
-    desc: "IIDATECH letterhead, logo, full colour switcher (Lagoon v2 + Lake/Spruce/Blue/Maple), nine-screen journey, website/app mockups, and all wireframes in one file.",
-    href: "/Essentra-IIDATECH-Complete-Design-Pack.html",
+    desc: "IIDATECH letterhead, logo, colour switcher, journey + wireframes. Client PDF download and in-browser preview at /design-pack.",
+    href: "/design-pack",
   },
   {
     title: "Complete platform proposal (CAD) — PRIMARY",
@@ -96,7 +96,7 @@ export default function DocsPage() {
                 href={f.href ?? `/documents/${f.file}`}
                 className="mt-3 inline-block text-sm font-medium text-[#1B4332] underline"
               >
-                {f.href ? "Open combined design pack →" : "Open raw markdown in browser →"}
+                {f.href ? "Open client preview (PDF + HTML) →" : "Open raw markdown in browser →"}
               </Link>
             </li>
           ))}

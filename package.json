@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "design-pack:merge": "python3 scripts/merge_essentra_docs.py",
+    "design-pack:pdf": "node scripts/generate-design-pack-pdf.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -26,6 +28,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

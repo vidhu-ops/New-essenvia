@@ -48,6 +48,12 @@ LETTERHEAD_CSS = f"""
 #journey-pack{{margin-top:0;padding-top:8px}}
 #journey-pack .bar{{position:static;border:none;padding:0;background:transparent}}
 #journey-pack .w{{max-width:1240px;padding:0 max(16px,3vw)}}
+@media print{{
+  .palette-global,nav.sec{{display:none!important}}
+  .iida-confidential-notice,.iida-letterhead{{break-inside:avoid}}
+  .stripwrap{{overflow:visible!important}}
+  figure.fig{{break-inside:avoid;page-break-inside:avoid}}
+}}
 """
 
 IIDATECH_LOGO = f'<img class="iida-logo-mark" src="{LOGO_FILE}" width="56" height="54" alt="IIDATECH logo">'

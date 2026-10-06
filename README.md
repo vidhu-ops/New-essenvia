@@ -10,6 +10,7 @@ npm run dev -- -p 4321
 ```
 
 - **Brand preview:** [http://127.0.0.1:4321](http://127.0.0.1:4321)
+- **Client design pack (PDF):** [http://127.0.0.1:4321/design-pack](http://127.0.0.1:4321/design-pack)
 - **Wireframes hub:** [http://127.0.0.1:4321/wireframes](http://127.0.0.1:4321/wireframes)
 
 ## Documents (review & signature)
