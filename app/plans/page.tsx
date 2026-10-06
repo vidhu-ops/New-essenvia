@@ -1,51 +1,33 @@
-import Link from "next/link";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
-import { Card, CardContent } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-
-const plans = [
-  { name: "Essentra Essential", price: "120.99", detail: "Lighter overall consumption across categories." },
-  {
-    name: "Essentra Family",
-    price: "134.99",
-    detail: "Balanced for typical Canadian family use.",
-    featured: true,
-  },
-  { name: "Essentra Plus", price: "149.99", detail: "Higher volume households or heavier category use." },
-];
+import { HumanCta } from "@/components/essentra/HumanCta";
 
 export default function PlansPage() {
   return (
     <MarketingLayout>
-      <div className="mx-auto max-w-4xl px-4 py-16">
-        <h1 className="font-serif text-4xl text-[#1B4332]">Plans & pricing</h1>
-        <p className="mt-4 max-w-2xl text-[#64748B]">
-          Plans are assigned from your customized basket—not from picking “small/medium/large” on every aisle. That keeps
-          the mental model honest and the invoice simple.
+      <article className="mx-auto max-w-2xl px-5 py-16 md:py-20">
+        <h1 className="font-display text-[2rem] text-ink">Pricing</h1>
+        <p className="mt-6 text-[17px] leading-[1.7] text-ink-muted">
+          You’ll see one line on your receipt. We don’t show a low price then add fees for brand names or bigger rolls.
         </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {plans.map((p) => (
-            <Card key={p.name} className={cn(p.featured && "border-[#40916C] ring-1 ring-[#40916C]/20")}>
-              <CardContent className="pt-6">
-                {p.featured && <p className="text-xs font-semibold uppercase text-[#40916C]">Most matched</p>}
-                <h2 className="mt-1 font-semibold text-[#1B4332]">{p.name}</h2>
-                <p className="mt-4 font-serif text-4xl">
-                  ${p.price}
-                  <span className="text-base font-sans text-[#64748B]">/mo + tax</span>
-                </p>
-                <p className="mt-3 text-sm text-[#64748B]">{p.detail}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <Link
-          href="/build/step-1"
-          className={cn(buttonVariants(), "mt-10 inline-flex rounded-full bg-[#1B4332] hover:bg-[#40916C]")}
-        >
+        <dl className="mt-10 space-y-8">
+          <div>
+            <dt className="font-medium text-ink">Essentra Essential — $120.99/mo + tax</dt>
+            <dd className="mt-2 text-[16px] text-ink-muted">For homes that use a bit less across categories.</dd>
+          </div>
+          <div>
+            <dt className="font-medium text-ink">Essentra Family — $134.99/mo + tax</dt>
+            <dd className="mt-2 text-[16px] text-ink-muted">The usual fit after the questionnaire.</dd>
+          </div>
+          <div>
+            <dt className="font-medium text-ink">Essentra Plus — $149.99/mo + tax</dt>
+            <dd className="mt-2 text-[16px] text-ink-muted">When you go through paper or detergent fast.</dd>
+          </div>
+        </dl>
+        <p className="mt-10 text-[15px] text-ink-soft">Plan names and amounts can be adjusted in our admin tools—not hard-coded forever.</p>
+        <HumanCta href="/build/step-1" className="mt-8 inline-block">
           Find my plan
-        </Link>
-      </div>
+        </HumanCta>
+      </article>
     </MarketingLayout>
   );
 }

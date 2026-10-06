@@ -15,25 +15,25 @@ export function BuildShell({
   backHref?: string;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#D8F3DC]/40 to-[#FAFAF8]">
-      <header className="border-b border-[#E2E8F0]/60 bg-white/80 backdrop-blur">
-        <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-4">
-          <Link href="/" className="font-serif text-lg text-[#1B4332]">
+    <div className="min-h-screen bg-paper">
+      <header className="border-b border-line bg-paper-warm">
+        <div className="mx-auto flex max-w-lg items-center justify-between px-5 py-4">
+          <Link href="/" className="font-display text-lg text-green">
             Essentra
           </Link>
-          <Link href="/" className="text-xs text-[#64748B] hover:text-[#1B4332]">
-            Save & exit
+          <Link href="/" className="text-[14px] text-ink-soft hover:text-ink">
+            Save & come back
           </Link>
         </div>
       </header>
-      <div className="mx-auto max-w-lg px-4 py-8">
+      <div className="mx-auto max-w-lg px-5 py-8">
         <BuildProgress step={step} total={5} />
-        <h1 className="mt-6 font-serif text-2xl text-[#1B4332]">{title}</h1>
-        {subtitle && <p className="mt-2 text-sm leading-relaxed text-[#64748B]">{subtitle}</p>}
+        <h1 className="mt-8 font-display text-[1.65rem] leading-snug text-ink">{title}</h1>
+        {subtitle && <p className="mt-3 text-[16px] leading-relaxed text-ink-muted">{subtitle}</p>}
         <div className="mt-8">{children}</div>
         {backHref && (
-          <Link href={backHref} className="mt-8 inline-block text-sm text-[#40916C] hover:underline">
-            ← Back
+          <Link href={backHref} className="mt-10 inline-block text-[15px] text-green-light underline decoration-line underline-offset-4">
+            Back
           </Link>
         )}
       </div>

@@ -1,199 +1,123 @@
 import Link from "next/link";
-import { BoxHeroVisual } from "@/components/essentra/BoxHeroVisual";
+import { HeroPhoto } from "@/components/essentra/HeroPhoto";
+import { HumanCta } from "@/components/essentra/HumanCta";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
-import { buttonVariants } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-
-const plans = [
-  { name: "Essentra Essential", price: "120.99", desc: "Right-sized for lighter household use" },
-  { name: "Essentra Family", price: "134.99", desc: "Our most common match for families", featured: true },
-  { name: "Essentra Plus", price: "149.99", desc: "Higher consumption across categories" },
-];
-
-const categories = [
-  "Laundry detergent",
-  "Toilet paper",
-  "Paper towels",
-  "Dishwasher pods",
-  "Dish soap",
-  "Garbage bags",
-  "Fabric softener",
-  "Surface cleaner",
-  "Disinfecting wipes",
-];
 
 export default function HomePage() {
   return (
     <MarketingLayout>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_#D8F3DC_0%,_transparent_55%)]" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-2 md:py-24">
-          <div>
-            <Badge className="mb-4 border-[#40916C]/30 bg-[#D8F3DC]/60 text-[#1B4332] hover:bg-[#D8F3DC]/60">
-              Delivering across Canada
-            </Badge>
-            <h1 className="font-serif text-4xl leading-[1.1] tracking-tight text-[#1B4332] md:text-[3.25rem]">
-              Your household essentials.
-              <span className="block text-[#40916C]">Delivered automatically.</span>
+      {/* Hero — asymmetric, editorial */}
+      <section className="mx-auto max-w-5xl px-5 pb-16 pt-10 md:pb-24 md:pt-16">
+        <div className="grid items-start gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+          <div className="md:pt-6">
+            <p className="text-[14px] uppercase tracking-[0.12em] text-ink-soft">Household essentials · Canada</p>
+            <h1 className="mt-4 font-display text-[2.35rem] leading-[1.12] text-ink md:text-[3rem]">
+              The stuff you’d grab at the store—showing up at your door, on a schedule that fits your home.
             </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-[#64748B]">
-              The brands you already buy—customized to your home, bundled into one calm monthly price. No cart. No
-              coupon chaos. No surprise add-ons.
+            <p className="mt-6 max-w-lg text-[17px] leading-[1.65] text-ink-muted">
+              Tell us what you actually use (Tide, Charmin, Dawn—the usual). We pack it into one box and one monthly
+              price. No wandering aisles. No ten separate “subscribe” buttons.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Link
-                href="/build/step-1"
-                className={cn(buttonVariants(), "h-12 rounded-full bg-[#1B4332] px-8 text-base hover:bg-[#40916C]")}
-              >
-                Build my Essentra box
-              </Link>
-              <Link
-                href="/how-it-works"
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "h-12 rounded-full border-[#1B4332]/20 px-8 text-base text-[#1B4332]",
-                )}
-              >
-                See how it works
-              </Link>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <HumanCta href="/build/step-1">Start with a few questions</HumanCta>
+              <HumanCta href="/how-it-works" variant="secondary">
+                How we put a box together
+              </HumanCta>
             </div>
-            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-[#64748B]">
-              <li className="flex items-center gap-2">
-                <span className="text-[#40916C]">✓</span> Skip or pause anytime
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-[#40916C]">✓</span> Secure recurring billing
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-[#40916C]">✓</span> Preferences saved
-              </li>
-            </ul>
+            <p className="mt-8 text-[15px] text-ink-soft">
+              Takes about five minutes. You can skip or pause a month if life gets busy—we mean that.
+            </p>
           </div>
-          <BoxHeroVisual />
+          <HeroPhoto />
         </div>
       </section>
 
-      <section className="border-y border-[#E2E8F0] bg-white py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className="text-center font-serif text-3xl text-[#1B4332]">Three steps. One simple routine.</p>
-          <p className="mx-auto mt-3 max-w-xl text-center text-[#64748B]">
-            We reduce cognitive load: one decision per screen, defaults where safe, progress you can see.
-          </p>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {[
-              {
-                n: "1",
-                title: "Tell us about your household",
-                body: "Size, habits, and the brands you already reach for in store.",
-              },
-              {
-                n: "2",
-                title: "We build your Essentra package",
-                body: "Your basket maps to one plan—you see a single monthly price, not a spreadsheet.",
-              },
-              {
-                n: "3",
-                title: "We deliver on schedule",
-                body: "Same preferences next month unless you change them before the cut-off.",
-              },
-            ].map((s) => (
-              <Card key={s.n} className="border-[#E2E8F0] shadow-none">
-                <CardContent className="pt-6">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#1B4332] font-serif text-lg text-white">
-                    {s.n}
-                  </span>
-                  <h3 className="mt-4 text-lg font-semibold text-[#1A1A1A]">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#64748B]">{s.body}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      {/* Steps — prose column, not three identical cards */}
+      <section className="border-y border-line bg-paper-warm">
+        <div className="mx-auto max-w-5xl px-5 py-16 md:py-20">
+          <h2 className="font-display text-2xl text-ink md:text-[1.75rem]">How it works (the short version)</h2>
+          <ol className="mt-10 max-w-2xl space-y-10 text-[17px] leading-relaxed text-ink-muted">
+            <li>
+              <span className="font-medium text-ink">1. Your household.</span> How many people, how fast you go through
+              paper goods, which detergent you already buy.
+            </li>
+            <li>
+              <span className="font-medium text-ink">2. Your box & plan.</span> We match you to Essential, Family, or
+              Plus—based on your mix, not “small/medium/large” on every single item.
+            </li>
+            <li>
+              <span className="font-medium text-ink">3. Delivery.</span> Same preferences next time unless you change them
+              before we pack. One charge. One receipt.
+            </li>
+          </ol>
+          <HumanCta href="/build/step-1" variant="text" className="mt-8 inline-block">
+            Try the question flow →
+          </HumanCta>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+      {/* Pricing — honest, not card grid */}
+      <section className="mx-auto max-w-5xl px-5 py-16 md:py-20">
+        <h2 className="font-display text-2xl text-ink">What you’ll pay</h2>
+        <p className="mt-4 max-w-xl text-[17px] text-ink-muted">
+          Three plans. You see <em className="text-ink">one</em> number on your bill—we don’t add “+$4 for pods” at
+          checkout.
+        </p>
+        <ul className="mt-10 divide-y divide-line border-y border-line">
+          <li className="flex flex-wrap items-baseline justify-between gap-2 py-5">
             <div>
-              <h2 className="font-serif text-3xl text-[#1B4332]">Plans that match your home—not a template</h2>
-              <p className="mt-2 max-w-xl text-[#64748B]">
-                Anchoring is honest: one visible price. No nickel-and-diming builds trust and reduces checkout anxiety.
-              </p>
+              <p className="font-medium text-ink">Essentra Essential</p>
+              <p className="mt-1 text-[15px] text-ink-soft">Lighter use across the board</p>
             </div>
-            <Link href="/plans" className="text-sm font-medium text-[#40916C] hover:underline">
-              Compare plans →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {plans.map((p) => (
-              <Card
-                key={p.name}
-                className={cn(
-                  "relative overflow-hidden border-[#E2E8F0]",
-                  p.featured && "border-[#40916C] shadow-[0_20px_60px_-30px_rgba(64,145,108,0.5)]",
-                )}
-              >
-                {p.featured && (
-                  <div className="bg-[#40916C] px-4 py-1 text-center text-xs font-medium text-white">Most matched</div>
-                )}
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold text-[#1B4332]">{p.name}</h3>
-                  <p className="mt-4 font-serif text-4xl text-[#1A1A1A]">
-                    ${p.price}
-                    <span className="text-base font-sans text-[#64748B]">/mo + tax</span>
-                  </p>
-                  <p className="mt-2 text-sm text-[#64748B]">{p.desc}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+            <p className="font-display text-2xl text-ink">
+              $120.99<span className="font-body text-sm text-ink-soft">/mo + tax</span>
+            </p>
+          </li>
+          <li className="flex flex-wrap items-baseline justify-between gap-2 bg-[#f0ebe3]/50 py-5 pl-0 md:pl-4">
+            <div>
+              <p className="font-medium text-ink">Essentra Family</p>
+              <p className="mt-1 text-[15px] text-ink-soft">What most homes land on after the questionnaire</p>
+            </div>
+            <p className="font-display text-2xl text-ink">
+              $134.99<span className="font-body text-sm text-ink-soft">/mo + tax</span>
+            </p>
+          </li>
+          <li className="flex flex-wrap items-baseline justify-between gap-2 py-5">
+            <div>
+              <p className="font-medium text-ink">Essentra Plus</p>
+              <p className="mt-1 text-[15px] text-ink-soft">Heavier on detergent, paper, or both</p>
+            </div>
+            <p className="font-display text-2xl text-ink">
+              $149.99<span className="font-body text-sm text-ink-soft">/mo + tax</span>
+            </p>
+          </li>
+        </ul>
+        <Link href="/plans" className="mt-6 inline-block text-[15px] text-green-light underline decoration-line underline-offset-4">
+          A bit more on how plans are picked
+        </Link>
+      </section>
+
+      {/* Categories — plain list in copy */}
+      <section className="border-t border-line bg-paper-warm px-5 py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="font-display text-2xl text-ink">What goes in the box</h2>
+          <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink-muted">
+            Roughly ten categories to start: laundry, toilet paper, towels, dish pods, dish soap, garbage bags (kitchen
+            and large), fabric softener, surface cleaner, disinfecting wipes. Brands depend on what we can source well in
+            Canada—you’ll pick preferences, not hunt SKUs.
+          </p>
+          <HumanCta href="/products" variant="text" className="mt-6 inline-block">
+            See the category list →
+          </HumanCta>
         </div>
       </section>
 
-      <section className="bg-[#1B4332] py-16 text-white">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="font-serif text-3xl">Ten essential categories. Your brands inside.</h2>
-          <p className="mt-3 max-w-2xl text-[#D8F3DC]/90">
-            Familiar national brands signal safety (mere-exposure effect)—you are not gambling on unknown labels.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {categories.map((c) => (
-              <span key={c} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm">
-                {c}
-              </span>
-            ))}
-          </div>
-          <Link
-            href="/products"
-            className={cn(
-              buttonVariants({ variant: "secondary" }),
-              "mt-10 rounded-full bg-white text-[#1B4332] hover:bg-[#D8F3DC]",
-            )}
-          >
-            Explore categories
-          </Link>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-serif text-3xl text-[#1B4332]">Make shopping the quiet part of life again</h2>
-          <p className="mt-4 text-[#64748B]">
-            Start the guided builder—about five minutes, mobile-friendly, no account required until you are ready.
-          </p>
-          <Link
-            href="/build/step-1"
-            className={cn(buttonVariants(), "mt-8 h-12 rounded-full bg-[#1B4332] px-10 text-base hover:bg-[#40916C]")}
-          >
-            Build my Essentra box
-          </Link>
-          <p className="mt-4 text-xs text-[#94A3B8]">
-            <Link href="/design-system" className="underline hover:text-[#40916C]">
-              Read why every colour and font was chosen
-            </Link>
-          </p>
+      <section className="mx-auto max-w-5xl px-5 py-20 text-center md:text-left">
+        <p className="font-display text-[1.65rem] leading-snug text-ink md:max-w-lg">
+          If you’re tired of repeating the same store run every month, start with the questionnaire.
+        </p>
+        <div className="mt-8 md:mt-6">
+          <HumanCta href="/build/step-1">Build my box</HumanCta>
         </div>
       </section>
     </MarketingLayout>

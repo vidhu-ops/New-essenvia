@@ -1,39 +1,38 @@
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqs = [
   {
-    q: "Is this just ‘small, medium, large’ for everything?",
-    a: "No. Your toilet paper quantity can differ from detergent. The plan matches total customized need—not one template size per category.",
+    q: "Is every product the same size in a plan?",
+    a: "No. You might need more paper towels than detergent. That’s why we ask category by category.",
   },
   {
-    q: "Will I see extra charges for brands or sizes?",
-    a: "You see one monthly package price (+ tax). No +$3 per item UI—by design, to keep trust and clarity.",
+    q: "Will checkout surprise me with add-ons?",
+    a: "No. One plan price plus tax. That’s the design.",
   },
   {
-    q: "Can I skip or pause?",
-    a: "Yes—rules and cut-offs will be configurable in admin and explained clearly before launch (placeholder policies until legal review).",
+    q: "Can I skip a month?",
+    a: "Yes—we’re building skip and pause into the account. Exact cut-offs will be in your subscription terms.",
   },
   {
-    q: "Which brands are included?",
-    a: "Recognizable national brands where supply allows—managed in the admin catalog, not frozen in code.",
+    q: "Do you ship outside Canada?",
+    a: "Canada first. Delivery zones will be configurable as we roll out.",
   },
 ];
 
 export default function FAQPage() {
   return (
     <MarketingLayout>
-      <div className="mx-auto max-w-2xl px-4 py-16">
-        <h1 className="font-serif text-4xl text-[#1B4332]">FAQ</h1>
-        <Accordion className="mt-10">
-          {faqs.map((f, i) => (
-            <AccordionItem key={f.q} value={`f-${i}`}>
-              <AccordionTrigger className="text-left">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-[#64748B]">{f.a}</AccordionContent>
-            </AccordionItem>
+      <article className="mx-auto max-w-2xl px-5 py-16">
+        <h1 className="font-display text-[2rem] text-ink">Common questions</h1>
+        <dl className="mt-10 space-y-10">
+          {faqs.map((f) => (
+            <div key={f.q}>
+              <dt className="font-medium text-ink">{f.q}</dt>
+              <dd className="mt-2 text-[16px] leading-relaxed text-ink-muted">{f.a}</dd>
+            </div>
           ))}
-        </Accordion>
-      </div>
+        </dl>
+      </article>
     </MarketingLayout>
   );
 }

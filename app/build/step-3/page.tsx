@@ -1,29 +1,24 @@
-import Link from "next/link";
 import { BuildShell } from "@/components/essentra/build/BuildShell";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { HumanCta } from "@/components/essentra/HumanCta";
 
 export default function BuildStep3() {
   return (
-    <BuildShell step={3} title="Paper products" subtitle="Toilet paper and towels—quantities tuned separately." backHref="/build/step-2">
-      <div className="space-y-4">
-        {[
-          { cat: "Toilet paper", brand: "Charmin", selected: true },
-          { cat: "Paper towels", brand: "Bounty", selected: true },
-        ].map((row) => (
-          <div key={row.cat} className="rounded-xl border-2 border-[#1B4332] bg-white p-4 shadow-sm">
-            <p className="text-sm font-medium">{row.cat}</p>
-            <p className="mt-1 text-xs text-[#64748B]">Preferred: {row.brand}</p>
-            <p className="mt-3 text-xs text-[#40916C]">Quantity: matched to household →</p>
-          </div>
-        ))}
+    <BuildShell step={3} title="Paper products" subtitle="Two quick picks—we’ll size them separately." backHref="/build/step-2">
+      <div className="space-y-4 text-[15px]">
+        <div className="rounded-md border border-green bg-paper-warm p-4">
+          <p className="font-medium text-ink">Toilet paper</p>
+          <p className="mt-1 text-ink-muted">Charmin (change if you like)</p>
+        </div>
+        <div className="rounded-md border border-green bg-paper-warm p-4">
+          <p className="font-medium text-ink">Paper towels</p>
+          <p className="mt-1 text-ink-muted">Bounty</p>
+        </div>
       </div>
-      <Link
-        href="/build/step-4"
-        className={cn(buttonVariants(), "mt-8 flex h-12 w-full rounded-xl bg-[#1B4332] hover:bg-[#40916C]")}
-      >
-        Continue
-      </Link>
+      <div className="mt-10">
+        <HumanCta href="/build/step-4" className="block w-full">
+          Next
+        </HumanCta>
+      </div>
     </BuildShell>
   );
 }

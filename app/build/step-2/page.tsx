@@ -1,11 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { BuildShell } from "@/components/essentra/build/BuildShell";
 import { OptionTile } from "@/components/essentra/build/OptionTile";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { HumanCta } from "@/components/essentra/HumanCta";
 
 export default function BuildStep2() {
   const [brand, setBrand] = useState("Tide");
@@ -14,19 +12,19 @@ export default function BuildStep2() {
   return (
     <BuildShell
       step={2}
-      title="Laundry detergent"
-      subtitle="Pick what you already trust—recognition lowers perceived risk when switching from in-store shopping."
+      title="Laundry"
+      subtitle="Whatever you’d point at on the shelf today is the right answer."
       backHref="/build/step-1"
     >
-      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#64748B]">Brand</p>
+      <p className="mb-2 text-[13px] font-medium uppercase tracking-wide text-ink-soft">Brand</p>
       <div className="grid grid-cols-2 gap-2">
-        {["Tide", "Gain", "Other", "Surprise me"].map((b) => (
+        {["Tide", "Gain", "Something else", "You pick for me"].map((b) => (
           <OptionTile key={b} selected={brand === b} onClick={() => setBrand(b)}>
             {b}
           </OptionTile>
         ))}
       </div>
-      <p className="mb-2 mt-6 text-xs font-semibold uppercase tracking-wide text-[#64748B]">Format</p>
+      <p className="mb-2 mt-6 text-[13px] font-medium uppercase tracking-wide text-ink-soft">Liquid or pods</p>
       <div className="grid grid-cols-2 gap-2">
         {["Liquid", "Pods"].map((f) => (
           <OptionTile key={f} selected={format === f} onClick={() => setFormat(f)}>
@@ -34,21 +32,20 @@ export default function BuildStep2() {
           </OptionTile>
         ))}
       </div>
-      <p className="mb-2 mt-6 text-xs font-semibold uppercase tracking-wide text-[#64748B]">How much laundry?</p>
-      <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
-        <input type="range" className="w-full accent-[#1B4332]" defaultValue={50} aria-label="Laundry volume" />
-        <div className="mt-2 flex justify-between text-xs text-[#64748B]">
-          <span>Lighter</span>
+      <p className="mb-2 mt-6 text-[13px] font-medium uppercase tracking-wide text-ink-soft">How much laundry?</p>
+      <div className="rounded-md border border-line bg-white p-4">
+        <input type="range" className="w-full accent-green" defaultValue={50} aria-label="Laundry volume" />
+        <div className="mt-2 flex justify-between text-[13px] text-ink-soft">
+          <span>Less</span>
           <span>Typical</span>
-          <span>Heavy</span>
+          <span>Nonstop</span>
         </div>
       </div>
-      <Link
-        href="/build/step-3"
-        className={cn(buttonVariants(), "mt-8 flex h-12 w-full rounded-xl bg-[#1B4332] hover:bg-[#40916C]")}
-      >
-        Continue
-      </Link>
+      <div className="mt-10">
+        <HumanCta href="/build/step-3" className="block w-full">
+          Next
+        </HumanCta>
+      </div>
     </BuildShell>
   );
 }
