@@ -5,6 +5,7 @@ Your **original IIDATECH proposal, CAD pricing, and contract** live here and wer
 
 | Document | Path | What it is |
 |----------|------|------------|
+| **Combined design pack (HTML)** | [../public/Essentra-IIDATECH-Complete-Design-Pack.html](../public/Essentra-IIDATECH-Complete-Design-Pack.html) | IIDATECH letterhead + logo; merges wireframes v2 with the nine-screen journey doc; sticky colour switcher (Lagoon v2, Lake, Spruce, Blue, Maple). **In browser:** `/Essentra-IIDATECH-Complete-Design-Pack.html` |
 | **Main proposal (CAD)** | [Essentra-Platform-Design-Proposal-CAD.md](./Essentra-Platform-Design-Proposal-CAD.md) | Architecture, phases, **$4,905 CAD** build table, growth pricing, competitors, wireframes index |
 | **Service agreement** | [Essentra-Master-Service-Agreement-CAD.md](./Essentra-Master-Service-Agreement-CAD.md) | Contract + SOW schedules |
 | **IIDATECH narrative (archive)** | [IIDATECH-Complete-Digital-Front-Proposal-CAD.md](./IIDATECH-Complete-Digital-Front-Proposal-CAD.md) | Your Oct 2026 “Complete Digital Front” text, preserved with CAD |
