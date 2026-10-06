@@ -10,7 +10,7 @@ const links = [
   { href: "/plans", label: "Plans" },
   { href: "/why", label: "Why Essentra" },
   { href: "/faq", label: "FAQ" },
-  { href: "/design-system", label: "Design system" },
+  { href: "/docs", label: "Proposal & pricing" },
 ];
 
 export function SiteHeader() {
