@@ -1,5 +1,9 @@
 # MASTER SERVICE AGREEMENT — ESSENTRA PLATFORM & DIGITAL SERVICES
 
+> **Superseded (October 2026):** Use **`Essenvia-Software-Development-Platform-Services-Agreement-CAD.md`**, **`Essenvia-Quote-Breakdown-Timeline-Payments-CAD.md`**, and **`Essenvia-Branding-Package-SOW-CAD.md`** for the Essenvia engagement (CAD 2,975 platform + separate branding). This Essentra file is kept for archive only.
+
+---
+
 **Agreement date:** _______________, 2026  
 
 This Master Service Agreement (“**Agreement**”) is entered into as of the Agreement date above by and between:

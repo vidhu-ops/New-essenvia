@@ -8,20 +8,35 @@ const files: {
   href?: string;
 }[] = [
   {
+    title: "Platform agreement — Essenvia (CAD) — PRIMARY",
+    file: "Essenvia-Software-Development-Platform-Services-Agreement-CAD.md",
+    desc: "Full Software Development and Platform Services Agreement: CAD 2,975 fixed fee, 12 weeks, Schedules A–F.",
+  },
+  {
+    title: "App-wise quote, timeline & payments — Essenvia",
+    file: "Essenvia-Quote-Breakdown-Timeline-Payments-CAD.md",
+    desc: "CAD 2,975 breakdown by app, 12-week Gantt, payment schedule; branding CAD 850–950 with letterhead, brand book, peripherals.",
+  },
+  {
+    title: "Branding package SOW — Essenvia",
+    file: "Essenvia-Branding-Package-SOW-CAD.md",
+    desc: "Separate branding scope: brand book, letterhead, business card, email signature, document templates, social, packaging.",
+  },
+  {
     title: "Combined design pack (HTML) — wireframes + journey",
     file: "Essentra-IIDATECH-Complete-Design-Pack.html",
-    desc: "IIDATECH letterhead, logo, colour switcher, journey + wireframes. Client PDF download and in-browser preview at /design-pack.",
+    desc: "IIDATECH letterhead, logo, colour switcher, journey + wireframes. Client PDF at /design-pack (Essentra naming in UI pack).",
     href: "/design-pack",
   },
   {
-    title: "Complete platform proposal (CAD) — PRIMARY",
+    title: "Essentra platform proposal (archive)",
     file: "Essentra-Platform-Design-Proposal-CAD.md",
-    desc: "Architecture, journeys, Canadian competitors, phase pricing ($4,905 total), growth tables, wireframes.",
+    desc: "Earlier Essentra naming and $4,905 estimate — superseded by Essenvia agreement and quote above.",
   },
   {
-    title: "Master Service Agreement (CAD)",
+    title: "Essentra MSA (archive)",
     file: "Essentra-Master-Service-Agreement-CAD.md",
-    desc: "Contract, Schedule A (SOW), Schedule B (growth).",
+    desc: "Short-form MSA template — superseded by Essenvia platform agreement.",
   },
   {
     title: "IIDATECH “Complete Digital Front” archive (CAD)",
@@ -53,8 +68,10 @@ export default function DocsPage() {
         </p>
 
         <section className="mt-10 rounded-xl border border-[#E2E8F0] bg-white p-6">
-          <h2 className="text-lg font-semibold text-[#1B4332]">Platform build (unchanged totals)</h2>
-          <p className="mt-2 text-sm text-[#64748B]">USD $3,450 → CAD **$4,905** at 1.4246 FX</p>
+          <h2 className="text-lg font-semibold text-[#1B4332]">Essenvia platform build (current quote)</h2>
+          <p className="mt-2 text-sm text-[#64748B]">
+            Fixed **CAD $2,975** · **12 weeks** · sign-now offer (from proposal CAD $3,500). Branding **CAD $850–950** separate.
+          </p>
           <table className="mt-4 w-full text-left text-sm">
             <thead>
               <tr className="border-b text-[#64748B]">
@@ -64,14 +81,14 @@ export default function DocsPage() {
             </thead>
             <tbody className="text-[#1A1A1A]">
               {[
-                ["0 Discovery", "$285"],
-                ["1 Foundation", "$425"],
-                ["2 Customer web", "$2,135"],
-                ["3 Operations", "$425"],
-                ["4 Sales", "$285"],
-                ["5 Admin", "$710"],
-                ["6 App", "$355"],
-                ["7 Launch", "$285"],
+                ["0 Design & discovery", "$200"],
+                ["1 Foundation + admin basics", "$252"],
+                ["2 Website + subscriptions", "$1,177"],
+                ["3 Operations", "$505"],
+                ["4 Sales rep app", "$223"],
+                ["5 Admin analytics", "$168"],
+                ["6 Customer app", "$210"],
+                ["7 Testing & launch", "$240"],
               ].map(([p, c]) => (
                 <tr key={p} className="border-b border-[#E2E8F0]/80">
                   <td className="py-2">{p}</td>
@@ -80,7 +97,7 @@ export default function DocsPage() {
               ))}
               <tr>
                 <td className="py-2 font-semibold">Total</td>
-                <td className="py-2 font-semibold">$4,905</td>
+                <td className="py-2 font-semibold">$2,975</td>
               </tr>
             </tbody>
           </table>

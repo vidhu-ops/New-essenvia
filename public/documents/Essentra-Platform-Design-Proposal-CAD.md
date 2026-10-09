@@ -1,6 +1,8 @@
 # ESSENTRA
 ## Complete Platform Design, Look & Feel, Wireframes & Development Plan (Canada)
 
+> **Superseded for contracting:** Client name is **Essenvia**. Use **CAD $2,975** / 12-week quote and `Essenvia-Software-Development-Platform-Services-Agreement-CAD.md`. This file keeps the earlier **$4,905** Essentra estimate.
+
 **Prepared for:** Josh and the Essentra team  
 **Prepared by:** V, Founder, IIDATECH  
 **Date:** October 5, 2026  
