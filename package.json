@@ -9,7 +9,9 @@
     "lint": "eslint",
     "design-pack:merge": "python3 scripts/merge_essentra_docs.py",
     "design-pack:pdf": "node scripts/generate-design-pack-pdf.mjs",
-    "design-pack:export": "python3 scripts/export-design-pack-artifact.py"
+    "design-pack:export": "python3 scripts/export-design-pack-artifact.py",
+    "essenvia:html": "python3 scripts/build-essenvia-full-doc-html.py",
+    "essenvia:pdf": "npm run essenvia:html && node scripts/generate-essenvia-contract-pdf.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

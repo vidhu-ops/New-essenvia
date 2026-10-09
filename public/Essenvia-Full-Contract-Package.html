@@ -1,0 +1,2996 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="utf-8">
+<title>Essenvia — full contract package (IIDATECH)</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+@page { margin: 14mm 12mm; }
+body { font-family: "Public Sans", system-ui, sans-serif; font-size: 10.5pt; line-height: 1.5; color: #141413; margin: 0; }
+.wrap { max-width: 210mm; margin: 0 auto; padding: 8mm 10mm 16mm; }
+.letterhead { display: flex; align-items: center; gap: 14px; border-bottom: 2px solid #cfdcde; padding-bottom: 12px; margin-bottom: 16px; }
+.letterhead img { width: 48px; height: auto; }
+.letterhead .t { font-weight: 800; font-size: 15pt; letter-spacing: -0.02em; }
+.letterhead .s { font-size: 9pt; color: #4f646b; }
+.conf { background: #141413; color: #f5f5f4; padding: 10px 14px; font-size: 9pt; border-left: 4px solid #b91c1c; margin-bottom: 20px; }
+.doc-section { page-break-before: always; }
+.doc-section:first-of-type { page-break-before: avoid; }
+.doc-section h1 { font-size: 16pt; margin: 0 0 12px; line-height: 1.2; }
+.doc-section h2 { font-size: 13pt; margin: 22px 0 8px; }
+.doc-section h3 { font-size: 11.5pt; margin: 16px 0 6px; }
+.doc-section p, .doc-section li { margin: 0 0 8px; }
+.doc-section table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 9.5pt; }
+.doc-section th, .doc-section td { border: 1px solid #cfdcde; padding: 6px 8px; vertical-align: top; }
+.doc-section th { background: #f1f5f5; text-align: left; }
+.doc-section blockquote { margin: 12px 0; padding: 8px 12px; border-left: 3px solid #0b7a83; background: #f1f5f5; font-size: 9.5pt; }
+.doc-section hr { border: 0; border-top: 1px solid #cfdcde; margin: 20px 0; }
+.doc-section pre { white-space: pre-wrap; font-family: inherit; font-size: 9.5pt; }
+@media print {
+  .no-print { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="letterhead">
+    <img src="iidatech-logo.png" alt="IIDATECH" width="48" height="46">
+    <div>
+      <div class="t">IIDATECH · Essenvia engagement</div>
+      <div class="s">Full contract package · October 2026 · Confidential</div>
+    </div>
+  </header>
+  <div class="conf">
+    <strong>STRICTLY CONFIDENTIAL.</strong> Platform agreement, quote and branding SOW for authorized Essenvia recipients only.
+    Unauthorized sharing may result in legal action. Have Canadian counsel review before signing.
+  </div>
+  <section class="doc-section" id="Essenvia-Software-Development-Platform-Services-Agreement-CAD.md"><p class="no-print" style="color:#4f646b;font-size:9pt">Section: Platform agreement</p><h1>SOFTWARE DEVELOPMENT AND PLATFORM SERVICES AGREEMENT</h1>
+<p><strong>Between ESSENVIA (the Client) and IIDATECH (the Service Provider)</strong><br />
+<strong>For the design, development, testing, deployment, support and handover of the Essenvia Operating System</strong></p>
+<p><strong>Dated:</strong> <strong><em>_</em>_ day of </strong><strong><em>_</em></strong>_____ 2026  </p>
+<p><strong>Status:</strong> Confidential — markdown working copy aligned to the October 2026 agreement PDF. Have Essenvia’s Canadian counsel review before execution.</p>
+<hr />
+<hr />
+<p>SOFTWARE DEVELOPMENT AND<br />
+PLATFORM SERVICES AGREEMENT<br />
+between<br />
+ESSENVIA<br />
+(the Client)<br />
+and<br />
+IIDATECH<br />
+(the Service Provider)<br />
+for the design, development, testing, deployment, support and handover of the Essenvia Operating<br />
+System<br />
+Dated this <strong><em>_</em>_ day of </strong><strong><em>_</em></strong>_____ 2026</p>
+<hr />
+<p>INDEX<br />
+1<br />
+Definitions and Interpretation<br />
+2<br />
+Commencement and Term<br />
+3<br />
+Scope of Services<br />
+4<br />
+Phase 0<br />
+5<br />
+Timeline and Working Arrangements<br />
+6<br />
+Fees and Payment<br />
+7<br />
+Taxes, Withholding and Foreign Exchange<br />
+8<br />
+Client’s Responsibilities<br />
+9<br />
+Testing, Review and Acceptance<br />
+10<br />
+Intellectual Property<br />
+11<br />
+Client-Owned Repository, Infrastructure and Access<br />
+12<br />
+Handover and Transition<br />
+13<br />
+Post-Launch Operating Costs and Support<br />
+14<br />
+Security and Data Protection<br />
+15<br />
+Third-Party Materials and AI-Assisted Development<br />
+16<br />
+Warranties<br />
+17<br />
+Indemnities<br />
+18<br />
+Limitation of Liability<br />
+19<br />
+Change Control<br />
+20<br />
+Confidentiality<br />
+21<br />
+Termination<br />
+22<br />
+Long-Term Relationship and Future Work<br />
+23<br />
+Relationship of the Parties and Personnel<br />
+24<br />
+Compliance with Laws and Ethical Conduct<br />
+25<br />
+Force Majeure<br />
+26<br />
+Notices<br />
+27<br />
+Governing Law and Dispute Resolution<br />
+28<br />
+General<br />
+Schedule A<br />
+Phases, Scope, Fees and Acceptance Criteria<br />
+Schedule B<br />
+Milestone Calendar, Working Time and Holidays<br />
+Schedule C<br />
+Client Dependencies and Authorised Signatories<br />
+Schedule D<br />
+Operating Costs, Software Cost Register, Support and Service Levels<br />
+Schedule E<br />
+Infrastructure and Account Ownership Register; Handover Pack<br />
+Schedule F<br />
+Data Protection Terms</p>
+<hr />
+<p>SOFTWARE DEVELOPMENT AND PLATFORM SERVICES AGREEMENT<br />
+Essenvia and IIDATECH<br />
+THIS<br />
+SOFTWARE<br />
+DEVELOPMENT<br />
+AND<br />
+PLATFORM<br />
+SERVICES<br />
+AGREEMENT<br />
+(the<br />
+“Agreement”) is made at <strong><em>_</em></strong><strong><em>_</em></strong> on this <strong><em>_</em>_ day of </strong><strong><em>_</em></strong>_____ 2026 (the<br />
+“Effective Date”)<br />
+BY AND BETWEEN<br />
+ESSENVIA, a [●] incorporated and existing under the laws of [●], Canada, bearing corporation<br />
+number [●], having its registered office at [●], Canada (hereinafter referred to as the “Client”, which<br />
+expression shall, unless repugnant to the context or meaning thereof, be deemed to include its<br />
+successors and permitted assigns) of the FIRST PART;<br />
+AND<br />
+IIDATECH, a [●] incorporated under the [Companies Act, 2013 / Limited Liability Partnership Act,<br />
+2008] bearing CIN / LLPIN [●], PAN [●], GSTIN [●] (if registered), having its registered office at<br />
+[●], India (hereinafter referred to as the “Service Provider”, which expression shall, unless repugnant<br />
+to the context or meaning thereof, be deemed to include its successors and permitted assigns) of the<br />
+SECOND PART.<br />
+The Client and the Service Provider are individually referred to as a “Party” and together as the<br />
+“Parties”.<br />
+RECITALS<br />
+AThe Client is establishing a subscription-based household essentials delivery business under the<br />
+name “Essenvia” and requires a custom-built digital platform comprising a customer website,<br />
+mobile applications, a field representative tablet application and an administrative operating<br />
+console, together with supporting back-end systems (the “Platform”).<br />
+BThe Service Provider carries on the business of designing and developing software and technology<br />
+platforms and represents that it has the skill, experience, personnel and resources to design,<br />
+develop, test, deploy, document and support the Platform.<br />
+CThe Service Provider submitted a proposal dated 1 October 2026 to the Client, titled “Complete<br />
+Digital Front: Platform, Marketing, Research &amp; Automation”, of which only the platform<br />
+sections are the subject of this Agreement (the “Proposal”). By email dated [●] October 2026<br />
+(the “Confirmation Email”) the Client confirmed its wish to proceed on the basis of, among<br />
+other things, a fixed platform development fee of CAD 2,975 for Phases 0 to 7, a target<br />
+timeline of twelve (12) weeks, a phase-by-phase structure commencing with a Phase 0 fee of<br />
+CAD 200, Client ownership of all paid-for work product, Client control of all critical<br />
+accounts and infrastructure, complete handover rights, a reduced and lean post-launch<br />
+operating cost for the first six months, and the exclusion of marketing and advertising work.<br />
+DThe Parties wish to record those terms, and the other terms on which the Service Provider shall<br />
+provide the Services, in this Agreement, having regard to the laws of India and Canada that<br />
+affect a cross-border engagement of this nature.<br />
+NOW, THEREFORE, THIS AGREEMENT WITNESSETH AND IT IS HEREBY AGREED BY<br />
+AND BETWEEN THE PARTIES AS FOLLOWS:</p>
+<hr />
+<p>1.DEFINITIONS AND INTERPRETATION<br />
+1.1In this Agreement, unless the context otherwise requires, the following expressions have the<br />
+meanings assigned to them below:<br />
+“Acceptance” means the approval by the Client of a Phase or Deliverable in accordance with<br />
+clause 9, whether express or deemed, and “Accepted” shall be construed accordingly;<br />
+“Acceptance Criteria” means the criteria applicable to each Phase set out in Schedule A, as<br />
+refined in the Phase 0 Deliverables and approved on Acceptance of Phase 0;<br />
+“Active Customer” means a customer of the Client who, on the last day of a calendar month,<br />
+holds a subscription in the “active”, “paused” or “past due” state on the Platform;<br />
+“Applicable Law” means all statutes, regulations, rules, orders, notifications and binding<br />
+directions of any competent governmental or regulatory authority in India or Canada<br />
+(including any province or territory of Canada) that apply to a Party or to the Services, as in<br />
+force from time to time;<br />
+“Authorised Signatory” means, in respect of each Party, the individual(s) identified as such in<br />
+Part A of Schedule C, or any replacement notified in writing by that Party;<br />
+“Background IP” means all Intellectual Property Rights in tools, libraries, frameworks, code<br />
+templates, methodologies, know-how and generic components that are owned by or licensed<br />
+to the Service Provider before the Effective Date or are developed by the Service Provider<br />
+independently of the Services, and that are not created specifically for the Client;<br />
+“Business Day” means (a) in relation to any act or period applicable to the Service Provider, a<br />
+day other than a Saturday or Sunday on which scheduled commercial banks are open for<br />
+general business in [●], India (“Indian Business Day” or “IBD”); (b) in relation to any act or<br />
+period applicable to the Client, a day other than a Saturday, Sunday or statutory holiday in the<br />
+Province of Ontario, Canada (“Canadian Business Day” or “CBD”); and (c) in any other case,<br />
+a day that is both an Indian Business Day and a Canadian Business Day;<br />
+“CAD” means Canadian dollars, the lawful currency of Canada;<br />
+“Change Request” has the meaning given in clause 19;<br />
+“Client Data” means all data, content and information (including Personal Information of the<br />
+Client’s customers, representatives and personnel) that is supplied by or on behalf of the<br />
+Client or that is generated or collected through the operation of the Platform, but excluding<br />
+the Service Provider’s own business records;<br />
+“Client Materials” means all brand assets, business rules, product and pricing information,<br />
+specifications, content, data, accounts and access that the Client provides or makes available<br />
+to the Service Provider;<br />
+“Closure Day” means a day on which the Service Provider’s office is closed for a gazetted or<br />
+customary holiday, as notified in accordance with Schedule B;<br />
+“Collaboration Window” means the period from 09:00 to 11:00 Toronto local time on each<br />
+Business Day within which each Party shall make its principal personnel available for live<br />
+communication;<br />
+“Confidential Information” has the meaning given in clause 20;<br />
+“Defect” means any failure of a Deliverable to conform to the Specifications or the<br />
+Acceptance Criteria, classified by severity in accordance with Part 3 of Schedule A;</p>
+<hr />
+<p>“Deliverables” means all software source code (in human-readable form), object code,<br />
+configuration, infrastructure-as-code, database schemas, user-interface and user-experience<br />
+designs, wireframes, data models, business rules documentation, test cases and test scripts,<br />
+technical and user documentation, deployment scripts and other work product created<br />
+specifically for the Client in the performance of the Services, excluding Background IP and<br />
+Third-Party Materials;<br />
+“Development Fee” means the fixed fee of CAD 2,975.00 (Canadian Dollars Two Thousand<br />
+Nine Hundred and Seventy-Five only) for the design, development, testing and deployment of<br />
+the Platform in Phases 0 to 7, inclusive of the Phase 0 Fee, payable in accordance with clause<br />
+6;<br />
+“Go-Live” means the date on which the Platform is first made available for production use by<br />
+the Client’s customers, as recorded in a written notice from the Client, or, if earlier, the date<br />
+on which the Client first processes live customer orders through the Platform;<br />
+“Handover Pack” means the materials and information described in clause 12 and Part 2 of<br />
+Schedule E;<br />
+“Hypercare Period” means the period of fourteen (14) days commencing on Go-Live;<br />
+“Infrastructure Accounts” means the accounts and services necessary to build, host, operate<br />
+and support the Platform, including the source code repository, the cloud hosting account<br />
+(Amazon Web Services or equivalent), production and staging databases, backup systems, the<br />
+payment processing account (Stripe or equivalent), domain name and DNS registrations,<br />
+email and SMS gateways, monitoring tools, the Apple Developer Program and Google Play<br />
+Console accounts, CI/CD pipelines, secrets managers and password managers;<br />
+“Intellectual Property Rights” means copyright (including under the Copyright Act, 1957 of<br />
+India and the Copyright Act of Canada), rights in software and databases, patents, designs,<br />
+trade marks, trade secrets, rights in confidential information, moral rights and all similar or<br />
+equivalent rights, whether registered or unregistered, anywhere in the world;<br />
+“Launch Operating Budget” has the meaning given in clause 13.2;<br />
+“Personal Information” means any information about an identifiable individual, and includes<br />
+“personal information” under PIPEDA and applicable provincial privacy legislation and<br />
+“personal data” under the Digital Personal Data Protection Act, 2023;<br />
+“Phase” means each of Phase 0 to Phase 7 described in Schedule A, and “Phase Fee” means<br />
+the portion of the Development Fee allocated to a Phase in Part 2 of Schedule A;<br />
+“Phase 0 Fee” means CAD 200.00 (Canadian Dollars Two Hundred only);<br />
+“PIPEDA” means the Personal Information Protection and Electronic Documents Act<br />
+(Canada);<br />
+“Services” means the design, development, testing, deployment, documentation, handover<br />
+and other services described in clause 3 and Schedule A, together with the Support Services<br />
+when and to the extent engaged under clause 13;<br />
+“Specifications” means the functional and technical requirements of the Platform as described<br />
+in the Proposal and refined in the Phase 0 Deliverables on their Acceptance;<br />
+“Standard Rate” means CAD 25.00 per hour (exclusive of taxes), as may be revised in<br />
+accordance with clause 22;<br />
+“Start Date” has the meaning given in clause 2.3;</p>
+<hr />
+<p>“Substantial Completion” means the occurrence of all of the following: Acceptance of Phase<br />
+7, completion of user acceptance testing, a successful backup and restore test witnessed or<br />
+evidenced to the Client, and delivery of the Handover Pack;<br />
+“Support Fee” and “Support Services” have the meanings given in clause 13 and Schedule D;<br />
+“Support Hours” has the meaning given in Part 4 of Schedule D;<br />
+“Target Completion Date” means the last day of the twelfth (12th) week (being eighty-four<br />
+(84) days) counted from the Start Date, as extended in accordance with this Agreement;<br />
+“Third-Party Cost Budget” has the meaning given in clause 13.2;<br />
+“Third-Party Costs” means charges levied by third-party providers for services consumed in<br />
+building or operating the Platform, including cloud hosting, database, storage, email, SMS,<br />
+monitoring, domain, certificate and application-store charges, and payment processing fees;<br />
+“Third-Party Materials” means software, services, libraries, fonts, images and content owned<br />
+by third parties and licensed for use in or with the Platform, including open-source<br />
+components;<br />
+“Warranty Period” has the meaning given in clause 16.<br />
+1.2Interpretation. In this Agreement, unless the context otherwise requires:<br />
+(a)clause and schedule headings are for convenience only and do not affect interpretation;<br />
+(b)the Schedules form part of this Agreement and references to this Agreement include the<br />
+Schedules;<br />
+(c)a reference to a statute or statutory provision includes that statute or provision as amended,<br />
+consolidated or re-enacted from time to time, and any subordinate legislation made<br />
+under it;<br />
+(d)the words “include” and “including” are deemed to be followed by “without limitation”;<br />
+(e)“writing” and “written” include email, but a notice of breach, termination or dispute shall<br />
+be given in accordance with clause 26;<br />
+(f)a reference to a “day” is to a calendar day unless Business Days are specified; in computing<br />
+any period of days the first day shall be excluded and the last day included, and if the<br />
+last day is not a Business Day of the Party required to act, the period shall expire on<br />
+the next such Business Day;<br />
+(g)any time of day is a reference to the local time of the Party required to act unless otherwise<br />
+stated, and any period expressed in weeks shall be computed as seven (7) days per<br />
+week;<br />
+(h)this Agreement has been negotiated by the Parties and no provision shall be construed<br />
+against a Party on the ground that it drafted that provision; and<br />
+(i)in the event of any inconsistency, the body of this Agreement prevails over the Schedules,<br />
+and the Schedules prevail over the Proposal, save that the Proposal prevails as to the<br />
+functional scope of the Platform as provided in clause 3.3.<br />
+2.COMMENCEMENT AND TERM<br />
+2.1This Agreement comes into force on the Effective Date and, unless terminated earlier in<br />
+accordance with clause 21, continues until the later of (a) the expiry of the Warranty Period</p>
+<hr />
+<p>and (b) completion of the handover obligations under clause 12 (the “Term”). The Support<br />
+Services, if engaged, continue for the period provided in clause 13.<br />
+2.2The Service Provider is not obliged to commence Phase 0 until (a) this Agreement has been signed<br />
+by both Parties, (b) the Phase 0 Fee has been received in cleared funds, and (c) the Client has<br />
+provided the items identified as “Prior to Start” in Part B of Schedule C.<br />
+2.3The “Start Date” is the first Indian Business Day after the conditions in clause 2.2 are satisfied, and<br />
+the Service Provider shall confirm the Start Date to the Client by email within one (1) Indian<br />
+Business Day of satisfaction.<br />
+2.4Key personnel. The Service Provider shall appoint a project lead with overall responsibility for<br />
+delivery and a technical lead responsible for architecture and quality, each identified in Part A<br />
+of Schedule C. The Service Provider shall not replace either of them without giving the Client<br />
+at least ten (10) Indian Business Days’ notice, except in the event of resignation, illness or<br />
+other circumstances beyond its control, and shall ensure that any replacement has equivalent<br />
+skills and experience and a proper handover.<br />
+3.SCOPE OF SERVICES<br />
+3.1The Service Provider shall design, develop, test, deploy and document the Platform in eight (8)<br />
+Phases, being Phase 0 to Phase 7, as summarised in Schedule A, and shall perform the other<br />
+Services described in this Agreement.<br />
+3.2The only agreed price for the full Platform (Phases 0 to 7) is the Development Fee of CAD<br />
+2,975.00.<br />
+3.3Full scope retained. The Development Fee is agreed on the footing that the full platform scope<br />
+described in the Proposal remains included. Any functionality that is described in the<br />
+Proposal, and any functionality that is not separately described but is reasonably necessary for<br />
+a described feature to operate as intended, is within scope and shall not give rise to any<br />
+additional charge. A requirement that goes beyond those limits shall be treated as a Change<br />
+Request under clause 19. Where the Proposal and Schedule A differ as to functional scope,<br />
+the Proposal prevails. Lifecycle email and SMS flows and the analytics and attribution set-up,<br />
+which the Proposal states are included in Phases 2, 3 and 5, form part of the Services.<br />
+3.4Standard of performance. The Service Provider shall perform the Services (a) with reasonable<br />
+skill, care and diligence, in accordance with good industry practice for the development of<br />
+commercial software platforms, (b) using appropriately qualified and experienced personnel,<br />
+and (c) in compliance with Applicable Law.<br />
+3.5No dilution of quality. The Parties agree that the twelve (12) week timeline shall not be achieved at<br />
+the expense of testing, security or core functionality. The Service Provider shall not omit or<br />
+materially reduce any testing activity or security control described in Schedule A in order to<br />
+meet any milestone. If the Service Provider considers that a milestone cannot be met without<br />
+such a reduction, it shall notify the Client promptly and the Parties shall agree a revised<br />
+milestone under clause 5.<br />
+3.6Included items. The Development Fee includes, without additional charge, the set-up of the<br />
+development, staging and production environments (the provider charges for which are<br />
+Third-Party Costs under clause 6.8), deployment to production, the documentation and<br />
+Handover Pack, the walkthrough sessions described in Schedule A, the internal testing<br />
+described in clause 9.1 and Part 4 of Schedule A, correction of Defects in accordance with<br />
+this Agreement, and Hypercare Services during the Hypercare Period.</p>
+<hr />
+<p>3.7Exclusions. The following are excluded from the Services and from the Development Fee, and<br />
+may be contracted separately:<br />
+(a)marketing, social media management, search engine optimisation, paid advertising,<br />
+campaign content, and brand or creative agency services, including the workstreams<br />
+in sections A, B and D of the Proposal (Growth Foundation, always-on marketing,<br />
+sales enablement and launch campaign) and the operations automation and AI support<br />
+assistant items in section C, each of which is quoted separately;<br />
+(b)procurement or provisioning of hardware, including tablets and Stripe Terminal card<br />
+readers, mobile device management, and supplier or distributor agreements;<br />
+(c)Third-Party Costs and application-store fees;<br />
+(d)legal drafting and legal review, including privacy policies, terms of service and<br />
+subscription terms;<br />
+(e)independent third-party penetration testing. The Service Provider carries out the internal<br />
+security testing and security hardening described in Part 4 of Schedule A in Phase 7.<br />
+If the Client commissions an independent penetration test at its own cost, the Service<br />
+Provider shall correct, as Defects under clause 16.4 during the Warranty Period, any<br />
+Critical or High finding of that test that arises from the Deliverables;<br />
+(f)data entry, and data migration other than one import of structured Client-supplied data in an<br />
+agreed template; and<br />
+(g)any work outside Schedule A that is not necessary for a described feature.<br />
+4.PHASE 0<br />
+4.1Phase 0 comprises discovery workshops; wireframes and user-interface design direction for the<br />
+website, mobile applications, representative tablet application and administrative console; the<br />
+technical architecture; the data model (entity-relationship diagram and data dictionary); the<br />
+business rules register; the integration plan; the detailed project plan; a calendar-dated<br />
+Schedule B; and a confirmation of the monthly operating cost prepared using the cloud<br />
+provider’s pricing calculator and the lean configuration and usage profile in Schedule D<br />
+(together, the “Phase 0 Deliverables”).<br />
+4.2The Phase 0 Fee of CAD 200.00 is payable before the Phase 0 work commences and forms part of,<br />
+and is not additional to, the Development Fee.<br />
+4.3The Service Provider shall deliver the Phase 0 Deliverables by the end of the second (2nd) week<br />
+from the Start Date. The Client shall, within five (5) Canadian Business Days of delivery,<br />
+either Accept the Phase 0 Deliverables or give consolidated written feedback. The Service<br />
+Provider shall incorporate reasonable feedback and re-submit within three (3) Indian Business<br />
+Days, and the Client shall respond within two (2) Canadian Business Days of each<br />
+re-submission.<br />
+4.4Express approval. Phase 0 is treated as Accepted only on the Client’s express written approval of<br />
+the designs, architecture, data model and business rules. Clause 9.6 (deemed Acceptance)<br />
+does not apply to Phase 0.<br />
+4.5Phase 0 exit right. Within ten (10) Canadian Business Days after delivery of the Phase 0<br />
+Deliverables, the Client may, by written notice, elect not to proceed beyond Phase 0. In that<br />
+event this Agreement terminates (other than the provisions that survive under clause 21), no<br />
+further part of the Development Fee is payable, the Phase 0 Fee is retained by the Service</p>
+<hr />
+<p>Provider in full satisfaction of the Phase 0 work, and the Phase 0 Deliverables belong to the<br />
+Client under clause 10.<br />
+4.6Preparatory work. To protect the timeline, the Service Provider may, at its own risk and without<br />
+any claim for payment until Phase 0 is Accepted, begin infrastructure scaffolding for Phase 1<br />
+during the Phase 0 review period. Such work is not a Deliverable until Phase 1 is delivered.<br />
+5.TIMELINE AND WORKING ARRANGEMENTS<br />
+5.1Target. The Parties shall work towards Substantial Completion of the Platform by the Target<br />
+Completion Date, being twelve (12) weeks from the Start Date, in accordance with the<br />
+milestone calendar in Schedule B. The Parties acknowledge that the Target Completion Date<br />
+depends on the Client performing its obligations under clause 8 and Schedule C.<br />
+5.2Calendar-dated milestones. Schedule B shall be converted into calendar dates, taking into account<br />
+known Closure Days and statutory holidays in both countries, and attached to the Acceptance<br />
+of Phase 0. Closure Days notified in Schedule B have been taken into account in the twelve<br />
+(12) week period and do not of themselves extend the Target Completion Date.<br />
+5.3Overlapping phases. Phases may overlap as shown in Schedule B. Work on a later Phase that is<br />
+commenced before Acceptance of an earlier Phase proceeds at the Service Provider’s risk,<br />
+and Acceptance of each Phase shall be determined independently against its own Acceptance<br />
+Criteria.<br />
+5.4Client delay. If the Client fails to give any approval, decision, content, access or information that is<br />
+reasonably required, within one (1) Canadian Business Day of a written request marked<br />
+“Priority Request” (or within the period specified in Schedule B or Schedule C, if shorter),<br />
+then the Target Completion Date and any affected milestone shall be extended by the period<br />
+of delay and by any further period reasonably needed to re-sequence the work. The Service<br />
+Provider shall notify the Client in writing within two (2) Indian Business Days of becoming<br />
+aware that a delay is likely to affect the timeline, failing which it is not entitled to an<br />
+extension for the period before notice.<br />
+5.5Third-party dependencies. Review and approval periods of Apple, Google, payment processors and<br />
+telecommunications carriers, and the time taken by the Client to complete verification,<br />
+onboarding or registration with them, are outside the control of the Service Provider. The<br />
+Service Provider shall submit applications promptly and shall not be treated as in delay by<br />
+reason of such periods, but shall use reasonable efforts to mitigate their effect.<br />
+5.6Delay by the Service Provider. If the Service Provider misses a milestone for a reason other than a<br />
+Client delay, a third-party dependency under clause 5.5 or force majeure, it shall notify the<br />
+Client and the Parties shall meet within five (5) Indian Business Days to agree a recovery<br />
+plan. For each full week of delay in achieving the Target Completion Date attributable solely<br />
+to the Service Provider, the Client is entitled to a credit of one per cent (1%) of the<br />
+Development Fee (being CAD 29.75), up to a maximum of five per cent (5%) (being CAD<br />
+148.75), to be set off against the next invoice. The Parties agree that this credit is a genuine<br />
+pre-estimate of the Client’s loss and not a penalty, having regard to section 74 of the Indian<br />
+Contract Act, 1872. The credit is the Client’s sole monetary remedy for delay but is without<br />
+prejudice to clause 21.4 where the delay exceeds six (6) weeks.<br />
+5.7Working arrangements. The Parties shall (a) make their principal personnel available during the<br />
+Collaboration Window; (b) hold a weekly status call, scheduled in Toronto time; (c) circulate<br />
+a written status report by 18:00 IST each Friday setting out progress, risks, decisions required<br />
+and the following week’s plan; (d) maintain a shared project tracker to which the Client has<br />
+full access; (e) conduct a demonstration of each Phase on staging before it is submitted for</p>
+<hr />
+<p>Acceptance; and (f) acknowledge each other’s queries within one (1) Business Day of the<br />
+Party receiving them. Further detail on working hours, time zones and holidays is in Schedule<br />
+B.<br />
+5.8Final review meeting in India. The Client intends to visit India on substantial completion of the<br />
+Platform to review the complete system with the Service Provider’s team before Go-Live and<br />
+to discuss future development. The Service Provider shall host the review at its premises and<br />
+shall, on request, provide a formal invitation letter to support the Client’s visa application.<br />
+The Parties shall use reasonable efforts to agree a date within weeks eleven (11) and twelve<br />
+(12). The visit is not a condition of Go-Live; if the Client is unable to attend within twenty<br />
+(20) Business Days after Phase 7 is delivered, the review shall be conducted by video<br />
+conference. The Client shall bear its own travel, visa and accommodation costs, and the<br />
+Service Provider shall bear the cost of hosting the meeting.<br />
+5.9Go-Live. The decision to go live rests solely with the Client. The Service Provider shall not release<br />
+the Platform to production use by the Client’s customers until (a) user acceptance testing has<br />
+been completed, (b) a backup and restore test has been passed, and (c) the Client has given its<br />
+written go-live approval. If the Client does not go live within thirty (30) days after<br />
+Acceptance of Phase 7, the Warranty Period shall nonetheless commence on the expiry of that<br />
+period.<br />
+6.FEES AND PAYMENT<br />
+6.1Fixed fee. The Development Fee of CAD 2,975.00 is a fixed price for the full scope of Phases 0 to<br />
+7 as described in Schedule A and the Proposal. It is the offer price under the Proposal’s<br />
+sign-now offer (fifteen per cent (15%) off the Proposal’s platform total of CAD 3,500), and<br />
+the Parties agree that it is fixed on the Effective Date and shall not be re-estimated at the end<br />
+of Phase 0, notwithstanding any statement in the Proposal that estimates become a fixed price<br />
+at that point. It shall not be increased except by a written Change Request under clause 19 or a<br />
+tax strictly required by Applicable Law. No Indian GST shall be added to the Development<br />
+Fee under clause 7 unless Applicable Law changes and requires it.<br />
+6.2Allocation and payment. The Development Fee is allocated among the Phases as set out in Part 2<br />
+of Schedule A. The Phase 0 Fee of CAD 200.00 is invoiced on the Effective Date and payable<br />
+before the Start Date. The Phase Fee for each of Phases 1 to 7 is payable at the start of that<br />
+Phase, consistently with the Proposal, and shall be invoiced not earlier than ten (10) days<br />
+before the planned commencement of the Phase in Schedule B.<br />
+6.3Payment period. Each invoice is payable within seven (7) days of the date on which it is sent by<br />
+email to the Client’s Authorised Signatory. A Phase shall commence on the later of its<br />
+planned commencement date and receipt of its Phase Fee, and any delay in payment shall<br />
+extend the timeline accordingly.<br />
+6.4Disputed invoices. If the Client disputes any part of an invoice in good faith, it shall notify the<br />
+Service Provider in writing within five (5) Canadian Business Days of receipt, stating its<br />
+reasons, and shall pay the undisputed portion by the due date. The Parties shall endeavour to<br />
+resolve the dispute under clause 27.<br />
+6.5Late payment. Any undisputed sum not paid by the due date bears simple interest from the due<br />
+date until payment at the rate of twelve per cent (12%) per annum, calculated daily on the<br />
+basis of a year of 365 days and not compounded, which is the annual rate for the purposes of<br />
+section 4 of the Interest Act (Canada). Interest shall not accrue on amounts withheld under<br />
+clause 7.3 or credited under clause 5.6.</p>
+<hr />
+<p>6.6Suspension. If any undisputed invoice remains unpaid for more than fourteen (14) days after its<br />
+due date, the Service Provider may, after giving the Client three (3) Indian Business Days’<br />
+written notice, suspend the Services until payment is made, and the timeline shall be extended<br />
+accordingly. No suspension shall restrict the Client’s access to or control of its Infrastructure<br />
+Accounts, source code repository, Client Data or Deliverables, and the Service Provider<br />
+waives any lien, right of retention or similar right over them.<br />
+6.7Expenses. The Development Fee is inclusive of all the Service Provider’s overheads, personnel<br />
+costs and ordinary expenses. No travel or other expense is reimbursable unless approved in<br />
+advance in writing by the Client.<br />
+6.8Third-Party Costs.<br />
+(a)Third-Party Costs are not included in the Development Fee. The Infrastructure Accounts<br />
+shall be registered in the Client’s name and billed directly to the Client by the<br />
+providers, and the Service Provider shall not add any margin or mark-up to them.<br />
+Schedule D lists every software product and service used to build and operate the<br />
+Platform, who owns the account, and the expected cost of each.<br />
+(b)A Third-Party Cost becomes chargeable to the Client from the date the relevant service is<br />
+provisioned, activated, registered, subscribed to or first used for the Platform and<br />
+begins to incur a provider charge. It is not deferred until Go-Live merely because the<br />
+Platform is still under development. Where a provider prorates a charge, the Client<br />
+pays the prorated amount; where a provider charges a full billing period despite<br />
+mid-period activation, the Client pays the provider’s actual charge. Application-store<br />
+fees become payable when the Client elects to enrol in the relevant programme.<br />
+(c)The Service Provider shall keep the staging environment switched off when it is not<br />
+required for release or testing, where technically practical, and shall configure<br />
+services so that charges are incurred only when they are actually used.<br />
+(d)The Service Provider shall not activate any new paid third-party service that is not<br />
+identified in this Agreement or required by the agreed technical architecture without<br />
+the Client’s prior written approval, except where emergency action is reasonably<br />
+necessary to restore service during a P1 incident, in which case it shall disclose the<br />
+action to the Client promptly.<br />
+6.9Currency and payment method. All fees are stated and payable in CAD. The Service Provider shall<br />
+bear its own receiving-bank charges unless otherwise stated in clause 7.6, and the Client shall<br />
+bear charges of its remitting bank, intermediary or correspondent banks and payment or<br />
+transfer provider. Payment shall be made by electronic transfer to the account of the Service<br />
+Provider notified on its invoice.<br />
+6.10Payment fraud safeguard. No change to the Service Provider’s bank details is effective unless<br />
+notified in a letter signed by its Authorised Signatory and confirmed by the Client by voice or<br />
+video call to a known representative of the Service Provider. The Client is not liable for<br />
+payment made to details that were not changed in accordance with this clause.<br />
+6.11No set-off. Subject to clauses 5.6 and 7.3, each Party shall pay amounts due without set-off or<br />
+deduction, except for amounts that are finally agreed or determined to be due from the other<br />
+Party.</p>
+<hr />
+<p>7.TAXES, WITHHOLDING AND FOREIGN EXCHANGE<br />
+7.1Development Fee and Indian GST. The Development Fee is CAD 2,975.00. No Indian GST shall<br />
+be added to the Development Fee or charged to the Client on the Development Fee under this<br />
+Agreement, based on the agreed cross-border tax treatment and the Client’s Canadian status.<br />
+7.2Third-party taxes and purchases. Any GST, sales tax, VAT or similar indirect tax actually charged<br />
+by a third-party software, cloud, hosting, communications, payment or other provider on<br />
+services used by the Platform is a Third-Party Cost. The Client shall bear and pay such<br />
+amounts directly to the relevant provider, without any mark-up by the Service Provider.<br />
+Where such tax is refundable, recoverable or creditable to the Client under Applicable Law,<br />
+the Client may claim it directly; the Service Provider makes no guarantee of recovery. If<br />
+Applicable Law changes and requires a tax to be charged on an invoice of the Service<br />
+Provider, the Parties shall comply with that law.<br />
+7.3Tax deduction at source. The Parties record that the Client is a person resident outside India and<br />
+the Service Provider is a person resident in India, and that the Services are performed in India<br />
+for the benefit of the Client outside India. On that footing no tax is required to be deducted at<br />
+source by the Client under Indian income-tax law (including the Income-tax Act, 2025 and, to<br />
+the extent applicable, the Income-tax Act, 1961) in respect of the fees. The Client shall pay<br />
+the fees without deduction or withholding, except for any amount that the Client is required to<br />
+withhold by Canadian law, in which case it shall (a) withhold only the amount strictly<br />
+required, (b) remit it within the time prescribed, and (c) furnish the Service Provider with<br />
+copies of the remittance receipt and any information return issued, so as to enable the Service<br />
+Provider to claim credit.<br />
+7.4Canadian withholding. The Parties intend that the Services shall be performed wholly outside<br />
+Canada by personnel of the Service Provider located in India, and the Service Provider shall<br />
+not perform any part of the Services in Canada without first notifying the Client so that the<br />
+Parties can consider the application of Regulation 105 under the Income Tax Act (Canada) to<br />
+any resulting payment. The Service Provider shall, on request, provide a tax residency<br />
+certificate issued by the Indian income-tax authorities, Form 10F and a declaration of<br />
+eligibility for benefits under the Canada–India double taxation convention (CRA Form<br />
+NR301), so that the Client may apply the correct treaty treatment. The Client is not required<br />
+to increase any payment to compensate for a withholding that is required by law, unless it<br />
+arises from the Client’s failure to act in accordance with this clause.<br />
+7.5Canadian sales taxes. The Service Provider is not registered under the Excise Tax Act (Canada)<br />
+and shall not charge Canadian GST, HST, PST or QST. The Client is responsible for<br />
+determining whether any such tax applies to the Services as an imported taxable supply, and<br />
+for self-assessing and remitting any tax so payable.<br />
+7.6Foreign exchange and remittance. All fees are fixed in CAD and shall not be adjusted for<br />
+fluctuations in the CAD/INR exchange rate, which is borne by the Service Provider. The<br />
+Client shall remit each payment in full in CAD (net only of its own bank charges under clause<br />
+6.9) through authorised banking channels, quoting the invoice number in the payment<br />
+reference, so that the Service Provider may obtain the foreign inward remittance advice or<br />
+equivalent evidence of realisation required under Indian foreign exchange law. Where<br />
+Third-Party Costs are billed to the Client in United States dollars or another currency, the<br />
+Client bears the exchange rate applicable to its own payment method, and the CAD figures in<br />
+Schedule D are planning estimates only.<br />
+7.7Tax invoices. The Service Provider shall issue each invoice in a form that satisfies the<br />
+requirements of Indian law (including the Central Goods and Services Tax Rules, 2017) and</p>
+<hr />
+<p>shall include the Client’s legal name and address, a description of the Services, the Phase to<br />
+which the invoice relates, the amount in CAD, and, where applicable, the letter of undertaking<br />
+(LUT) reference or other tax declaration relevant to clause 7.1.<br />
+7.8No permanent establishment. The Parties intend that neither of them shall create a permanent<br />
+establishment, business connection or fixed place of business of the other in the other’s<br />
+country by reason of this Agreement. The Service Provider has no authority to conclude<br />
+contracts on behalf of the Client, and shall not do so.<br />
+7.9Cooperation. Each Party shall give the other such reasonable cooperation and documentation as is<br />
+required to comply with tax and foreign exchange obligations arising from this Agreement,<br />
+including in respect of cross-border payments, and shall promptly notify the other of any<br />
+change in law or in its tax status that affects this clause.<br />
+8.CLIENT’S RESPONSIBILITIES<br />
+8.1The Client shall appoint an Authorised Signatory who has authority to give approvals, make<br />
+decisions on scope and design, and approve invoices, and shall designate a product owner<br />
+who shall be available during the Collaboration Window.<br />
+8.2The Client shall provide the Client Materials, accounts and access listed in Schedule C by the dates<br />
+stated there, and shall give approvals and decisions within the periods stated in this<br />
+Agreement. The Client acknowledges that the timeline is sensitive to the prompt creation and<br />
+verification of the Infrastructure Accounts, in particular the Apple Developer Program<br />
+organisation account (which requires a D-U-N-S number and may take several weeks to<br />
+obtain), the Google Play Console account and the Stripe account.<br />
+8.3The Client warrants that it owns or has the right to use and to authorise the Service Provider to use<br />
+the Client Materials, and that their use as contemplated by this Agreement will not infringe<br />
+the rights of any third party.<br />
+8.4The Client is responsible for its own compliance with the laws that apply to its business and its<br />
+customers, including provincial consumer protection legislation (including rules on online<br />
+sales, subscriptions and automatic renewals), Canada’s Anti-Spam Legislation, accessibility<br />
+legislation applicable to it, product safety and labelling requirements, and, if it serves<br />
+customers in Quebec, the Charter of the French Language. The Client is responsible for the<br />
+accuracy of the tax rules, pricing, delivery policies and subscription terms that it supplies for<br />
+implementation in the Platform.<br />
+8.5The Client shall supply, or authorise the Service Provider to obtain, its privacy policy, terms of<br />
+service and subscription terms and any consent wording required under Applicable Law<br />
+before Go-Live. The Service Provider shall implement those texts and consent mechanisms in<br />
+the Platform but does not provide legal advice.<br />
+8.6The Client shall make available such test users, representative test devices and sample or<br />
+anonymised data as are reasonably required to conduct testing and user acceptance testing.<br />
+9.TESTING, REVIEW AND ACCEPTANCE<br />
+9.1Testing by the Service Provider. Before submitting any Phase for Acceptance the Service Provider<br />
+shall carry out, as applicable to that Phase, unit, integration, system and regression testing,<br />
+cross-browser and cross-device testing, testing of payment and billing flows in the payment<br />
+processor’s test environment, security checks in accordance with Part 4 of Schedule A, and a<br />
+performance test and a backup and restore test in Phase 7. The Service Provider shall deliver a<br />
+test report with each submission.</p>
+<hr />
+<p>9.2Submission. The Service Provider shall submit each Phase by written notice (a “Delivery Notice”)<br />
+that identifies the Deliverables, provides access to the staging environment, attaches release<br />
+notes and the test report, and confirms that the Phase is ready for review against its<br />
+Acceptance Criteria.<br />
+9.3Review periods. The Client shall, within the following periods from receipt of a Delivery Notice,<br />
+either Accept the Phase or give a written notice of rejection identifying each Defect (a<br />
+“Rejection Notice”): (a) Phase 0: five (5) Canadian Business Days; (b) Phases 1 to 6: three (3)<br />
+Canadian Business Days; and (c) Phase 7, user acceptance testing: seven (7) Canadian<br />
+Business Days, followed by one retest cycle of three (3) Canadian Business Days.<br />
+9.4Correction of Defects. The Service Provider shall correct each Defect identified in a Rejection<br />
+Notice at its own cost and re-submit the Phase within the following periods: (a) Critical and<br />
+High Defects: three (3) Indian Business Days; and (b) Medium Defects: five (5) Indian<br />
+Business Days, or such other period as the Parties agree. The Client shall review a<br />
+re-submission within two (2) Canadian Business Days. The process shall be repeated until the<br />
+Phase is Accepted, subject to clause 21.<br />
+9.5Standard for Acceptance. The Client shall not unreasonably withhold or delay Acceptance and<br />
+shall Accept a Phase that satisfies its Acceptance Criteria. A Phase satisfies its Acceptance<br />
+Criteria if it has no open Critical or High Defect and any Medium Defects are the subject of<br />
+an agreed correction plan. Low Defects shall be logged and corrected in the ordinary course<br />
+and do not prevent Acceptance.<br />
+9.6Deemed Acceptance. If the Client does not respond within a review period, the Service Provider<br />
+may send a written reminder, and if the Client does not respond within two (2) Canadian<br />
+Business Days of the reminder, the Phase is deemed Accepted. This clause 9.6 does not apply<br />
+to Phase 0, to Phase 7 or to the go-live approval under clause 5.9, each of which requires<br />
+express written approval; in respect of those, silence after a reminder shall be treated as a<br />
+Client delay under clause 5.4.<br />
+9.7User acceptance testing. The Client shall carry out user acceptance testing of the complete<br />
+Platform during the Phase 7 review period, using the test scripts agreed in Phase 0. The<br />
+Service Provider shall support the Client during that period and shall correct Defects in<br />
+accordance with clause 9.4.<br />
+9.8Effect of Acceptance. Acceptance does not waive any right of the Client in respect of a Defect that<br />
+was not apparent on reasonable review, or the Client’s rights under clause 16.<br />
+10.INTELLECTUAL PROPERTY<br />
+10.1Assignment. In consideration of the Development Fee, which the Parties acknowledge to be<br />
+adequate and inclusive of all royalty, the Service Provider hereby assigns, and shall procure<br />
+that its personnel and subcontractors assign, to the Client absolutely, with effect from<br />
+payment in full of the Phase Fee for the relevant Phase and for all prior Phases, all right, title<br />
+and interest in and to the Deliverables of that Phase, including all Intellectual Property Rights<br />
+in them, throughout the world and for the full term of those rights, including the right to use,<br />
+copy, modify, adapt, translate, sublicense, sell and otherwise exploit them in any form or<br />
+medium. The Parties confirm for the purposes of section 19 of the Copyright Act, 1957<br />
+(India) that (a) this assignment is of all rights of the Service Provider in the Deliverables, in<br />
+all media and modes of exploitation, whether now known or hereafter devised, (b) its duration<br />
+is perpetual and its territorial extent is worldwide, (c) the consideration is the Development<br />
+Fee and no further royalty shall be payable, and (d) the assignment shall not lapse by reason<br />
+of non-exercise of any right within any period.</p>
+<hr />
+<p>10.2Business-specific work. Without limiting clause 10.1, the Deliverables include, and the Client<br />
+owns, all business rules, subscription and pricing logic, workflows, data models, database<br />
+schemas,<br />
+product<br />
+and category structures, designs, user-interface assets, copy and<br />
+configurations created for the Client, and all Client Data and Client Materials, which remain<br />
+the sole property of the Client at all times.<br />
+10.3Interim licence. Until the assignment under clause 10.1 takes effect for a Phase, the Service<br />
+Provider grants the Client a non-exclusive, royalty-free licence to use the Deliverables of that<br />
+Phase in the staging environment for review and testing. The Client shall not use unpaid<br />
+Deliverables in production, except with the Service Provider’s written consent, which shall<br />
+not be unreasonably withheld.<br />
+10.4Background IP. The Service Provider retains all Background IP. To the extent that any<br />
+Background IP is incorporated in or necessary for the use of the Deliverables, the Service<br />
+Provider grants the Client a perpetual, irrevocable, worldwide, non-exclusive, royalty-free,<br />
+fully paid-up, transferable licence, with the right to sublicense to its affiliates, successors and<br />
+contractors (including any other development team engaged by the Client), to use, copy,<br />
+modify, maintain and operate that Background IP as part of the Platform. The licence survives<br />
+any termination of this Agreement. The Service Provider shall identify all Background IP<br />
+incorporated in the Deliverables in the Handover Pack and shall not incorporate any<br />
+Background IP that it is unable to license on these terms.<br />
+10.5Moral rights. The Service Provider waives, and shall procure that each individual author of the<br />
+Deliverables waives, in favour of the Client and its successors, assigns and licensees, all<br />
+moral rights in the Deliverables that may be waived under the laws of Canada (including<br />
+section 14.1 of the Copyright Act (Canada)), and, to the extent that any such right cannot be<br />
+waived under the laws of India (including section 57 of the Copyright Act, 1957), agrees not<br />
+to assert it in any manner that would restrict the Client’s use of the Deliverables.<br />
+10.6Personnel. The Service Provider represents and undertakes that each employee, consultant and<br />
+subcontractor engaged in the Services is bound by a written agreement under which all<br />
+Intellectual Property Rights in work product created in the course of the Services vest in the<br />
+Service Provider or are assigned to it, so as to enable the Service Provider to make the<br />
+assignment under clause 10.1, and that nothing in any such agreement conflicts with this<br />
+Agreement.<br />
+10.7Further assurance. The Service Provider shall, at the Client’s request and cost (except where the<br />
+request arises from a defect in the Service Provider’s title), execute such further documents<br />
+and do such further acts as are reasonably necessary to perfect, register or enforce the Client’s<br />
+rights in the Deliverables in any jurisdiction, including India and Canada.<br />
+10.8Residual knowledge. The Service Provider may use its general skills, know-how and experience,<br />
+including those gained in the Services, provided that it does not use or disclose the Client’s<br />
+Confidential Information or Deliverables.<br />
+10.9Portfolio. The Service Provider may, after Go-Live and with the Client’s prior written approval<br />
+(which shall not be unreasonably withheld), refer to the Platform and display non-confidential<br />
+screenshots and a high-level description of it in its portfolio and marketing materials.<br />
+10.10Governing formalities. This clause 10 constitutes a written assignment signed by the Service<br />
+Provider for the purposes of section 13(4) of the Copyright Act (Canada) and section 19 of<br />
+the Copyright Act, 1957 (India).</p>
+<hr />
+<p>11.CLIENT-OWNED REPOSITORY, INFRASTRUCTURE AND ACCESS<br />
+11.1Repository. The primary source code repository for the Platform shall be created in a<br />
+Client-owned account or organisation (such as GitHub, GitLab or AWS CodeCommit), of<br />
+which the Client’s Authorised Signatory shall at all times be an owner. The Service Provider<br />
+shall be granted maintainer or equivalent access for the duration of the Services. The Service<br />
+Provider shall commit all work to the Client-owned repository at least once on each Indian<br />
+Business Day on which work is performed, and shall not maintain the primary copy of any<br />
+Deliverable elsewhere.<br />
+11.2Infrastructure Accounts. Every Infrastructure Account shall be registered in the name of the<br />
+Client (or an entity designated by it), with billing linked to the Client’s payment method. The<br />
+Service Provider may assist with set-up, but shall not hold sole ownership or sole control of<br />
+any Infrastructure Account, and shall not create any account that holds Client Data in its own<br />
+name.<br />
+11.3Root and owner access. The Client shall retain root or owner credentials, protected by<br />
+multi-factor authentication, for the cloud account, the payment processor account, the domain<br />
+registrar and the application-store accounts. The Service Provider shall access them through<br />
+named individual user accounts or roles with the minimum privileges needed for the task,<br />
+shall not share credentials, and shall not hold any production secret after the end of the<br />
+Services that it did not hold before. The Client may add, restrict or revoke any such access at<br />
+any time without notice, and the Service Provider shall not interfere with the Client’s exercise<br />
+of that right.<br />
+11.4Credentials register. All passwords, keys, tokens, signing certificates, database connection strings<br />
+and backup locations shall be recorded in a credentials register held in a password manager or<br />
+secrets manager owned by the Client. The Service Provider shall not hold the only copy of<br />
+any production credential or signing key. Mobile application signing shall be configured so<br />
+that the Client controls the signing keys or is the owner of the app-signing programme.<br />
+11.5Audit logging. Audit logging of the cloud account and the repository shall be enabled and shall be<br />
+stored in a location controlled by the Client, so that the Client can review the actions of the<br />
+Service Provider’s personnel.<br />
+11.6Backups. The Platform shall be configured to take automated database backups and to retain them<br />
+as described in Schedule D. Backups shall be stored in the Client’s cloud account, shall be<br />
+accessible to the Client independently of the Service Provider, and shall include a copy in a<br />
+second region (a second Canadian region unless the Client directs otherwise). A restoration<br />
+test shall be performed and evidenced to the Client before Go-Live and at least once every<br />
+three (3) months thereafter during the Support Services.<br />
+11.7No lien or lock-in. The Service Provider shall not use any proprietary mechanism, encryption,<br />
+obfuscation, licence key, remote disablement or dependency on a Service Provider-owned<br />
+system that would prevent or impede the Client or another development team from building,<br />
+deploying, operating and modifying the Platform independently. The Service Provider waives<br />
+any lien or right of retention over the Deliverables, the Client Data and the Infrastructure<br />
+Accounts.<br />
+11.8Schedule E. Schedule E records the ownership and access position for each system, and the<br />
+Parties shall update it as Infrastructure Accounts are created.</p>
+<hr />
+<p>12.HANDOVER AND TRANSITION<br />
+12.1Standing handover. The Parties intend that, at every stage, the Client holds everything required<br />
+for another competent development team to continue the Platform without rebuilding it. The<br />
+Service Provider shall keep the Handover Pack current throughout the Services and shall<br />
+update it at the Acceptance of each Phase.<br />
+12.2Delivery of Handover Pack. On Substantial Completion, and in any event within ten (10) Indian<br />
+Business Days after the expiry or termination of this Agreement for any reason, the Service<br />
+Provider shall deliver to the Client the complete Handover Pack in respect of all Phases for<br />
+which the Phase Fee has been paid, containing the items listed in Part 2 of Schedule E.<br />
+12.3Knowledge transfer. The Service Provider shall, within thirty (30) days after the Client’s request<br />
+following expiry or termination, provide up to ten (10) hours of knowledge-transfer sessions<br />
+to the Client or its nominated development team without charge (except where termination is<br />
+by the Service Provider under clause 21.4 for the Client’s uncured payment default), and any<br />
+further transition assistance at the Standard Rate.<br />
+12.4Removal of access. On expiry or termination the Service Provider shall, within two (2) Indian<br />
+Business Days, return or delete all credentials and access held for any Infrastructure Account,<br />
+confirm the same in writing, and cooperate with the Client in rotating all secrets to which it<br />
+had access.<br />
+12.5Completeness. If the Client reasonably identifies any information necessary to operate or modify<br />
+the Platform that is missing from the Handover Pack, the Service Provider shall provide it<br />
+within five (5) Indian Business Days of the request, without charge, where it relates to a paid<br />
+Phase.<br />
+12.6Survival. This clause 12 and the Client’s rights in Deliverables for paid Phases apply regardless of<br />
+the reason for the end of this Agreement and notwithstanding any dispute between the Parties.<br />
+13.POST-LAUNCH OPERATING COSTS AND SUPPORT<br />
+13.1Cost components. After Go-Live the cost of operating the Platform comprises (a) Third-Party<br />
+Costs, which are the actual charges of the cloud provider and other third-party providers and<br />
+are billed to and paid by the Client directly, without mark-up; and (b) the Support Fee, being<br />
+the Service Provider’s charge for the Support Services. Schedule D lists every software<br />
+product and service used to operate the Platform, the owner of each account and the expected<br />
+cost of each, and keeps third-party expenses separate from the Service Provider’s Support<br />
+Fee.<br />
+13.2Initial Support Term, fixed Support Fee and Launch Operating Budget. For the first six (6)<br />
+months after Go-Live (the “Initial Support Term”):<br />
+(a)Support Fee. The Support Fee is fixed at CAD 250.00 per month from the expiry of the<br />
+Hypercare Period and continuing for each month in which Support Services are<br />
+provided. It is the Service Provider’s complete recurring charge for the Support<br />
+Services described in Part 3 of Schedule D. The Support Fee is a maintenance and<br />
+application-support fee and is not based on hours, customer count, revenue,<br />
+infrastructure spend or usage. There is no monthly hour cap, no automatic support<br />
+overage and no automatic increase as customer volume grows. The Support Fee<br />
+remains fixed after the Initial Support Term unless the Parties agree a change in a<br />
+written amendment under clause 13.5. Any change to the Support Fee requires a<br />
+written amendment agreed by both Parties.</p>
+<hr />
+<p>(b)Third-Party Cost Budget. The Platform shall be built and operated on the lean<br />
+configuration set out in Part 1 of Schedule D. The budget for Third-Party Costs at<br />
+launch (up to one hundred and fifty (150) Active Customers) is CAD 85 per month<br />
+(the “Third-Party Cost Budget”), which is billed by the providers directly to the<br />
+Client at actual cost and without mark-up. The Third-Party Cost Budget for higher<br />
+numbers of Active Customers is set out in Part 2 of Schedule D and applies only<br />
+when the relevant tier is reached.<br />
+(c)Launch Operating Budget. The monthly cost of operating the Platform is the Support Fee<br />
+of CAD 250 plus the actual Third-Party Costs. For planning purposes only, the<br />
+planned monthly launch amount for the first six (6) months is CAD 335 per month,<br />
+being the CAD 250 Support Fee plus the CAD 85 Third-Party Cost Budget (the<br />
+“Launch Operating Budget”). The CAD 335 figure is a planning estimate and not a<br />
+fixed all-in amount, because Third-Party Costs vary with provider pricing and actual<br />
+usage.<br />
+(d)Nature of the Third-Party Cost Budget. The Third-Party Cost Budget is calculated from the<br />
+providers’ published prices at the exchange rate stated in Schedule D and is neither a<br />
+cap nor a guarantee of third-party pricing. The Service Provider’s obligations in<br />
+respect of it are those in clause 13.3.<br />
+(e)Exclusions. The Launch Operating Budget excludes payment processing and billing fees<br />
+charged by the payment processor, the Apple Developer Program annual fee and the<br />
+Google Play one-time registration fee, taxes, hardware, one-off or capital costs,<br />
+services newly requested by the Client, and usage above the usage profile recorded in<br />
+Part 2 of Schedule D, each of which is disclosed in Schedule D.<br />
+(f)Growth. The Support Fee remains fixed regardless of the number of Active Customers,<br />
+including when Active Customers exceed 1,000 or move into a higher infrastructure<br />
+tier. Customer growth, increased infrastructure usage or higher Third-Party Costs do<br />
+not automatically increase the Support Fee. Any change requires a written<br />
+amendment agreed by both Parties.<br />
+13.3Cost control. The Service Provider shall, before Go-Live, configure budget alerts on the cloud<br />
+account at eighty per cent (80%) and one hundred per cent (100%) of the Third-Party Cost<br />
+Budget applicable to the then-current tier, shall review resource sizing monthly, and shall<br />
+notify the Client within three (3) Indian Business Days of becoming aware that Third-Party<br />
+Costs are forecast to exceed that budget, recommending corrective action. The Service<br />
+Provider shall not provision capacity above the tier in Part 2 of Schedule D unless the scaling<br />
+thresholds in that Part have been reached or the Client has approved it in writing. Clause<br />
+6.8(d) applies to any new paid third-party service.<br />
+13.4Invoicing of Support Fee. The Support Fee commences on the expiry of the Hypercare Period and<br />
+shall be invoiced monthly in arrears at CAD 250.00. The invoice shall identify the month of<br />
+service and may include a concise maintenance and support activity summary. No separate<br />
+hourly charge or support overage applies to Support Services included in Part 3 of Schedule<br />
+D.<br />
+13.5Six-month review. The Parties shall hold a review meeting before the end of the Initial Support<br />
+Term to examine platform performance, reliability, incident history, support workload, actual<br />
+costs and the Client’s needs, and shall record any change to the scope, service levels or<br />
+Support Fee in a written amendment. If no amendment is agreed, the Support Services shall<br />
+continue on the same terms (including the fixed Support Fee) for a further three (3) months,</p>
+<hr />
+<p>and either Party may thereafter terminate the Support Services on sixty (60) days’ written<br />
+notice, in which case clause 12 shall apply.<br />
+13.6Support Services. The Support Services comprise those described in Part 3 of Schedule D, in<br />
+accordance with the service levels in Part 4 of that Schedule. Items outside that scope,<br />
+including new features, new integrations, marketing site work and compliance consulting,<br />
+shall be provided as Change Requests under clause 19, at the Standard Rate unless otherwise<br />
+agreed.<br />
+13.7Termination of Support Services. The Client may terminate the Support Services at any time on<br />
+thirty (30) days’ written notice and shall pay the Support Fee accrued up to the end of the<br />
+notice period, without any early termination charge. If the Service Provider fails to meet the<br />
+P1 response times in Schedule D on three (3) or more occasions in any period of three (3)<br />
+consecutive months, the Client may terminate the Support Services on fifteen (15) days’<br />
+notice.<br />
+13.8Hypercare. During the Hypercare Period the Service Provider shall monitor the Platform each<br />
+Indian Business Day, respond to P1 and P2 incidents within the response times in Schedule D<br />
+and correct Defects, in each case as part of the Development Fee.<br />
+14.SECURITY AND DATA PROTECTION<br />
+14.1Security standards. The Service Provider shall design and develop the Platform in accordance<br />
+with recognised secure development practices, including the OWASP Top Ten and the<br />
+OWASP Application Security Verification Standard (Level 1) as a baseline, the controls listed<br />
+in Part 4 of Schedule A, encryption of data in transit and at rest, role-based access control,<br />
+and the management of secrets outside the source code.<br />
+14.2Payment card data. The Platform shall use the hosted payment components of the payment<br />
+processor so that card data is not stored on or passed through the Platform’s servers, in order<br />
+to keep the Client within the lowest applicable PCI DSS validation scope.<br />
+14.3Data protection laws. Each Party shall comply with the data protection laws that apply to it in<br />
+connection with this Agreement. These include, as regards Client Data of individuals in<br />
+Canada, PIPEDA and applicable provincial legislation (including, where relevant, the Act<br />
+respecting the protection of personal information in the private sector (Quebec), as amended,<br />
+and the personal information protection statutes of Alberta and British Columbia), and<br />
+Canada’s Anti-Spam Legislation as regards electronic messages. As regards processing in<br />
+India, the Service Provider shall comply with the Digital Personal Data Protection Act, 2023<br />
+and the Information Technology Act, 2000 and the rules made under them, as and when in<br />
+force. The Parties acknowledge that the processing in India of the Personal Information of<br />
+individuals outside India under a contract with a person outside India may fall within the<br />
+exemption in section 17(1)(d) of the Digital Personal Data Protection Act, 2023, but the<br />
+Service Provider shall nonetheless apply the security safeguards required of it under that Act.<br />
+14.4Roles. As between the Parties, the Client is the organisation in control of the Personal<br />
+Information within Client Data and is accountable for it under PIPEDA, and the Service<br />
+Provider processes it solely on the Client’s behalf and instructions for the purpose of<br />
+providing the Services. Schedule F sets out the data protection terms applicable to that<br />
+processing.<br />
+14.5Data residency and cross-border access. Unless the Client directs otherwise, production Client<br />
+Data and backups shall be hosted in a Canadian region of the cloud provider. The Client<br />
+acknowledges that the Service Provider’s personnel will access Client Data remotely from<br />
+India for the purposes of the Services and Support Services, and the Client is responsible for</p>
+<hr />
+<p>informing its customers of this processing in its privacy notices and for any privacy impact<br />
+assessment required by Applicable Law.<br />
+14.6Security incidents. The Service Provider shall notify the Client without undue delay, and in any<br />
+event within twenty-four (24) hours, after becoming aware of any actual or reasonably<br />
+suspected unauthorised access to, or loss or disclosure of, Client Data or any compromise of<br />
+an Infrastructure Account, and shall provide the information that the Client reasonably<br />
+requires to assess and report the incident under PIPEDA and other Applicable Law, and shall<br />
+cooperate in containment and remediation. The Service Provider shall maintain a record of<br />
+every such incident for at least twenty-four (24) months. The Service Provider shall also<br />
+comply with any reporting obligation that applies to it under the directions issued by the<br />
+Indian Computer Emergency Response Team (CERT-In), and shall inform the Client of any<br />
+such report that relates to Client Data.<br />
+14.7Use of production data. The Service Provider shall not use production Client Data in development<br />
+or test environments except in masked or anonymised form, and shall not use Client Data for<br />
+any purpose other than the Services, including the training or improvement of any artificial<br />
+intelligence or machine learning model.<br />
+14.8Personnel controls. The Service Provider shall ensure that personnel who access Client Data are<br />
+bound by written confidentiality obligations, are given access on a need-to-know basis, use<br />
+multi-factor authentication, and use devices that are encrypted and protected against malware.<br />
+15.THIRD-PARTY MATERIALS AND AI-ASSISTED DEVELOPMENT<br />
+15.1Third-Party Materials. The Service Provider may use Third-Party Materials in the Platform<br />
+provided that they are licensed on terms that allow their use in a commercial platform owned<br />
+by the Client, and that the Service Provider provides, in the Handover Pack, a software bill of<br />
+materials identifying each component, its version and licence.<br />
+15.2Copyleft. The Service Provider shall not incorporate in the Platform any software licensed under<br />
+terms (such as the GNU General Public Licence or the Affero General Public Licence) that<br />
+would require the Client to disclose or license its proprietary source code or to permit its<br />
+modification or redistribution, without the Client’s prior written approval.<br />
+15.3AI-assisted development. The Service Provider may use artificial intelligence tools to assist in the<br />
+Services, provided that (a) no Client Data or Confidential Information of the Client is<br />
+submitted to any tool that retains it, uses it to train a model or makes it available to third<br />
+parties; (b) all output is reviewed, tested and adopted by competent personnel of the Service<br />
+Provider, who remain responsible for the Deliverables as if written by them; (c) the Service<br />
+Provider shall use reasonable efforts to ensure that output does not reproduce third-party code<br />
+in breach of its licence; and (d) the Service Provider shall disclose to the Client, on request,<br />
+the categories of tools used. The Parties acknowledge that the extent to which copyright<br />
+subsists in machine-generated output is uncertain under the laws of India and Canada, and<br />
+that the Client’s rights under clause 10 apply to the fullest extent permitted by law.<br />
+15.4Absence of malicious code. The Service Provider warrants that the Deliverables shall not contain<br />
+any virus, malware, back door, time-bomb, remote disabling mechanism or other code<br />
+designed to impair or obtain unauthorised access to the Platform or Client Data.<br />
+16.WARRANTIES<br />
+16.1Mutual. Each Party represents and warrants that it has full power and authority to enter into and<br />
+perform this Agreement and that this Agreement constitutes its valid and binding obligation.</p>
+<hr />
+<p>16.2Service Provider. The Service Provider warrants that (a) the Services shall be performed in<br />
+accordance with clause 3.4; (b) the Deliverables shall conform in all material respects to the<br />
+Specifications and shall be free of Critical and High Defects for the Warranty Period; (c) the<br />
+Deliverables, to the extent created by the Service Provider, shall be original and, to the best of<br />
+its knowledge after reasonable enquiry, shall not infringe the Intellectual Property Rights of<br />
+any third party; and (d) it has the right to make the assignment and grant the licences in clause<br />
+10.<br />
+16.3Warranty Period. The “Warranty Period” is the period of ninety (90) days commencing on the<br />
+earlier of Go-Live and the date that is thirty (30) days after Acceptance of Phase 7.<br />
+16.4Remedy. If a Defect that breaches clause 16.2 is notified to the Service Provider during the<br />
+Warranty Period, the Service Provider shall correct it free of charge within the response and<br />
+resolution targets in Schedule D. Such corrections are included in the Development Fee and,<br />
+after the Warranty Period where applicable, are also handled as Support Services where they<br />
+fall within the Support Services scope. This is without prejudice to any other right or remedy<br />
+of the Client for breach of warranty.<br />
+16.5Third-party services. The Service Provider does not warrant the uninterrupted or error-free<br />
+operation of third-party services, including cloud hosting, payment processing, application<br />
+stores and telecommunications carriers.<br />
+16.6Client. The Client warrants that it is a business and is entering into this Agreement for<br />
+commercial purposes, that it has no establishment in India, and that the Client Materials do<br />
+not infringe the rights of any third party.<br />
+16.7Disclaimer. Save as expressly stated in this Agreement, and to the extent permitted by Applicable<br />
+Law, all other warranties, conditions and terms implied by statute or otherwise are excluded.<br />
+17.INDEMNITIES<br />
+17.1By the Service Provider. The Service Provider shall indemnify and keep indemnified the Client<br />
+against all losses, damages, costs and expenses (including reasonable legal fees) arising from<br />
+any third-party claim that the Deliverables, or the Client’s use of them in accordance with this<br />
+Agreement, infringe the Intellectual Property Rights of that third party, or arising from any<br />
+breach by the Service Provider of clause 14 or clause 20, or from the gross negligence, fraud<br />
+or wilful misconduct of the Service Provider’s personnel.<br />
+17.2By the Client. The Client shall indemnify and keep indemnified the Service Provider against all<br />
+losses, damages, costs and expenses (including reasonable legal fees) arising from any<br />
+third-party claim that the Client Materials, or the Service Provider’s use of them in<br />
+accordance with this Agreement, infringe the rights of that third party, or arising from the<br />
+Client’s failure to comply with the laws applicable to the operation of its business.<br />
+17.3Exclusions. Clause 17.1 does not apply to the extent that the claim arises from the Client<br />
+Materials, a modification of the Deliverables by anyone other than the Service Provider, or<br />
+use of the Deliverables in combination with items not supplied or approved by the Service<br />
+Provider where the claim would not have arisen without that combination.<br />
+17.4Procedure. The indemnified Party shall (a) notify the indemnifying Party promptly in writing of<br />
+any claim, (b) allow it to conduct the defence and settlement at its own cost, provided that it<br />
+shall not settle any claim in a manner that imposes any liability or admission on the<br />
+indemnified Party without its consent, and (c) give reasonable assistance at the indemnifying<br />
+Party’s cost.</p>
+<hr />
+<p>17.5Mitigation. If the Deliverables become, or in the Service Provider’s reasonable opinion are likely<br />
+to become, the subject of an infringement claim, the Service Provider shall, at its own cost,<br />
+procure the right for the Client to continue using them, or modify or replace them so as to be<br />
+non-infringing without material loss of functionality.<br />
+18.LIMITATION OF LIABILITY<br />
+18.1Subject to clause 18.3, neither Party is liable to the other, whether in contract, tort (including<br />
+negligence) or otherwise, for any indirect, incidental, special or consequential loss, or for loss<br />
+of profit, revenue, goodwill or anticipated savings, arising out of or in connection with this<br />
+Agreement.<br />
+18.2Subject to clause 18.3, the total aggregate liability of each Party to the other arising out of or in<br />
+connection with this Agreement shall not exceed the greater of (a) the Development Fee,<br />
+being CAD 2,975.00, and (b) the total fees paid and payable under this Agreement in the<br />
+twelve (12) months immediately preceding the event giving rise to the claim.<br />
+18.3Nothing in this Agreement limits or excludes liability for (a) fraud, fraudulent misrepresentation<br />
+or wilful misconduct; (b) death or personal injury caused by negligence; (c) breach of clause<br />
+20 (Confidentiality); (d) the indemnities in clause 17.1 for third-party intellectual property<br />
+claims and clause 17.2 for third-party claims arising from the Client Materials; (e) the Client’s<br />
+obligation to pay the fees properly due; or (f) any liability which cannot lawfully be limited or<br />
+excluded.<br />
+18.4Each Party shall take reasonable steps to mitigate any loss for which it claims against the other.<br />
+The Parties acknowledge that the limitations in this clause are reasonable in view of the fees<br />
+payable and the allocation of risk between them, and that for the purposes of section 74 of the<br />
+Indian Contract Act, 1872 any sum payable under this Agreement as liquidated damages or a<br />
+credit is a genuine pre-estimate of loss.<br />
+19.CHANGE CONTROL<br />
+19.1Either Party may propose a change to the scope, timeline or fees by a written request (a “Change<br />
+Request”). No change binds a Party unless recorded in a Change Request signed, or<br />
+confirmed by email, by the Authorised Signatories of both Parties.<br />
+19.2The Service Provider shall respond to a Change Request proposed by the Client within three (3)<br />
+Indian Business Days with a written assessment of its effect on scope, price (calculated at the<br />
+Standard Rate, or as a fixed quotation), timeline, testing and security, and shall not charge for<br />
+the preparation of that assessment if it is for less than two (2) hours of effort.<br />
+19.3The Service Provider shall not commence work on a Change Request, and is not entitled to<br />
+payment for it, until the Change Request has been approved in accordance with clause 19.1.<br />
+19.4The Service Provider may implement an emergency fix that is necessary to address a security<br />
+vulnerability or a P1 incident without a Change Request, and shall document it for the Client<br />
+within three (3) Indian Business Days.<br />
+19.5A clarification of the Specifications that does not alter the scope described in clause 3.3 does not<br />
+constitute a Change Request.<br />
+20.CONFIDENTIALITY<br />
+20.1Definition. “Confidential Information” means all non-public information, in any form, disclosed<br />
+by or on behalf of a Party (the “Discloser”) to the other (the “Recipient”) in connection with<br />
+this Agreement that is marked or identified as confidential or that a reasonable person would</p>
+<hr />
+<p>understand to be confidential, including business plans, customer and supplier lists, pricing,<br />
+source code, designs and Client Data. The terms of this Agreement and the Phase 0<br />
+Deliverables are Confidential Information of the Client.<br />
+20.2Obligations. The Recipient shall (a) keep the Discloser’s Confidential Information confidential<br />
+using at least the degree of care that it applies to its own confidential information and not less<br />
+than reasonable care; (b) use it only for the purposes of this Agreement; and (c) disclose it<br />
+only to those of its personnel, professional advisers and permitted subcontractors who need to<br />
+know it and who are bound by obligations of confidentiality no less protective than this<br />
+clause.<br />
+20.3Exceptions. This clause does not apply to information that (a) is or becomes public other than<br />
+through breach of this Agreement; (b) was lawfully known to the Recipient before disclosure;<br />
+(c) is independently developed by the Recipient without use of the Confidential Information;<br />
+or (d) is lawfully received from a third party without restriction.<br />
+20.4Compelled disclosure. The Recipient may disclose Confidential Information to the extent<br />
+required by law, regulation or court order, provided that, where lawful, it gives the Discloser<br />
+prompt notice so that the Discloser may seek a protective order.<br />
+20.5Successor developers. The Client may disclose the Deliverables and the Handover Pack to any<br />
+developer, contractor or prospective acquirer or investor who is bound by confidentiality<br />
+obligations.<br />
+20.6Duration. The obligations in this clause continue for five (5) years after the end of this<br />
+Agreement, except that they continue (a) in respect of trade secrets and source code, for so<br />
+long as the information remains a trade secret, and (b) in respect of Personal Information,<br />
+indefinitely.<br />
+20.7Return. On request or on termination, the Recipient shall return or securely destroy the<br />
+Discloser’s Confidential Information and confirm in writing that it has done so, save that it<br />
+may retain copies required by law or in routine backup archives that are not accessed in the<br />
+ordinary course, subject to continued confidentiality.<br />
+20.8Remedies. Each Party acknowledges that damages may be an inadequate remedy for a breach of<br />
+this clause and that the Discloser is entitled to seek injunctive relief.<br />
+21.TERMINATION<br />
+21.1Termination for convenience. Either Party may terminate this Agreement for convenience on<br />
+thirty (30) days’ written notice to the other. This clause is subject to clause 4.5, which permits<br />
+the Client to stop at the end of Phase 0 without any further liability.<br />
+21.2Payment on termination for convenience. If this Agreement is terminated for convenience by the<br />
+Client, the Client shall pay all Phase Fees that have fallen due before the termination date; the<br />
+Phase Fee for a Phase that has commenced is payable in full and, subject to clause 21.6, is not<br />
+refundable; and the Client has no liability for Phases that have not commenced. If the Service<br />
+Provider terminates for convenience, it shall refund the proportion of the Phase Fee paid for<br />
+the Phase in progress that corresponds to work not yet delivered.<br />
+21.3Termination for cause by either Party. Either Party may terminate this Agreement with immediate<br />
+effect by written notice if the other (a) commits a material breach which is not capable of<br />
+remedy, or which is not remedied within fifteen (15) days of written notice requiring it to be<br />
+remedied; or (b) becomes insolvent, makes an assignment for the benefit of creditors, has a<br />
+receiver, resolution professional, liquidator, trustee or monitor appointed, or becomes the<br />
+subject of proceedings under the Insolvency and Bankruptcy Code, 2016 (India), the</p>
+<hr />
+<p>Bankruptcy and Insolvency Act (Canada), the Companies’ Creditors Arrangement Act<br />
+(Canada) or any similar law.<br />
+21.4Payment default and prolonged delay. The Service Provider may terminate this Agreement by<br />
+written notice if an undisputed sum remains unpaid seven (7) days after a written notice of<br />
+non-payment given after the due date. The Client may terminate this Agreement by written<br />
+notice if the Service Provider is in delay of more than six (6) weeks in achieving the Target<br />
+Completion Date for a reason attributable solely to it.<br />
+21.5Force majeure. Either Party may terminate this Agreement under clause 25.4.<br />
+21.6Refund. If the Client terminates this Agreement under clause 21.3 or clause 21.4 for the Service<br />
+Provider’s default, the Service Provider shall refund, within thirty (30) days, the fees paid by<br />
+the Client for work that has not been delivered.<br />
+21.7Consequences. On termination or expiry (a) the Client shall pay all undisputed sums due up to the<br />
+date of termination; (b) clause 12 applies; (c) each Party shall comply with clause 20 as<br />
+regards the return of Confidential Information; and (d) the accrued rights and remedies of the<br />
+Parties are not affected.<br />
+21.8Ownership unaffected. Termination for any reason does not affect the Client’s ownership of, and<br />
+licence to, all Deliverables for which the relevant Phase Fee has been paid, which continue in<br />
+accordance with clauses 10 and 12.<br />
+21.9Survival. Clauses 1, 6.5, 7, 10, 11, 12, 14, 16, 17, 18, 20, 21, 26, 27 and 28 and any other<br />
+provision intended to survive shall survive termination or expiry.<br />
+22.LONG-TERM RELATIONSHIP AND FUTURE WORK<br />
+22.1Intention. The Client has stated its intention that, subject to the Service Provider’s satisfactory<br />
+performance, the Service Provider should become its long-term technology partner as the<br />
+business of Essenvia grows, undertaking ongoing development, improvement, integrations<br />
+and new requirements. The Service Provider welcomes that intention and the Parties shall<br />
+hold a review of the roadmap for future development at least once in each quarter after<br />
+Go-Live.<br />
+22.2Non-binding. Subject to clause 22.3, this clause 22 records an intention and does not create any<br />
+exclusivity, minimum commitment, minimum spend or obligation on either Party to enter into<br />
+further work.<br />
+22.3Statements of work. Any future work that the Parties agree shall be documented in a written<br />
+statement of work or Change Request that incorporates the terms of this Agreement, with<br />
+such changes as the Parties agree, unless the Parties enter into a separate master services<br />
+agreement. Each item of such work shall be performed at the Standard Rate or at a fixed price<br />
+agreed in advance.<br />
+22.4Rate stability. The Standard Rate shall not be increased during the first twelve (12) months after<br />
+Go-Live. Thereafter the Service Provider may revise the Standard Rate once in any period of<br />
+twelve (12) months by giving sixty (60) days’ written notice, and no revision shall exceed ten<br />
+per cent (10%) of the rate then in force.<br />
+22.5Right of first discussion. Before engaging any other provider for new development of the<br />
+Platform, the Client shall invite the Service Provider to propose terms, and shall allow it a<br />
+period of fifteen (15) Canadian Business Days to do so. The Client shall be entirely free<br />
+thereafter to engage any other provider of its choice and nothing in this Agreement restricts<br />
+the Client from doing so.</p>
+<hr />
+<p>23.RELATIONSHIP OF THE PARTIES AND PERSONNEL<br />
+23.1The Service Provider is an independent contractor. Nothing in this Agreement creates a<br />
+partnership, joint venture, agency, franchise or employment relationship between the Parties,<br />
+and neither Party has authority to bind the other except as expressly stated.<br />
+23.2The Service Provider is solely responsible for its personnel, including their remuneration, taxes,<br />
+social security contributions and compliance with Indian labour and employment law<br />
+(including the Employees’ Provident Funds and Miscellaneous Provisions Act, 1952, the<br />
+Employees’ State Insurance Act, 1948 and the labour codes, each as in force from time to<br />
+time). The Client has no liability to any such personnel.<br />
+23.3The Service Provider may engage subcontractors only with the Client’s prior written consent,<br />
+which shall not be unreasonably withheld. The Service Provider remains fully liable for the<br />
+acts and omissions of its subcontractors and shall ensure that each is bound by terms<br />
+consistent with clauses 10, 14 and 20.<br />
+23.4Nothing in this Agreement restricts the Client from engaging any other person to work on the<br />
+Platform, and nothing in this Agreement shall be construed as a restraint of trade within the<br />
+meaning of section 27 of the Indian Contract Act, 1872.<br />
+24.COMPLIANCE WITH LAWS AND ETHICAL CONDUCT<br />
+24.1Each Party shall comply with Applicable Law in the performance of its obligations, and shall<br />
+hold all licences, registrations and approvals that it requires to do so.<br />
+24.2Each Party shall comply with applicable anti-corruption laws, including the Prevention of<br />
+Corruption Act, 1988 (India) and the Corruption of Foreign Public Officials Act (Canada),<br />
+and shall not offer, give, request or accept any bribe or improper payment in connection with<br />
+this Agreement.<br />
+24.3Each Party represents that neither it nor any of its directors or owners is the subject of economic<br />
+sanctions under the laws of India or Canada, and shall comply with applicable export control<br />
+and sanctions laws.<br />
+24.4The Service Provider shall promptly disclose to the Client any conflict of interest that arises in<br />
+connection with the Services.<br />
+25.FORCE MAJEURE<br />
+25.1Neither Party is liable for any failure or delay in performing an obligation (other than an<br />
+obligation to pay money) to the extent that it is caused by an event beyond its reasonable<br />
+control, including fire, flood, earthquake, epidemic, war, terrorism, civil commotion, strike<br />
+(other than by its own personnel), governmental order or restriction, internet or power<br />
+shutdown, or widespread failure of cloud, telecommunications or payment infrastructure (a<br />
+“Force Majeure Event”).<br />
+25.2The affected Party shall give the other written notice promptly after the Force Majeure Event<br />
+begins, describing its nature and expected duration, and shall use reasonable efforts to<br />
+mitigate its effect and to resume performance.<br />
+25.3The timeline shall be extended by the period of delay caused by a Force Majeure Event.<br />
+25.4If a Force Majeure Event continues for more than forty-five (45) consecutive days, either Party<br />
+may terminate this Agreement by written notice, in which case clause 21.7 and clause 12<br />
+apply.</p>
+<hr />
+<p>26.NOTICES<br />
+26.1A notice under this Agreement shall be in writing in English and shall be delivered by hand, by<br />
+internationally recognised courier or by email to the address of the recipient stated in Part A<br />
+of Schedule C, or to any other address that the recipient notifies for this purpose.<br />
+26.2A notice is deemed received (a) if delivered by hand, on delivery; (b) if sent by courier, on the<br />
+third (3rd) Business Day after dispatch; and (c) if sent by email, at the time of transmission if<br />
+sent before 17:00 on a Business Day in the recipient’s country, and otherwise on the next<br />
+Business Day, provided that no notice of delivery failure is received. A notice of breach,<br />
+termination or dispute sent by email shall also be sent by courier.<br />
+26.3Routine project communications, approvals and Acceptance may be given by email between the<br />
+Authorised Signatories or their designated delegates.<br />
+27.GOVERNING LAW AND DISPUTE RESOLUTION<br />
+27.1Governing law. This Agreement and any dispute or claim arising out of or in connection with it<br />
+shall be governed by and construed in accordance with the laws of India. Nothing in this<br />
+clause excludes any provision of the laws of the Province of Ontario or of Canada that cannot<br />
+lawfully be excluded by contract.<br />
+27.2Escalation. If any dispute arises, a Party shall give the other written notice of it, and the<br />
+Authorised Signatories shall meet (in person or by video conference) and attempt in good<br />
+faith to resolve it within fifteen (15) days of the notice. The Parties may, by agreement, refer<br />
+the dispute to mediation conducted in accordance with the Mediation Act, 2023 (India) or any<br />
+other agreed mediation procedure.<br />
+27.3Arbitration. Any dispute that is not resolved under clause 27.2 within thirty (30) days of the<br />
+notice, including any question regarding the existence, validity, interpretation, performance,<br />
+breach or termination of this Agreement, shall be finally resolved by arbitration under the<br />
+Arbitration and Conciliation Act, 1996 (India) and the Arbitration Rules of the Mumbai<br />
+Centre for International Arbitration (MCIA) in force at the date of the notice. The tribunal<br />
+shall consist of a sole arbitrator appointed in accordance with those Rules. The seat and venue<br />
+of arbitration shall be Mumbai, India. The language of arbitration shall be English. The<br />
+arbitrator shall give a reasoned award, which shall be final and binding on the Parties, and the<br />
+Parties shall endeavour to conclude the arbitration within twelve (12) months of the<br />
+constitution of the tribunal. The costs of the arbitration shall be borne as the arbitrator directs,<br />
+having regard to the outcome. The arbitral proceedings and award shall be confidential,<br />
+except as required to enforce the award or by law.<br />
+27.4Courts. Subject to clause 27.3, the courts at Mumbai have exclusive jurisdiction over matters<br />
+arising under Part I of the Arbitration and Conciliation Act, 1996 in aid of the arbitration,<br />
+including applications for interim relief and for the appointment of the arbitrator.<br />
+27.5Interim relief. Nothing in this clause prevents a Party from seeking urgent interim or injunctive<br />
+relief from any court of competent jurisdiction, including a court in Ontario, Canada, in order<br />
+to protect its Intellectual Property Rights, Confidential Information or Client Data, or to<br />
+preserve access to the Infrastructure Accounts and Deliverables pending the outcome of the<br />
+arbitration.<br />
+27.6Enforcement. The Parties acknowledge that India and Canada are each party to the Convention on<br />
+the Recognition and Enforcement of Foreign Arbitral Awards, and that an award made in<br />
+India may be recognised and enforced in Canada, including under the International</p>
+<hr />
+<p>Commercial Arbitration Act, 2017 (Ontario), subject to the requirements of Canadian law.<br />
+The Client waives any objection to the seat of the arbitration on the ground of inconvenience.<br />
+27.7Continued performance. Pending the resolution of any dispute, each Party shall continue to<br />
+perform its obligations that are not the subject of the dispute, and the Service Provider shall<br />
+not suspend the Services, other than under clause 6.6, nor withhold access to, or the transfer<br />
+of, the Infrastructure Accounts, the Client Data or the Deliverables.<br />
+28.GENERAL<br />
+28.1Entire agreement. This Agreement, with its Schedules and any Change Requests, constitutes the<br />
+entire agreement between the Parties relating to its subject matter and supersedes the Proposal<br />
+and the Confirmation Email and all earlier negotiations, representations and understandings,<br />
+including the pricing references to CAD 3,500 and CAD 3,918, save that the Proposal<br />
+continues to apply as provided in clauses 1.2 and 3.3. Each Party acknowledges that it has not<br />
+relied on any statement not set out in this Agreement, but nothing in this clause limits liability<br />
+for fraud.<br />
+28.2Amendment. No amendment of this Agreement is effective unless it is in writing and signed, or<br />
+confirmed by email, by the Authorised Signatories of both Parties.<br />
+28.3Waiver. No failure or delay by a Party in exercising a right operates as a waiver of it, and no<br />
+single or partial exercise of a right precludes its further exercise.<br />
+28.4Severability. If any provision of this Agreement is held to be invalid, illegal or unenforceable, the<br />
+remaining provisions continue in full force, and the Parties shall negotiate in good faith a<br />
+valid replacement provision that most closely achieves the original intention.<br />
+28.5Assignment. Neither Party shall assign or transfer any of its rights or obligations under this<br />
+Agreement without the prior written consent of the other, except that the Client may assign<br />
+this Agreement to an affiliate or to a successor to all or substantially all of its business or<br />
+assets by written notice to the Service Provider.<br />
+28.6No third-party rights. This Agreement is for the benefit of the Parties and their permitted assigns<br />
+only.<br />
+28.7Further assurance. Each Party shall execute such documents and do such things as the other may<br />
+reasonably require to give effect to this Agreement.<br />
+28.8Counterparts and electronic execution. This Agreement may be executed in counterparts, each of<br />
+which is an original and all of which together constitute one instrument. The Parties agree that<br />
+this Agreement may be signed by electronic signature or exchanged in electronic form, and<br />
+that it is valid and enforceable as if signed in ink, having regard to section 10A of the<br />
+Information Technology Act, 2000 (India) and the Electronic Commerce Act, 2000 (Ontario).<br />
+28.9Stamp duty. The Service Provider shall, at its cost, ensure that this Agreement is duly stamped<br />
+under the Indian Stamp Act, 1899 and the stamp law of the State in which it is executed or<br />
+first received in India, before it is relied upon in any proceeding in India. Neither Party shall<br />
+plead lack of stamping as a ground to avoid performance.<br />
+28.10Language. This Agreement is made in the English language, and in the event of any translation,<br />
+the English version prevails.<br />
+28.11Costs. Each Party shall bear its own costs of negotiating and executing this Agreement.<br />
+28.12Time. Time is of the essence for payment obligations and for the periods stated in clause 5.4 and<br />
+clause 9.</p>
+<hr />
+<p>IN WITNESS WHEREOF the Parties have caused this Agreement to be executed by their duly<br />
+authorised representatives on the date first above written.<br />
+For and on behalf of ESSENVIA<br />
+Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_<br />
+Name: Josh [●]<br />
+Designation: Founder<br />
+Date: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em>_<br />
+Place: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em><br />
+For and on behalf of IIDATECH<br />
+Signature: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em><br />
+Name: [●]<br />
+Designation: [●]<br />
+Date: </strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_<br />
+Place: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__<br />
+WITNESSES<br />
+1. Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_<br />
+Name: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em><br />
+Address: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_<br />
+2. Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_<br />
+Name: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em><br />
+Address: </em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_</p>
+<hr />
+<p>SCHEDULE A<br />
+PHASES, SCOPE, FEES AND ACCEPTANCE CRITERIA<br />
+Part 1 – Phases and scope summary<br />
+This Part summarises the scope of each Phase, taken from the platform sections of the Proposal. It is<br />
+to be read with the Proposal, which prevails as to functional scope (clauses 1.2 and 3.3). Target weeks<br />
+are counted from the Start Date and compress the fifteen (15) week schedule in the Proposal into<br />
+twelve (12) weeks, as requested by the Client.<br />
+15 weeks then becomes the hard deadline for the project delivery. If there are any changes in the<br />
+timeline for this, the discussed time should be added after agreement between both parties or the<br />
+service provider will be penalized accordingly if the client does not agree to the changes in timeline.<br />
+(as mentioned in penalty section)<br />
+Changes in timeline can occur if the approvals, extra changes, unacceptance or newer introduced<br />
+segments, etc. (see clauses)<br />
+Phase<br />
+Scope<br />
+Target<br />
+weeks<br />
+Principal acceptance criteria<br />
+0<br />
+Discovery and design: clickable wireframes and UI<br />
+designs (landing page, the six Build My Box screens,<br />
+checkout and confirmation, customer account, rep<br />
+tablet flow, admin dashboard with package editor),<br />
+mobile layouts first; data model; business-rules sheet<br />
+(including subscription defaults); technical<br />
+architecture; detailed plan and calendar-dated<br />
+Schedule B; confirmation of the operating cost model<br />
+in Schedule D.<br />
+1–3<br />
+Express written approval of designs,<br />
+architecture, data model and business<br />
+rules (clause 4.4).<br />
+1<br />
+Foundation: logins and roles (Owner, Operations,<br />
+Support, Sales manager, Rep); catalogue and SKU<br />
+admin with versioned supplier costs; package engine;<br />
+development, staging and production environments in<br />
+AWS Canada (Central) built as<br />
+infrastructure-as-code; CI/CD; audit logging.<br />
+3–4<br />
+Roles tested; package rules editable<br />
+from admin; environments<br />
+reproducible from code; no open<br />
+Critical or High Defects.<br />
+2<br />
+Customer web: public website; the Build My Box<br />
+journey; one-page checkout (Apple Pay, Google Pay,<br />
+card); Stripe Billing recurring subscriptions;<br />
+customer accounts with skip, pause, swap, address<br />
+change and cancellation with win-back; magic-link<br />
+login; source and rep attribution; lifecycle email and<br />
+SMS flows (welcome, pre-delivery reminder, cart<br />
+recovery, failed-payment recovery, pause and<br />
+win-back, review and referral).<br />
+5–7<br />
+Online sign-up to paid subscription<br />
+passes on staging; lifecycle messages<br />
+delivered to test recipients;<br />
+business-rules scenarios pass.<br />
+3<br />
+Operations: orders, inventory, fulfilment, delivery<br />
+zones with postal-code check and waitlist,<br />
+provider-agnostic delivery module, notifications;<br />
+subscription logic as in the Proposal (charge 3 days<br />
+before shipping, retries on days 1, 3 and 5, past due,<br />
+cancellation after 14 days).<br />
+7–8<br />
+Order-to-delivery chain and<br />
+failed-payment scenarios pass in test<br />
+mode.</p>
+<hr />
+<p>Phase<br />
+Scope<br />
+Target<br />
+weeks<br />
+Principal acceptance criteria<br />
+4<br />
+Sales: rep tablet application; retail comparison sheet;<br />
+agreement, consent and cooling-off capture with<br />
+signature; Stripe Terminal tap payment with card<br />
+saved for monthly billing; automatic creation of<br />
+account, subscription, first order and attribution;<br />
+offline operation of the signing steps with later sync;<br />
+rep scorecard.<br />
+8–9<br />
+Door-to-door sign-up end to end on a<br />
+Client-supplied tablet and reader;<br />
+offline sync verified.<br />
+5<br />
+Admin and analytics: dashboards; retention by rep<br />
+(60 and 90 days); forecasting; reports; GA4 and Meta<br />
+and Google conversion tracking; source attribution;<br />
+live dashboards for subscribers, MRR, CAC, churn<br />
+and rep retention.<br />
+9–10<br />
+Reports reconcile with test data; role<br />
+restrictions verified; tracking events<br />
+verified.<br />
+6<br />
+Customer app: React Native (Expo) mobile app for<br />
+account management and notifications on the same<br />
+backend; build, signing and store submission support<br />
+in the Client’s store accounts.<br />
+8–11<br />
+Release builds pass testing on agreed<br />
+devices; store submissions made<br />
+(store review is a third-party<br />
+dependency under clause 5.5).<br />
+7<br />
+Launch and hardening: end-to-end integration<br />
+testing; load test; security hardening and internal<br />
+security testing (Part 4); backup and restore test;<br />
+production deployment; pilot-territory launch<br />
+support; fixes; documentation, runbooks and<br />
+Handover Pack; UAT support and walkthrough<br />
+sessions.<br />
+10–12<br />
+UAT sign-off; no open Critical or<br />
+High Defects; Part 4 standards met;<br />
+Handover Pack delivered.<br />
+Part 1A – Technical and functional commitments from the Proposal<br />
+1.Technology. Next.js (React) for the public website and customer dashboard; NestJS (TypeScript)<br />
+back-end with documented, versioned REST endpoints and role-based access; PostgreSQL<br />
+(managed, on AWS) as the single database; React Native (Expo) for the mobile application;<br />
+Stripe Billing and Stripe Terminal. The Service Provider may substitute an equivalent<br />
+component only with the Client’s written approval.<br />
+2.Authentication built into the back-end: Argon2 password hashing, magic-link login for customers,<br />
+multi-factor authentication for administrators, with no third-party authentication service<br />
+holding credentials.<br />
+3.Hosting entirely in the AWS Canada (Central) region (web, API, database and backups), with<br />
+separate development, staging and production environments. The second-region backup copy<br />
+shall be held in a second Canadian region unless the Client directs otherwise.<br />
+4.Backups: daily automated backups, point-in-time recovery, cross-region copies and tested restores,<br />
+designed to a recovery point objective of 15 minutes and a recovery time objective of 4 hours.<br />
+5.Package engine: wholesale costs versioned and never overwritten; package names, prices and<br />
+thresholds editable from the admin dashboard without a developer; each subscription stores<br />
+its locked price, cost version and winning rep or source.<br />
+6.Subscription states: pending, active, paused, past due and cancelled; skip (one delivery and one<br />
+charge, price locked); pause up to three months with automatic resumption and reminder; plan<br />
+change effective from the next order.<br />
+7.The ten product categories and three monthly packages described in the Proposal, and the Build My<br />
+Box online journey of landing page, household size, brand selection, box and single monthly</p>
+<hr />
+<p>price, delivery, one-page checkout, confirmation, pre-delivery reminder, delivery-day insert<br />
+and account.<br />
+8.Admin modules: catalogue and costs; packages and thresholds; customers and subscriptions; orders<br />
+and inventory; delivery zones; reps and territories; reports; settings and audit log.<br />
+9.The domain shall be registered in the Client’s own account at the registrar named in the Proposal<br />
+(Namecheap) or an equivalent.<br />
+Part 2 – Phase Fees (CAD)<br />
+Phase<br />
+Proposal estimate<br />
+Agreed Phase Fee<br />
+Payable<br />
+0<br />
+200.00<br />
+200.00<br />
+Before Start Date<br />
+1<br />
+300.00<br />
+252.00<br />
+Start of Phase<br />
+2<br />
+1,400.00<br />
+1,177.00<br />
+Start of Phase<br />
+3<br />
+600.00<br />
+505.00<br />
+Start of Phase<br />
+4<br />
+265.00<br />
+223.00<br />
+Start of Phase<br />
+5<br />
+200.00<br />
+168.00<br />
+Start of Phase<br />
+6<br />
+250.00<br />
+210.00<br />
+Start of Phase<br />
+7<br />
+285.00<br />
+240.00<br />
+Start of Phase<br />
+Total<br />
+3,500.00<br />
+2,975.00<br />
+The Phase 0 Fee is held at CAD 200.00 as requested by the Client, and the Phase Fees for Phases 1 to<br />
+7 are reduced pro rata from the Proposal estimates so that the total is the Development Fee of CAD<br />
+2,975.00 under the sign-now offer. Each Phase Fee is payable within seven (7) days of invoice in<br />
+accordance with clause 6.3, is stated in Canadian dollars, and does not include Third-Party Costs. No<br />
+Indian GST is added to the Phase Fees under clause 7. Any tax legally required to be charged on an<br />
+invoice of the Service Provider by a change in Applicable Law shall be handled under clause 7.2.<br />
+Part 3 – Defect severity<br />
+Severity<br />
+Description<br />
+Effect on Acceptance<br />
+Critical<br />
+Platform or a core function (sign-up, subscription,<br />
+payment, ordering) is unavailable or unusable with no<br />
+workaround; data loss or corruption; a security<br />
+vulnerability that exposes Client Data.<br />
+Must be corrected before Acceptance.<br />
+High<br />
+A major function is materially impaired and any<br />
+workaround is impractical; incorrect charging, tax or<br />
+billing.<br />
+Must be corrected before Acceptance.<br />
+Medium<br />
+A function is impaired but a reasonable workaround<br />
+exists.<br />
+Correction plan agreed; may not<br />
+prevent Acceptance.<br />
+Low<br />
+Cosmetic or minor defects with no material effect on<br />
+use.<br />
+Logged and corrected in ordinary<br />
+course.</p>
+<hr />
+<p>Part 4 – Testing, security and performance standards<br />
+1.Automated tests covering the core business rules and payment and billing flows, with a coverage<br />
+report delivered at each Acceptance and a target of not less than seventy per cent (70%) line<br />
+coverage of the back-end business logic.<br />
+2.Cross-browser testing on current versions of the principal browsers, and device testing on a device<br />
+list agreed in Phase 0 for the mobile and tablet applications.<br />
+3.Dependency vulnerability scanning and secret scanning in the CI/CD pipeline; no Critical or High<br />
+known vulnerabilities in dependencies at Acceptance of Phase 7 unless an accepted mitigation<br />
+is documented.<br />
+4.Internal security testing of staging in Phase 7, carried out by the Service Provider, comprising an<br />
+automated web application vulnerability scan and a manual review of authentication,<br />
+authorisation and payment flows, with all Critical and High findings corrected and a summary<br />
+of findings and fixes delivered to the Client. Independent third-party penetration testing is<br />
+excluded under clause 3.7(e).<br />
+5.HTTPS throughout; encryption at rest of databases and backups; password hashing using a current<br />
+industry-standard algorithm; role-based access control enforced on the server; rate limiting on<br />
+authentication endpoints; multi-factor authentication for administrator accounts.<br />
+6.A load test in Phase 7 at the concurrency agreed in the Phase 0 technical specification (and, absent<br />
+agreement, one hundred (100) concurrent sessions), with the 95th percentile response time for<br />
+primary pages and API calls not exceeding two (2) seconds.<br />
+7.A backup and restore test in Phase 7, evidenced to the Client, restoring the production database to a<br />
+separate environment and verifying integrity.</p>
+<hr />
+<p>SCHEDULE B<br />
+MILESTONE CALENDAR, WORKING TIME AND HOLIDAYS<br />
+Part 1 – Twelve-week milestone plan<br />
+Week numbers run from the Start Date. The plan shall be converted to calendar dates and attached to<br />
+the Acceptance of Phase 0.<br />
+Week<br />
+Phase activity<br />
+Client actions (CBD = Canadian<br />
+Business Days)<br />
+Service Provider deliverables<br />
+1<br />
+Phase 0 kick-off and<br />
+workshops<br />
+Attend workshops; supply brand<br />
+assets and business rules; start cloud,<br />
+Stripe, domain and app-store account<br />
+set-up (Schedule C).<br />
+Workshop notes; draft<br />
+business-rules sheet.<br />
+2<br />
+Phase 0 design and<br />
+architecture<br />
+Attend design reviews in the<br />
+Collaboration Window.<br />
+Wireframes, UI designs, data<br />
+model, rules sheet and architecture<br />
+delivered by end of week.<br />
+3<br />
+Phase 0 review; Phase 1<br />
+begins (preparatory)<br />
+Phase 0 review: 5 CBD. Confirm<br />
+subscription defaults, tax rules and<br />
+delivery policies.<br />
+Revisions within 3 IBD; Phase 1<br />
+scaffolding.<br />
+4<br />
+Phase 1 delivered<br />
+Phase 1 review: 3 CBD. Supply<br />
+catalogue and cost data.<br />
+Roles, catalogue admin, package<br />
+engine, environments on staging.<br />
+5<br />
+Phase 2 (customer web)<br />
+under way<br />
+Stripe account verified.<br />
+Website and Build My Box on<br />
+staging.<br />
+6<br />
+Phase 2 under way<br />
+Provide brand copy and consent<br />
+wording drafts.<br />
+Checkout, Stripe Billing, accounts<br />
+on staging.<br />
+7<br />
+Phase 2 delivered; Phase 3<br />
+begins<br />
+Phase 2 review: 3 CBD.<br />
+Customer web with lifecycle<br />
+messages.<br />
+8<br />
+Phase 3 delivered; Phase 4<br />
+and Phase 6 begin<br />
+Phase 3 review: 3 CBD. Complete<br />
+app-store account enrolment.<br />
+Orders, inventory, delivery zones,<br />
+notifications.<br />
+9<br />
+Phase 4 delivered; Phase 5<br />
+begins<br />
+Phase 4 review: 3 CBD. Supply test<br />
+tablet and Stripe Terminal reader.<br />
+Rep tablet application with tap<br />
+payment.<br />
+10<br />
+Phase 5 delivered; Phase 7<br />
+begins<br />
+Phase 5 review: 3 CBD. Nominate<br />
+UAT testers.<br />
+Dashboards, retention reports,<br />
+analytics; integration and load<br />
+testing begin.<br />
+11<br />
+Phase 6 delivered; Phase 7<br />
+user acceptance testing<br />
+Phase 6 review: 3 CBD. UAT: up to 7<br />
+CBD, then one retest cycle of 3 CBD.<br />
+Mobile app builds; UAT<br />
+environment and scripts; defect<br />
+corrections.<br />
+12<br />
+Phase 7: sign-off and<br />
+launch readiness<br />
+UAT sign-off; go-live and<br />
+pilot-territory decision; final review<br />
+meeting (clause 5.8).<br />
+Handover Pack; runbooks;<br />
+credentials register; backup restore<br />
+evidence; walkthroughs.<br />
+Part 2 – Working time and time zones<br />
+1.The Service Provider’s core working hours are 09:30 to 18:30 India Standard Time (UTC+5:30),<br />
+Monday to Friday, on Indian Business Days.<br />
+2.Toronto observes Eastern Standard Time (UTC−5) and Eastern Daylight Time (UTC−4); India does<br />
+not observe daylight saving time. The time difference is therefore 10 hours 30 minutes when</p>
+<hr />
+<p>Toronto is on standard time and 9 hours 30 minutes when it is on daylight time. In 2026 and<br />
+2027 Toronto changes clocks on 1 November 2026 and 14 March 2027.<br />
+3.Because ordinary working hours in the two countries do not overlap, the Parties shall use the<br />
+Collaboration Window of 09:00 to 11:00 Toronto time on each Business Day (equivalent to<br />
+19:30–21:30 IST on standard time and 18:30–20:30 IST on daylight time) for live calls,<br />
+workshops and decisions. The Service Provider shall make the relevant team members<br />
+available for that window, and the Client shall do the same.<br />
+4.All meeting invitations shall state the time in both Toronto time and IST. Where this Agreement<br />
+states a period that runs against a Party, it shall be computed in that Party’s Business Days<br />
+under clause 1.1.<br />
+Part 3 – Holidays and closure days<br />
+The following days are not Business Days for the relevant Party. Days that vary by year or by State<br />
+shall be listed in the calendar-dated plan delivered with Phase 0, and the Service Provider shall give<br />
+the Client at least fourteen (14) days’ notice of any Closure Day not so listed.<br />
+India (Service Provider)<br />
+Ontario, Canada (Client)<br />
+Fixed dates<br />
+Republic Day (26 January); Independence Day<br />
+(15 August); Gandhi Jayanti (2 October);<br />
+Christmas Day (25 December)<br />
+New Year’s Day (1 January); Canada Day (1<br />
+July); Christmas Day (25 December); Boxing<br />
+Day (26 December)<br />
+Variable dates<br />
+Holi; Dussehra; Diwali (Lakshmi Puja) and<br />
+related days; other gazetted holidays of the<br />
+State of [●] as published for the calendar year<br />
+Family Day (third Monday of February); Good<br />
+Friday; Victoria Day; Labour Day;<br />
+Thanksgiving (second Monday of October)<br />
+The Parties acknowledge that the Target Completion Date may fall in a period that includes the Diwali<br />
+holidays in India and the year-end holidays in Canada. Any Closure Day of the Service Provider that<br />
+is notified in the calendar-dated plan has been taken into account in the twelve (12) week period;<br />
+Client holidays shall be treated as non-Business Days for the Client’s review periods.</p>
+<hr />
+<p>SCHEDULE C<br />
+CLIENT DEPENDENCIES AND AUTHORISED SIGNATORIES<br />
+Part A – Authorised Signatories, key personnel and notice details<br />
+Client (Essenvia)<br />
+Service Provider (IIDATECH)<br />
+Authorised Signatory<br />
+Josh [●], Founder<br />
+[●]<br />
+Product owner / project lead<br />
+[●]<br />
+[●]<br />
+Technical lead<br />
+–<br />
+[●]<br />
+Email for notices<br />
+[●]<br />
+[●]<br />
+Postal address for notices<br />
+[●]<br />
+[●]<br />
+Part B – Client dependencies<br />
+No.<br />
+Item<br />
+Needed by<br />
+Notes<br />
+1<br />
+Signed Agreement and Phase 0 Fee<br />
+Prior to Start<br />
+Condition to commencement (clause<br />
+2.2).<br />
+2<br />
+Authorised Signatory and product<br />
+owner confirmed<br />
+Prior to Start<br />
+Named in Part A.<br />
+3<br />
+Brand assets: logo, brand guidelines,<br />
+fonts, copy<br />
+Week 1<br />
+4<br />
+Business rules: packages, product<br />
+categories, pricing, delivery zones and<br />
+policies, representative workflows<br />
+Weeks 1–2<br />
+Captured in Phase 0 workshops.<br />
+5<br />
+Cloud account in the Client’s name,<br />
+with MFA on the root user and billing<br />
+set up<br />
+End of Week 1<br />
+Service Provider provides set-up<br />
+guidance.<br />
+6<br />
+Repository organisation owned by the<br />
+Client<br />
+End of Week 1<br />
+7<br />
+Payment processor account for the<br />
+Client’s Canadian entity, with business<br />
+verification started<br />
+Week 1; verified by<br />
+Week 5<br />
+Verification can take several days.<br />
+8<br />
+Apple Developer Program<br />
+(organisation) and Google Play Console<br />
+accounts<br />
+Start Week 1;<br />
+complete by Week 6<br />
+Apple organisation enrolment requires a<br />
+D-U-N-S number and may take several<br />
+weeks.<br />
+9<br />
+Provincial tax rules and delivery and<br />
+returns policies<br />
+Week 3<br />
+10<br />
+Sample or anonymised data for testing<br />
+Week 3<br />
+11<br />
+Product catalogue data and images in<br />
+the agreed template<br />
+Week 4<br />
+One import included (clause 3.7).<br />
+12<br />
+Domain registered in the Client’s own<br />
+account (Namecheap or equivalent), or<br />
+registrar access<br />
+Week 4<br />
+13<br />
+Email sending domain access and SMS<br />
+sender registration<br />
+Week 6<br />
+Carrier registration times are outside the<br />
+Service Provider’s control.</p>
+<hr />
+<p>No.<br />
+Item<br />
+Needed by<br />
+Notes<br />
+14<br />
+Privacy policy, terms of service,<br />
+subscription terms and consent wording<br />
+Week 8<br />
+Client to obtain advice; clause 8.5.<br />
+15<br />
+Representative test tablet(s), Stripe<br />
+Terminal card reader and test devices<br />
+Week 9<br />
+Hardware is not included in the<br />
+Development Fee (clause 3.7).<br />
+16<br />
+UAT testers nominated; availability for<br />
+UAT and go-live decision<br />
+Week 10</p>
+<hr />
+<p>SCHEDULE D<br />
+OPERATING COSTS, SOFTWARE COST REGISTER, SUPPORT AND SERVICE LEVELS<br />
+This Schedule lists every software product and service used to build and run the Platform, who owns<br />
+and is billed for each account, and what each is expected to cost. Part 1 sets out the lean launch<br />
+configuration; Part 2 sets out the expected cost at about 100, 500, 1,000 and 5,000 Active Customers<br />
+and the rules for scaling; Part 3 sets out the Support Services and the fixed Support Fee; Part 4 sets<br />
+out the service levels.<br />
+All amounts are estimates in CAD per month, exclusive of taxes, calculated from the providers’<br />
+published prices as at October 2026 at an assumed exchange rate of USD 1.00 = CAD 1.40. The cost<br />
+model produced in Phase 0 shall be recorded here by written confirmation of the Authorised<br />
+Signatories without changing the Launch Operating Budget in clause 13.2.<br />
+Part 1 – Lean launch configuration and software cost register (up to 150 Active Customers)<br />
+The Platform is built lean from the start: a single application server, a single small production<br />
+database, a staging environment that runs only when needed, and free plans wherever a free plan is<br />
+sufficient. Capacity is added only when the thresholds in Part 2 are reached.<br />
+No<br />
+.<br />
+Component<br />
+Software / service (account in<br />
+the Client’s name)<br />
+Basis of charge<br />
+CAD /<br />
+month<br />
+1<br />
+Application<br />
+server (website<br />
+and API)<br />
+AWS EC2 t4g.small (ARM),<br />
+Canada (Central), running the<br />
+Next.js website and NestJS API<br />
+containers; 20 GB disk; one<br />
+public IPv4 address<br />
+Billed by AWS to the Client, hourly;<br />
+approx. USD 21<br />
+29<br />
+2<br />
+Production<br />
+database,<br />
+backups and<br />
+second-region<br />
+copy<br />
+AWS RDS for PostgreSQL<br />
+db.t4g.micro, single-zone, 20<br />
+GB; automated daily backups<br />
+and point-in-time recovery;<br />
+encrypted; backup copy held in<br />
+Canada West (Calgary)<br />
+Billed by AWS to the Client; instance<br />
+approx. USD 13 plus storage and backup<br />
+copy; approx. USD 18 in total<br />
+25<br />
+3<br />
+Staging<br />
+environment<br />
+AWS EC2 t4g.micro and RDS<br />
+db.t4g.micro on a schedule<br />
+(switched off when not in use)<br />
+Billed by AWS to the Client; approx. USD<br />
+6<br />
+8<br />
+4<br />
+File storage and<br />
+content delivery<br />
+AWS S3 and CloudFront<br />
+Billed by AWS to the Client; approx. USD<br />
+2<br />
+3<br />
+5<br />
+Transactional<br />
+email<br />
+Amazon SES<br />
+Approx. USD 0.10 per 1,000 emails;<br />
+approx. USD 1<br />
+1<br />
+6<br />
+SMS<br />
+Twilio or equivalent; Canadian<br />
+toll-free number<br />
+Number approx. USD 2.15 per month plus<br />
+approx. USD 0.016 per SMS (message fee<br />
+approx. USD 0.0083 plus carrier fee<br />
+approx. USD 0.0064–0.0087); 2 SMS per<br />
+Active Customer per month; approx. USD<br />
+5.40<br />
+8<br />
+7<br />
+Monitoring,<br />
+logging and<br />
+alerts<br />
+AWS CloudWatch (basic),<br />
+Sentry (free plan), free uptime<br />
+monitor<br />
+Billed by providers to the Client; approx.<br />
+USD 3<br />
+4</p>
+<hr />
+<p>No<br />
+.<br />
+Component<br />
+Software / service (account in<br />
+the Client’s name)<br />
+Basis of charge<br />
+CAD /<br />
+month<br />
+8<br />
+Domain and<br />
+DNS<br />
+Namecheap .com domain<br />
+(approx. USD 15 per year) and<br />
+AWS Route 53 hosted zone<br />
+(approx. USD 0.50 per month);<br />
+TLS certificates free<br />
+Billed by providers to the Client; approx.<br />
+USD 1.75<br />
+2<br />
+9<br />
+Secrets and<br />
+credentials<br />
+AWS Systems Manager<br />
+Parameter Store (standard<br />
+parameters) and Bitwarden (free<br />
+plan or equivalent)<br />
+Free<br />
+0<br />
+10<br />
+Source code and<br />
+CI/CD<br />
+GitHub organisation, free plan<br />
+(private repositories; 2,000<br />
+Actions minutes per month)<br />
+Free<br />
+0<br />
+11<br />
+Mobile builds<br />
+and push<br />
+notifications<br />
+Expo EAS (free plan) and Expo<br />
+push notification service;<br />
+submission through the Client’s<br />
+Apple and Google accounts<br />
+Free<br />
+0<br />
+12<br />
+Analytics and<br />
+conversion<br />
+tracking<br />
+Google Analytics 4; Meta and<br />
+Google conversion tracking<br />
+Free<br />
+0<br />
+13<br />
+Data transfer<br />
+and sundry<br />
+AWS charges<br />
+AWS<br />
+Approx. USD 1<br />
+1<br />
+Sub-total: Third-Party Costs<br />
+81<br />
+Contingency and rounding<br />
+4<br />
+Third-Party Cost Budget at launch (billed by the providers directly to the Client, at cost, with no<br />
+mark-up)<br />
+85<br />
+Support Fee: maintenance and application support (fixed; see Part 3)<br />
+250<br />
+Launch Operating Budget (clause 13.2): planned monthly launch amount<br />
+335<br />
+Notes to Part 1<br />
+1.Supabase. Supabase is not part of the baseline stack. The Platform uses PostgreSQL on AWS RDS<br />
+with authentication built into the back-end (Part 1A of Schedule A). Supabase would cost<br />
+more at launch for the same protection: its Pro plan is USD 25 per month (including a Micro<br />
+database instance), and the point-in-time recovery required by Part 1A of Schedule A is a<br />
+separate add-on of USD 100 per month for seven days of retention, which is approx. USD<br />
+125 per month (about CAD 175) against approx. USD 18 (about CAD 25) for the RDS<br />
+database line above. Supabase may be used in place of RDS only by written approval of the<br />
+Client under Part 1A of Schedule A, with this Schedule updated accordingly.<br />
+2.Single-server launch. Tiers A to C run the Platform on one application server and one database<br />
+instance. A deployment or server restart may cause a short interruption. Recovery from a<br />
+server failure is by automatic recovery or by rebuilding from infrastructure-as-code, and<br />
+recovery of the database is by point-in-time restore, in each case within the recovery<br />
+objectives in Part 3, paragraph 6. A multi-zone (standby) database can be added at the Client’s<br />
+option at approximately the cost of the database line again.<br />
+3.Items outside the Launch Operating Budget (disclosed here so that the Client can plan for them):</p>
+<hr />
+<p>(a)Payment processing: Stripe’s published Canadian rates are 2.9% plus CAD 0.30 per online<br />
+domestic card payment and 2.7% plus CAD 0.05 per in-person Stripe Terminal<br />
+payment, with higher rates for international cards and currency conversion. Stripe<br />
+Billing for subscriptions is currently published at 0.7% of Billing volume on its<br />
+pay-as-you-go plan; the Client’s actual Stripe agreement and selected plan control the<br />
+final charge.<br />
+(b)Application-store fees: Apple Developer Program, USD 99 per year (about CAD 12 per<br />
+month); Google Play Console, a one-time registration fee of USD 25.<br />
+(c)Hardware: tablets and Stripe Terminal readers (Stripe readers are currently priced from<br />
+about USD 59 to USD 349 each) and test devices.<br />
+(d)Taxes, including any Canadian sales tax payable by the Client on provider invoices or as<br />
+an imported supply (clause 7.5).<br />
+(e)Legal documents, marketing and advertising tools, and any service newly requested by the<br />
+Client.<br />
+Part 2 – Expected monthly cost by customer volume, and scaling rules<br />
+The Platform starts in Tier A and moves up only when a threshold below is reached. The reference<br />
+points of about 100, 500, 1,000 and 5,000 Active Customers fall in Tiers A, B, C and D respectively.<br />
+CAD per month<br />
+Tier A: up to 150<br />
+(about 100)<br />
+Tier B: 151–700<br />
+(about 500)<br />
+Tier C: 701–2,000<br />
+(about 1,000)<br />
+Tier D:<br />
+2,001–5,000<br />
+(about 5,000)<br />
+Sizing: application<br />
+1 × t4g.small<br />
+1 × t4g.medium<br />
+2 × t4g.medium<br />
+behind a load<br />
+balancer<br />
+3 × t4g.large<br />
+behind a load<br />
+balancer<br />
+Sizing: database<br />
+RDS db.t4g.micro<br />
+RDS db.t4g.small<br />
+RDS<br />
+db.t4g.medium<br />
+RDS db.t4g.large,<br />
+multi-zone<br />
+Application servers<br />
+29<br />
+50<br />
+133<br />
+322<br />
+Production database,<br />
+backups, second-region copy<br />
+25<br />
+46<br />
+87<br />
+347<br />
+Staging environment<br />
+8<br />
+8<br />
+11<br />
+21<br />
+File storage and content<br />
+delivery<br />
+3<br />
+4<br />
+7<br />
+28<br />
+Transactional email<br />
+(Amazon SES)<br />
+1<br />
+1<br />
+3<br />
+7<br />
+SMS (2 per Active Customer<br />
+per month)<br />
+8<br />
+25<br />
+48<br />
+227<br />
+Monitoring, logging and<br />
+alerts<br />
+4<br />
+7<br />
+14<br />
+56<br />
+Domain and DNS<br />
+2<br />
+2<br />
+2<br />
+3<br />
+Data transfer and sundry<br />
+1<br />
+3<br />
+6<br />
+35<br />
+Sub-total: Third-Party Costs<br />
+81<br />
+146<br />
+311<br />
+1,046<br />
+Contingency and rounding<br />
+4<br />
+9<br />
+19<br />
+54</p>
+<hr />
+<p>CAD per month<br />
+Tier A: up to 150<br />
+(about 100)<br />
+Tier B: 151–700<br />
+(about 500)<br />
+Tier C: 701–2,000<br />
+(about 1,000)<br />
+Tier D:<br />
+2,001–5,000<br />
+(about 5,000)<br />
+Third-Party Cost Budget<br />
+(billed directly to the Client<br />
+at cost)<br />
+85<br />
+155<br />
+330<br />
+1,100<br />
+Support Fee<br />
+250<br />
+250<br />
+250<br />
+250<br />
+Expected planned monthly<br />
+total<br />
+335<br />
+405<br />
+580<br />
+1,350<br />
+The four tier figures above are planning estimates only. Actual Third-Party Costs are determined by<br />
+provider invoices and actual usage. The Third-Party Cost Budget is billed directly to the Client at<br />
+actual provider cost and is not a cap or guarantee. The Support Fee is fixed at CAD 250.00 per month<br />
+and remains the same across all customer tiers unless changed by written amendment. Customer<br />
+growth changes the Third-Party Cost Budget only when the applicable infrastructure tier is approved<br />
+under the scaling rules; it does not change the Support Fee. Payment processing, application-store<br />
+fees, hardware, taxes charged by third-party providers, one-off or capital costs, and newly approved<br />
+services are additional where applicable.<br />
+Usage profile assumed: 8 emails and 2 SMS per Active Customer per month; one production<br />
+environment; staging switched on only for release and test windows; the performance targets in Part 4<br />
+of Schedule A.<br />
+Scaling rules<br />
+1.The Service Provider shall not provision capacity above the current tier unless (a) the number of<br />
+Active Customers has exceeded the upper limit of the tier in two consecutive months, or (b)<br />
+monitoring shows sustained load (average CPU above 70% over a week, or the 95th<br />
+percentile response time target in Part 4 of Schedule A not being met) that cannot be corrected<br />
+by tuning.<br />
+2.Before moving up a tier the Service Provider shall notify the Client in writing, stating the reason,<br />
+the new monthly cost and the date, and shall proceed only on the Client’s written approval<br />
+(email is sufficient), except where an emergency fix is needed to restore service in a P1<br />
+incident.<br />
+3.If usage falls and the lower tier is sufficient, the Service Provider shall recommend moving down<br />
+within three (3) Indian Business Days of identifying it.<br />
+4.The Third-Party Cost Budget for a tier applies from the month in which the Client approves the<br />
+move to that tier.<br />
+Part 3 – Support Services and Support Fee<br />
+1.Fixed maintenance and application support fee. The Support Fee is CAD 250.00 per month. It is the<br />
+Service Provider’s complete recurring charge for the Support Services described in this Part.<br />
+The Support Fee is not calculated by hours, Active Customers, revenue, infrastructure spend,<br />
+ticket volume or usage. There is no monthly hour cap and no automatic overage charge for<br />
+Support Services included in this Part. Unused capacity does not create a credit or<br />
+carry-forward because the fee is for ongoing service availability and maintenance, not a block<br />
+of hours.<br />
+2.Included maintenance and application support. The CAD 250.00 monthly fee includes:</p>
+<hr />
+<p>•<br />
+Application and Platform monitoring, health checks, uptime checks and alert triage.<br />
+•<br />
+Monitoring and investigation of crashes, application failures, broken workflows and<br />
+production errors.<br />
+•<br />
+Response to and correction of Defects in the Deliverables and reasonable troubleshooting<br />
+of Platform issues.<br />
+•<br />
+Restarting or recovering affected application services and taking reasonable corrective<br />
+action when the Platform becomes unavailable or unstable.<br />
+•<br />
+Routine application maintenance, dependency and security patching using reasonable<br />
+efforts, configuration checks and operational housekeeping.<br />
+•<br />
+Monitoring of key production resources and review of resource utilisation and operating<br />
+costs.<br />
+•<br />
+A monthly maintenance and operational report covering uptime and availability, incidents<br />
+and crashes, tickets and support requests, major fixes and actions taken, backup status,<br />
+security and dependency maintenance, resource usage, Third-Party Cost observations and<br />
+recommended actions.<br />
+•<br />
+Backup monitoring and execution of backup restoration tests at least once every three (3)<br />
+months.<br />
+•<br />
+Domain, certificate and service-renewal reminders and reasonable coordination of<br />
+renewals.<br />
+•<br />
+Responses to support tickets raised by the Client’s Authorised Signatory or designated<br />
+contacts.<br />
+•<br />
+A quarterly roadmap and maintenance review.<br />
+•<br />
+Reasonable coordination with third-party providers when a Platform issue involves a<br />
+third-party service; provider charges remain Third-Party Costs.<br />
+3.Incident handling and service levels. The Service Provider shall act promptly on production<br />
+incidents and work to restore service as quickly as reasonably possible. The response and<br />
+restoration or workaround targets in Part 4 are the applicable service targets. These are targets<br />
+and not a guarantee that every incident can be permanently resolved within the target period,<br />
+particularly where the cause is outside the Service Provider’s control.<br />
+4.Excluded services; no automatic overage. The Service Provider shall not charge an additional hourly<br />
+fee for Support Services included in this Part merely because the work required in a month<br />
+exceeds any assumed number of hours. The following are outside the Support Services: new<br />
+features and integrations, material redesigns, marketing site work, compliance consulting,<br />
+data entry, user training beyond the walkthroughs in Schedule A, the investigation of faults<br />
+caused by changes made by anyone other than the Service Provider, and any other separately<br />
+requested development. Such work requires the Client’s written approval and may be handled<br />
+as a Change Request at the Standard Rate or another written price agreed by the Parties.<br />
+5.Third-party incidents. Third-party provider charges, outages or limitations are not included in the<br />
+Support Fee. The Service Provider shall nevertheless provide reasonable monitoring,<br />
+diagnosis and coordination for Platform issues involving those services to the extent such<br />
+work falls within the Support Services. Any provider charges remain payable by the Client<br />
+directly to the provider, and the investigation of faults caused by third-party services is<br />
+otherwise outside the Support Services.<br />
+6.Backup schedule. Automated daily database backups with point-in-time recovery for at least seven<br />
+(7) days; daily backups retained for thirty-five (35) days; monthly snapshots retained for</p>
+<hr />
+<p>twelve (12) months; and a copy of each backup held in a second region. The design objectives<br />
+are a recovery point objective of 15 minutes and a recovery time objective of 4 hours.<br />
+7.Support Fee continuity. The Support Fee remains fixed regardless of Active Customer growth,<br />
+infrastructure tier or Third-Party Cost changes. Any change requires a written amendment<br />
+expressly agreed by both Parties.<br />
+Part 4 – Service levels (response targets)<br />
+“Support Hours” are 09:00 to 20:00 IST, Monday to Saturday, excluding Closure Days. Response<br />
+targets are targets and not guarantees of resolution; the remedy for repeated failure to meet P1<br />
+response targets is that set out in clause 13.7. The Platform is designed to a monthly availability<br />
+objective of 99.5%, excluding planned maintenance notified at least two (2) Business Days in advance<br />
+and outages of third-party providers; this is a design objective and not a warranty.<br />
+Severity<br />
+Example<br />
+Response target<br />
+Restoration or<br />
+workaround target<br />
+P1 – Platform<br />
+unavailable<br />
+Site, apps or payments not<br />
+functioning for all users<br />
+1 hour within Support Hours;<br />
+4 hours outside Support<br />
+Hours, on any day<br />
+8 hours from response<br />
+P2 – Major function<br />
+impaired<br />
+Subscriptions not renewing for a<br />
+group of users; admin console<br />
+unusable<br />
+4 hours within Support Hours<br />
+2 Indian Business Days<br />
+P3 – Minor defect<br />
+Display or workflow defect with<br />
+a workaround<br />
+1 Indian Business Day<br />
+Next scheduled release,<br />
+within 10 Indian<br />
+Business Days<br />
+P4 – Query or<br />
+enhancement<br />
+Question or small request<br />
+3 Indian Business Days<br />
+As agreed</p>
+<hr />
+<p>SCHEDULE E<br />
+INFRASTRUCTURE AND ACCOUNT OWNERSHIP REGISTER; HANDOVER PACK<br />
+Part 1 – Ownership and access register<br />
+System<br />
+Registered owner and<br />
+billing<br />
+Client control<br />
+Service Provider access<br />
+Source code repository<br />
+Client organisation<br />
+Client owner role<br />
+Maintainer role during the<br />
+Services<br />
+Cloud account (hosting)<br />
+Client; billing on Client’s<br />
+card<br />
+Root user and MFA<br />
+held by the Client<br />
+Named roles with least<br />
+privilege; no root access<br />
+Infrastructure-as-code and<br />
+state<br />
+Client’s cloud account<br />
+Full<br />
+Role-based, as above<br />
+Production database<br />
+Client’s cloud account<br />
+Full<br />
+Restricted access for<br />
+support; no shared<br />
+credentials<br />
+Staging database<br />
+Client’s cloud account<br />
+Full<br />
+Full for development<br />
+Backups<br />
+Client’s cloud account,<br />
+including second region<br />
+Full<br />
+Read and restore access for<br />
+tests<br />
+Payment processor<br />
+Client entity<br />
+Account owner<br />
+Developer role; restricted<br />
+API keys<br />
+Domain and DNS<br />
+(Namecheap or equivalent)<br />
+Client<br />
+Registrar owner<br />
+DNS edit rights where<br />
+required<br />
+Email and SMS providers<br />
+Client<br />
+Account owner<br />
+Sending and configuration<br />
+rights<br />
+Monitoring and logging<br />
+Client<br />
+Full<br />
+Role-based<br />
+Apple Developer Program<br />
+Client (organisation)<br />
+Account holder<br />
+Developer or App Manager<br />
+role<br />
+Google Play Console<br />
+Client<br />
+Owner<br />
+Release manager role<br />
+CI/CD pipeline<br />
+Client’s repository<br />
+organisation<br />
+Full<br />
+Maintainer role<br />
+Password manager /<br />
+secrets manager<br />
+Client<br />
+Owner<br />
+Shared vaults limited to<br />
+project needs<br />
+Part 2 – Handover Pack<br />
+1.Complete source code for all paid Phases in the Client-owned repository, including all branches,<br />
+tags and history, build scripts and CI/CD configuration.<br />
+2.Infrastructure-as-code for every environment, with a diagram of the production architecture.<br />
+3.Architecture documentation, entity-relationship diagram, data dictionary and database schema with<br />
+migration scripts.<br />
+4.API documentation (such as OpenAPI) and an inventory of integrations and third-party services,<br />
+with the purpose and owner of each.<br />
+5.The business rules register in its final form.</p>
+<hr />
+<p>6.Automated test suites, test data and the test reports for each Phase.<br />
+7.Runbooks for deployment, rollback, backup restoration, incident response, secret rotation and<br />
+onboarding of a new developer.<br />
+8.An inventory of environment variables and configuration (names and purposes; secrets themselves<br />
+being held in the Client’s secrets manager).<br />
+9.The credentials register, and confirmation that production credentials have been rotated on handover<br />
+where requested.<br />
+10.Mobile application build and release instructions, and confirmation of control of signing keys and<br />
+store accounts.<br />
+11.The software bill of materials, including licences, and a schedule of any Background IP<br />
+incorporated in the Deliverables with the licence under clause 10.4.<br />
+12.A list of open Defects and the known limitations of the Platform.</p>
+<hr />
+<p>SCHEDULE F<br />
+DATA PROTECTION TERMS<br />
+Details of processing<br />
+Item<br />
+Detail<br />
+Subject matter and purpose<br />
+Processing of Client Data by the Service Provider solely to provide the<br />
+Services and the Support Services.<br />
+Duration<br />
+The Term and, for the return or deletion of data, the period in paragraph 8.<br />
+Categories of individuals<br />
+The Client’s customers and prospective customers; the Client’s<br />
+representatives, administrators and personnel.<br />
+Categories of Personal<br />
+Information<br />
+Names, contact details, delivery addresses and instructions, order and<br />
+subscription history, account credentials (hashed), device and usage data,<br />
+communication preferences and consents, and payment tokens issued by the<br />
+payment processor (but not card numbers).<br />
+Location of processing<br />
+Hosting in a Canadian region of the cloud provider (unless the Client directs<br />
+otherwise); remote access by the Service Provider’s personnel in India.<br />
+Sub-processors<br />
+The cloud provider, the payment processor, the email and SMS providers and<br />
+the monitoring provider, each engaged by the Client in its own name. The<br />
+Service Provider shall not engage any other sub-processor of Client Data<br />
+without the Client’s prior written approval.<br />
+Terms<br />
+1.Instructions. The Service Provider shall process Personal Information only on the documented<br />
+instructions of the Client, and shall inform the Client if it considers that an instruction would<br />
+breach Applicable Law.<br />
+2.Confidentiality. Personnel authorised to process Personal Information shall be bound by written<br />
+confidentiality obligations.<br />
+3.Safeguards. The Service Provider shall maintain the technical and organisational safeguards<br />
+described in clause 14 and Part 4 of Schedule A, proportionate to the sensitivity of the<br />
+information.<br />
+4.Individual requests and complaints. The Service Provider shall, within five (5) Indian Business<br />
+Days of a request from the Client, provide the assistance reasonably required for the Client to<br />
+respond to a request by an individual to access, correct or delete Personal Information or to<br />
+withdraw consent, and shall forward to the Client within two (2) Indian Business Days any<br />
+such request or complaint that it receives directly, without responding to it.<br />
+5.Incidents. The Service Provider shall notify security incidents in accordance with clause 14.6.<br />
+6.Accountability for transfers. The Parties acknowledge that the Client remains accountable under<br />
+PIPEDA for Personal Information transferred to the Service Provider for processing, and the<br />
+Service Provider agrees to provide a level of protection comparable to that required by<br />
+PIPEDA while the information is in its care.<br />
+7.Audit. The Service Provider shall make available to the Client, on fifteen (15) Canadian Business<br />
+Days’ notice and not more than once in any year (or at any time following a security<br />
+incident), the information reasonably necessary to demonstrate compliance with this</p>
+<hr />
+<p>Schedule, and shall allow the Client or its nominated auditor to audit that compliance, subject<br />
+to reasonable confidentiality and security conditions.<br />
+8.Return and deletion. On expiry or termination, or on the Client’s earlier request, the Service<br />
+Provider shall delete or return all Personal Information and confirm its deletion in writing<br />
+within thirty (30) days, save where retention is required by Applicable Law.<br />
+9.Order of precedence. In the event of conflict between this Schedule and any other provision of this<br />
+Agreement as regards Personal Information, the provision that is more protective of Personal<br />
+Information shall prevail.<br />
+— End of Agreement —</p></section><section class="doc-section" id="Essenvia-Quote-Breakdown-Timeline-Payments-CAD.md"><p class="no-print" style="color:#4f646b;font-size:9pt">Section: Quote, timeline & payments</p><h1>ESSENVIA — App-wise quote, 12-week timeline and payment schedule</h1>
+<p><strong>Prepared for:</strong> Josh and the Essenvia team<br />
+<strong>Prepared by:</strong> V, Founder, IIDATECH<br />
+<strong>Date:</strong> October 9, 2026  </p>
+<p><strong>Confidential.</strong> Companion to the <em>Software Development and Platform Services Agreement</em> (<code>Essenvia-Software-Development-Platform-Services-Agreement-CAD.md</code>). All amounts in <strong>Canadian dollars (CAD)</strong>, exclusive of Third-Party Costs. No Indian GST is added. <strong>Fixed platform total: CAD 2,975.00</strong> over <strong>12 weeks</strong>. Branding is quoted separately in section 4.</p>
+<hr />
+<h2>1. Quote by application</h2>
+<p>The CAD 2,975 is split across each application by the work it takes. The website carries the most because it includes checkout, subscription billing and customer messaging. Design and the shared backend are listed once because every app runs on them.</p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>What is included</th>
+<th>Build weeks</th>
+<th>CAD</th>
+<th>Share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Shared design &amp; foundation</strong></td>
+<td>Discovery workshops, wireframes and UI designs for every app, data model, architecture; shared backend, database, logins and roles, package engine, AWS environments, CI/CD</td>
+<td>1–4</td>
+<td><strong>372</strong></td>
+<td>12.5%</td>
+</tr>
+<tr>
+<td><strong>Website</strong></td>
+<td>Public site, Build My Box journey, one-page checkout (Apple Pay, Google Pay, card), customer account (skip, pause, swap, cancel), Stripe Billing subscriptions, lifecycle email and SMS</td>
+<td>5–7</td>
+<td><strong>1,177</strong></td>
+<td>39.6%</td>
+</tr>
+<tr>
+<td><strong>Operations application</strong></td>
+<td>Orders, inventory, fulfilment, delivery zones with waitlist, renewal and failed-payment logic, notifications</td>
+<td>7–8</td>
+<td><strong>505</strong></td>
+<td>17.0%</td>
+</tr>
+<tr>
+<td><strong>Sales rep app (tablet)</strong></td>
+<td>Door-to-door flow, retail comparison, consent and signature, Stripe Terminal tap payment, offline mode, rep scorecard</td>
+<td>8–9</td>
+<td><strong>223</strong></td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td><strong>Customer app (mobile)</strong></td>
+<td>React Native (Expo) for account management and notifications on the same backend; store submission support</td>
+<td>8–11</td>
+<td><strong>210</strong></td>
+<td>7.1%</td>
+</tr>
+<tr>
+<td><strong>Admin app</strong></td>
+<td>Catalogue, package and threshold editor, roles (weeks 3–4); dashboards, retention by rep, forecasting, reports, tracking (weeks 9–10)</td>
+<td>3–4, 9–10</td>
+<td><strong>248</strong></td>
+<td>8.3%</td>
+</tr>
+<tr>
+<td><strong>Testing &amp; hardening</strong></td>
+<td>Integration, load and security testing, backup and restore test, production deployment, pilot launch support, documentation and Handover Pack</td>
+<td>10–12</td>
+<td><strong>240</strong></td>
+<td>8.1%</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>Eight phases of the Agreement (phase fees unchanged)</td>
+<td>1–12</td>
+<td><strong>2,975</strong></td>
+<td>100%</td>
+</tr>
+</tbody>
+</table>
+<h3>Agreement phase fees (Schedule A, Part 2)</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Agreed phase fee (CAD)</th>
+<th>Payable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>200</td>
+<td>Before Start Date</td>
+</tr>
+<tr>
+<td>1</td>
+<td>252</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1,177</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>3</td>
+<td>505</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>4</td>
+<td>223</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>5</td>
+<td>168</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>6</td>
+<td>210</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td>7</td>
+<td>240</td>
+<td>Start of Phase</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>2,975</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Proposal estimate total was CAD 3,500; the <strong>sign-now offer</strong> reduces phase fees pro rata to <strong>CAD 2,975</strong> fixed on the Effective Date (Agreement clause 6.1).</p>
+<hr />
+<h2>2. The 12-week timeline</h2>
+<p>Weeks count from the <strong>Start Date</strong> and follow Schedule B. Apps that take longer get more weeks; builds overlap where work allows. Week numbers become calendar dates once designs are approved.</p>
+<table>
+<thead>
+<tr>
+<th>Wk</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared design &amp; foundation</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Website</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Operations application</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sales rep app</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Customer app</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td></td>
+</tr>
+<tr>
+<td>Admin app</td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Testing &amp; hardening</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>●</td>
+<td>●</td>
+<td>●</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Payment due before that work starts</strong> (see section 3).</p>
+<hr />
+<h2>3. Payment schedule</h2>
+<p>Each payment is made <strong>before</strong> the work it covers starts. The invoice is sent about a week earlier and is payable within <strong>7 days</strong>; work begins once payment is received (Agreement clause 6.3).</p>
+<table>
+<thead>
+<tr>
+<th>Payment for</th>
+<th>CAD</th>
+<th>Invoice sent</th>
+<th>Payment due</th>
+<th>Paid to date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared design (Phase 0)</td>
+<td>200</td>
+<td>On signing the Agreement</td>
+<td>Before the Start Date (Week 1)</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Shared foundation and Admin app basics (Phase 1)</td>
+<td>252</td>
+<td>Week 3, with design delivery</td>
+<td>On design approval, before Week 4</td>
+<td>452</td>
+</tr>
+<tr>
+<td>Website (Phase 2)</td>
+<td>1,177</td>
+<td>Week 4</td>
+<td>Before Week 5</td>
+<td>1,629</td>
+</tr>
+<tr>
+<td>Operations application (Phase 3)</td>
+<td>505</td>
+<td>Week 6</td>
+<td>Before Week 7</td>
+<td>2,134</td>
+</tr>
+<tr>
+<td>Sales rep app and Customer app (Phases 4 and 6)</td>
+<td>433</td>
+<td>Week 7</td>
+<td>Before Week 8</td>
+<td>2,567</td>
+</tr>
+<tr>
+<td>Admin app dashboards and analytics (Phase 5)</td>
+<td>168</td>
+<td>Week 8</td>
+<td>Before Week 9</td>
+<td>2,735</td>
+</tr>
+<tr>
+<td>Testing &amp; hardening (Phase 7)</td>
+<td>240</td>
+<td>Week 9</td>
+<td>Before Week 10</td>
+<td>2,975</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>2,975</strong></td>
+<td></td>
+<td></td>
+<td><strong>2,975</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Notes</h3>
+<ul>
+<li>Essenvia may <strong>stop after the design stage</strong>: within <strong>10 Canadian Business Days</strong> of Phase 0 delivery, it may decline to proceed and owes nothing further beyond the Phase 0 fee (Agreement clause 4.5).</li>
+<li>Customer app and Sales rep app start the same week; their payments are combined (<strong>CAD 223 + CAD 210 = 433</strong>).</li>
+<li>Dates move if client items (approvals, accounts, content) or third-party review (Apple, Google, Stripe) runs late (Agreement clauses 5.4 and 5.5).</li>
+<li><strong>Not included in CAD 2,975:</strong> AWS and other Third-Party Costs billed directly to Essenvia (planned ~<strong>CAD 85/month</strong> at launch), Stripe fees, app-store fees, tablets and card readers, legal documents, and marketing work. <strong>Support Fee CAD 250/month</strong> starts after the <strong>14-day Hypercare Period</strong>.</li>
+<li>If this document and the Agreement differ, <strong>the Agreement prevails</strong>.</li>
+</ul>
+<hr />
+<h2>4. Branding package (quoted separately from the platform)</h2>
+<p>Branding runs alongside platform design in <strong>Weeks 1–3</strong> so logo, colours and type are settled before screens are approved. It is <strong>not</strong> part of CAD 2,975 (Agreement clause 3.7(a); separate signed approval required). It is <strong>not</strong> part of the 15% sign-now discount on the platform build.</p>
+<h3>Price</h3>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>CAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Brand and identity package (incl. peripherals below)</strong></td>
+<td><strong>850 – 950</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Final figure confirmed when scope is approved; mid-range <strong>~CAD 900</strong> if all peripherals listed are included.</p>
+<h3>What is included</h3>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>What you get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Logo refinement</strong></td>
+<td>Clean-up and finalisation of the current logo (SVG, PNG, reversed/mono, minimum sizes).</td>
+</tr>
+<tr>
+<td><strong>Colour and type system</strong></td>
+<td>Brand colours and fonts with rules for digital, print and packaging.</td>
+</tr>
+<tr>
+<td><strong>Voice and tone</strong></td>
+<td>How Essenvia sounds in the app, emails, SMS and sales scripts.</td>
+</tr>
+<tr>
+<td><strong>Brand book / brand guidelines</strong></td>
+<td>Single master PDF (and editable source) covering logo, colour, typography, voice, photography and usage rules — for your team and future designers.</td>
+</tr>
+<tr>
+<td><strong>Letterhead</strong></td>
+<td>Print-ready PDF plus editable template (A4 and US Letter) with logo, address block and confidential footer option.</td>
+</tr>
+<tr>
+<td><strong>Business card</strong></td>
+<td>Print-ready layout (front/back) aligned to brand system.</td>
+</tr>
+<tr>
+<td><strong>Email signature</strong></td>
+<td>HTML + PNG signature block for team rollout.</td>
+</tr>
+<tr>
+<td><strong>Document templates</strong></td>
+<td>Branded cover strip / header for proposals, invoices and client PDFs (matching letterhead).</td>
+</tr>
+<tr>
+<td><strong>Photo editing with AI</strong></td>
+<td>AI-assisted editing and enhancement of supplied product/lifestyle photos.</td>
+</tr>
+<tr>
+<td><strong>Box packaging direction</strong></td>
+<td>Design direction for the physical box and unboxing look.</td>
+</tr>
+<tr>
+<td><strong>Social templates</strong></td>
+<td>Ready-to-use templates for organic social posts (profile-safe zones, type and colour locked).</td>
+</tr>
+<tr>
+<td><strong>Presentation master</strong> <em>(optional)</em></td>
+<td>Simple slide master (Google Slides or PowerPoint) for investor and rep decks — include if selected at approval.</td>
+</tr>
+</tbody>
+</table>
+<h3>Timeline and payment (branding)</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Work</th>
+<th>Weeks</th>
+<th>Payment due</th>
+<th>CAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td>Logo refinement, colour and type, voice and tone, letterhead + email signature drafts</td>
+<td>1–2</td>
+<td>Before Week 1 (<strong>50%</strong>)</td>
+<td>425 – 475</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Brand book, business card, document templates, photo editing, packaging direction, social templates, final file handoff</td>
+<td>3</td>
+<td>Before Week 3 (<strong>50%</strong>)</td>
+<td>425 – 475</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>Final brand files ready as Phase 0 designs are approved</td>
+<td>1–3</td>
+<td></td>
+<td><strong>850 – 950</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Branding notes</h3>
+<ul>
+<li>Branding is outside the development Agreement and needs its own signed approval (see <code>Essenvia-Branding-Package-SOW-CAD.md</code>).</li>
+<li>Share existing assets in Week 1 (logo files, photos, packaging samples) so the timeline holds.</li>
+<li>Platform UI in Phase 0 uses approved brand tokens once Stage 1 is Accepted.</li>
+</ul>
+<hr />
+<p><em>IIDATECH · Confidential · For Essenvia internal review only.</em></p></section><section class="doc-section" id="Essenvia-Branding-Package-SOW-CAD.md"><p class="no-print" style="color:#4f646b;font-size:9pt">Section: Branding package</p><h1>ESSENVIA — Branding package (Statement of Work)</h1>
+<p><strong>Client:</strong> Essenvia<br />
+<strong>Provider:</strong> IIDATECH<br />
+<strong>Effective when signed:</strong> <strong><em>_</em></strong><strong><em>_</em></strong> 2026<br />
+<strong>Related documents:</strong> Platform Agreement; <code>Essenvia-Quote-Breakdown-Timeline-Payments-CAD.md</code> (section 4)</p>
+<hr />
+<h2>1. Purpose</h2>
+<p>Deliver a complete <strong>brand identity and peripherals</strong> set so Essenvia can present consistently to customers, reps, suppliers and investors while the platform is built in Weeks 1–12.</p>
+<p>This SOW is <strong>excluded from the CAD 2,975 Development Fee</strong> (Platform Agreement clause 3.7(a)).</p>
+<hr />
+<h2>2. Deliverables</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Deliverable</th>
+<th>Format / notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Logo refinement (primary, reversed, mono, favicon)</td>
+<td>SVG, PNG @1x/@2x, usage clear-space rules</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Colour palette + typography system</td>
+<td>Digital tokens + print CMYK/PMS where applicable</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Voice and tone guide</td>
+<td>Short guide + examples (web, SMS, email, rep script)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Brand book / brand guidelines</strong></td>
+<td>PDF master + editable source (Figma or equivalent export)</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Letterhead</strong></td>
+<td>A4 + US Letter, PDF + editable DOCX/Google Doc template</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Business card</strong></td>
+<td>Print-ready PDF; specs for printer</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Email signature</strong></td>
+<td>HTML snippet + PNG for clients that block HTML</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Document templates</strong></td>
+<td>Branded header/footer for proposals, invoices, client PDFs</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Photo enhancement (AI-assisted)</td>
+<td>Up to <strong>10</strong> agreed hero/product shots from Client-supplied files</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Box packaging direction</td>
+<td>Mood board, dieline notes, colour/type on box and tape</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Social media templates</td>
+<td><strong>6</strong> static post templates (feed-safe)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Presentation master <em>(if selected)</em></td>
+<td>Google Slides or PowerPoint theme with logo, colours, type</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>3. Fee and payment</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fixed range (full package incl. peripherals)</strong></td>
+<td><strong>850 – 950</strong></td>
+</tr>
+<tr>
+<td><strong>50%</strong> (Stage 1 — before Week 1)</td>
+<td>425 – 475</td>
+</tr>
+<tr>
+<td><strong>50%</strong> (Stage 2 — before Week 3)</td>
+<td>425 – 475</td>
+</tr>
+</tbody>
+</table>
+<p>Taxes extra if applicable. No Indian GST on invoices unless required by law.</p>
+<hr />
+<h2>4. Client responsibilities</h2>
+<ul>
+<li>Provide logo source files, brand references, product photos, and packaging samples by <strong>Week 1</strong>.  </li>
+<li>Name one approver for brand decisions; respond within <strong>5 Canadian Business Days</strong> on each review.  </li>
+<li>Approve print specs with your printer (IIDATECH supplies design files, not print production).</li>
+</ul>
+<hr />
+<h2>5. Revisions</h2>
+<p>Two consolidated revision rounds per stage on direction and layouts. New deliverables or extra photo count require a written change order.</p>
+<hr />
+<h2>6. Intellectual property</h2>
+<p>Upon payment in full for each stage, Essenvia owns the <strong>custom brand deliverables</strong> for that stage. IIDATECH retains pre-existing tools and may show non-confidential work in portfolio unless Essenvia opts out in writing.</p>
+<hr />
+<h2>Signatures</h2>
+<p><strong>ESSENVIA</strong> — Signature / Name / Title / Date  </p>
+<p><strong>IIDATECH</strong> — Signature / Name / Title / Date  </p>
+<hr />
+<p><em>Template for negotiation — not legal advice.</em></p></section>
+  <footer style="margin-top:32px;padding-top:12px;border-top:1px solid #cfdcde;font-size:9pt;color:#4f646b">
+    Prepared by IIDATECH for Essenvia · Generated from repository markdown · Not legal advice until reviewed by counsel.
+  </footer>
+</div>
+</body>
+</html>

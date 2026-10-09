@@ -8,6 +8,12 @@ const files: {
   href?: string;
 }[] = [
   {
+    title: "Full contract package (PDF) — Essenvia",
+    file: "Essenvia-Full-Contract-Package.pdf",
+    desc: "Single PDF: platform agreement + quote/timeline/payments + branding SOW (CAD 2,975 + branding 850–950).",
+    href: "/Essenvia-Full-Contract-Package.pdf",
+  },
+  {
     title: "Platform agreement — Essenvia (CAD) — PRIMARY",
     file: "Essenvia-Software-Development-Platform-Services-Agreement-CAD.md",
     desc: "Full Software Development and Platform Services Agreement: CAD 2,975 fixed fee, 12 weeks, Schedules A–F.",
@@ -113,7 +119,11 @@ export default function DocsPage() {
                 href={f.href ?? `/documents/${f.file}`}
                 className="mt-3 inline-block text-sm font-medium text-[#1B4332] underline"
               >
-                {f.href ? "Open client preview (PDF + HTML) →" : "Open raw markdown in browser →"}
+                {f.href?.endsWith(".pdf")
+                  ? "Download PDF →"
+                  : f.href
+                    ? "Open client preview (PDF + HTML) →"
+                    : "Open raw markdown in browser →"}
               </Link>
             </li>
           ))}
