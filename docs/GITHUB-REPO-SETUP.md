@@ -38,11 +38,35 @@ Then run `origin auth login` and `origin repo clone vidhu-gupta/essentra-box` ag
 
 ---
 
+## Link this project to a repository (Create repo)
+
+Your code is pushed on the agent branch. To **create or attach** the GitHub/Origin repo from Cursor:
+
+1. Open this agent run in Cursor.
+2. Click **Create repository** (or **Link repository**) in the chat header / project pill.
+3. Choose name **`essentra-box`** (or **`essentra-platform`**) under **`vidhu-gupta`**.
+4. After linking, pull on your machine:
+
+```bash
+origin auth login
+origin repo clone vidhu-gupta/essentra-box
+cd essentra-box
+npm install && npx prisma db push && npm run db:seed
+npm run dev -- -p 4321
+```
+
+If **`essentra-box`** already exists but this agent cannot push (403), use **Create repository** to sync from the agent, or add your user as collaborator and push from local after clone of the agent export.
+
+**Browse (when linked):** [https://cursor.com/codebase/vidhu-gupta/essentra-box](https://cursor.com/codebase/vidhu-gupta/essentra-box)
+
+---
+
 ## What’s in the repo
 
-- Interactive wireframes: `npm install && npm run dev -- -p 4321` → `/wireframes`
-- CAD proposal: `docs/Essentra-Platform-Design-Proposal-CAD.md`
-- Contract template: `docs/Essentra-Master-Service-Agreement-CAD.md`
+- **Platform V1:** `/`, `/build/*`, `/login`, `/admin`, `/rep`, `/warehouse` — see `docs/PLATFORM-V1.md`
+- Wireframes: `/wireframes`
+- Essenvia contract PDF/HTML: `/docs`, `/design-pack`
+- CAD proposal archive: `docs/Essentra-Platform-Design-Proposal-CAD.md`
 - Vercel deploy: `docs/DEPLOY-VERCEL.md`
 
 ---

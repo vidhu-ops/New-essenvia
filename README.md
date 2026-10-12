@@ -35,9 +35,16 @@ This is the **approval package** before full platform development (NestJS API, P
 
 ## Repository
 
-**Browse:** [cursor.com/codebase/vidhu-gupta/essentra-box](https://cursor.com/codebase/vidhu-gupta/essentra-box) (private by default)
+**Create / link repo:** In this Cursor agent, use **Create repository** and name it `essentra-box` (see **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)**).
 
-**Clone:** see **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)** for Origin CLI commands.
+**Browse (after link):** [cursor.com/codebase/vidhu-gupta/essentra-box](https://cursor.com/codebase/vidhu-gupta/essentra-box)
+
+**Clone:**
+
+```bash
+origin auth login
+origin repo clone vidhu-gupta/essentra-box
+```
 
 ## Deploy to Vercel (demo domain)
 
