@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { BuildShell } from "@/components/essentra/build/BuildShell";
 import { OptionTile } from "@/components/essentra/build/OptionTile";
 import { HumanCta } from "@/components/essentra/HumanCta";
+import { useBuildStore } from "@/lib/build-store";
 
 export default function BuildStep2() {
-  const [brand, setBrand] = useState("Tide");
-  const [format, setFormat] = useState("Liquid");
+  const { laundryBrand, laundryFormat } = useBuildStore((s) => s.selections);
+  const setSelections = useBuildStore((s) => s.setSelections);
 
   return (
     <BuildShell
@@ -18,17 +18,23 @@ export default function BuildStep2() {
     >
       <p className="mb-2 text-[13px] font-medium uppercase tracking-wide text-ink-soft">Brand</p>
       <div className="grid grid-cols-2 gap-2">
-        {["Tide", "Gain", "Something else", "You pick for me"].map((b) => (
-          <OptionTile key={b} selected={brand === b} onClick={() => setBrand(b)}>
-            {b}
+        {[
+          ["Tide", "tide"],
+          ["Gain", "gain"],
+        ].map(([label, id]) => (
+          <OptionTile key={id} selected={laundryBrand === id} onClick={() => setSelections({ laundryBrand: id as "tide" | "gain" })}>
+            {label}
           </OptionTile>
         ))}
       </div>
       <p className="mb-2 mt-6 text-[13px] font-medium uppercase tracking-wide text-ink-soft">Liquid or pods</p>
       <div className="grid grid-cols-2 gap-2">
-        {["Liquid", "Pods"].map((f) => (
-          <OptionTile key={f} selected={format === f} onClick={() => setFormat(f)}>
-            {f}
+        {[
+          ["Liquid", "liquid"],
+          ["Pods", "pods"],
+        ].map(([label, id]) => (
+          <OptionTile key={id} selected={laundryFormat === id} onClick={() => setSelections({ laundryFormat: id as "liquid" | "pods" })}>
+            {label}
           </OptionTile>
         ))}
       </div>

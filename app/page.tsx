@@ -12,16 +12,16 @@ export default function HomePage() {
           <div className="md:pt-6">
             <p className="text-[14px] uppercase tracking-[0.12em] text-ink-soft">Household essentials · Canada</p>
             <h1 className="mt-4 font-display text-[2.35rem] leading-[1.12] text-ink md:text-[3rem]">
-              The stuff you’d grab at the store—showing up at your door, on a schedule that fits your home.
+              Your household essentials. Delivered automatically.
             </h1>
             <p className="mt-6 max-w-lg text-[17px] leading-[1.65] text-ink-muted">
-              Tell us what you actually use (Tide, Charmin, Dawn—the usual). We pack it into one box and one monthly
-              price. No wandering aisles. No ten separate “subscribe” buttons.
+              Get the brands and everyday essentials your household already uses, customized to your needs and delivered
+              directly to your door.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <HumanCta href="/build/step-1">Start with a few questions</HumanCta>
+              <HumanCta href="/build/step-1">Build My Essentra Box</HumanCta>
               <HumanCta href="/how-it-works" variant="secondary">
-                How we put a box together
+                See How It Works
               </HumanCta>
             </div>
             <p className="mt-8 text-[15px] text-ink-soft">

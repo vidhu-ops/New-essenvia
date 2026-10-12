@@ -4,9 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 const links = [
   { href: "/how-it-works", label: "How it works" },
-  { href: "/plans", label: "Pricing" },
-  { href: "/faq", label: "Questions" },
-  { href: "/docs", label: "For Josh / proposal" },
+  { href: "/products", label: "Our products" },
+  { href: "/plans", label: "Plans & pricing" },
+  { href: "/why", label: "Why Essentra" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export function SiteHeader() {
@@ -26,7 +27,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="/build/step-1" className="hidden text-[15px] text-ink-muted hover:text-ink sm:inline">
+          <Link href="/login" className="hidden text-[15px] text-ink-muted hover:text-ink sm:inline">
             Log in
           </Link>
           <Link

@@ -11,15 +11,15 @@ export default function PlansPage() {
         </p>
         <dl className="mt-10 space-y-8">
           <div>
-            <dt className="font-medium text-ink">Essentra Essential — $120.99/mo + tax</dt>
+            <dt className="font-medium text-ink">Essentra Essential — $84.99/mo + tax</dt>
             <dd className="mt-2 text-[16px] text-ink-muted">For homes that use a bit less across categories.</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Essentra Family — $134.99/mo + tax</dt>
+            <dt className="font-medium text-ink">Essentra Family — $94.99/mo + tax</dt>
             <dd className="mt-2 text-[16px] text-ink-muted">The usual fit after the questionnaire.</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Essentra Plus — $149.99/mo + tax</dt>
+            <dt className="font-medium text-ink">Essentra Plus — $104.99/mo + tax</dt>
             <dd className="mt-2 text-[16px] text-ink-muted">When you go through paper or detergent fast.</dd>
           </div>
         </dl>

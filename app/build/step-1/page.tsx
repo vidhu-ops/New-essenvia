@@ -1,21 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { BuildShell } from "@/components/essentra/build/BuildShell";
 import { OptionTile } from "@/components/essentra/build/OptionTile";
 import { HumanCta } from "@/components/essentra/HumanCta";
+import { useBuildStore } from "@/lib/build-store";
 
 const sizes = ["1", "2", "3", "4", "5+"];
 
 export default function BuildStep1() {
-  const [selected, setSelected] = useState("3");
+  const selected = useBuildStore((s) => s.selections.householdSize);
+  const setSelections = useBuildStore((s) => s.setSelections);
 
   return (
     <BuildShell step={1} title="Who lives at home?" subtitle="Rough headcount is enough—we’ll fine-tune quantities later.">
       <div className="grid grid-cols-3 gap-2">
         {sizes.map((s) => (
-          <OptionTile key={s} selected={selected === s} onClick={() => setSelected(s)}>
+          <OptionTile key={s} selected={selected === s} onClick={() => setSelections({ householdSize: s })}>
             <span className="block text-center">{s === "5+" ? "5 or more" : s}</span>
           </OptionTile>
         ))}

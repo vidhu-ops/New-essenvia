@@ -11,21 +11,32 @@
     "design-pack:pdf": "node scripts/generate-design-pack-pdf.mjs",
     "design-pack:export": "python3 scripts/export-design-pack-artifact.py",
     "essenvia:html": "python3 scripts/build-essenvia-full-doc-html.py",
-    "essenvia:pdf": "npm run essenvia:html && node scripts/generate-essenvia-contract-pdf.mjs"
+    "essenvia:pdf": "npm run essenvia:html && node scripts/generate-essenvia-contract-pdf.mjs",
+    "db:seed": "npx tsx prisma/seed.ts",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
+    "jose": "^6.2.12",
     "lucide-react": "^1.52.0",
     "next": "16.3.8",
+    "prisma": "^5.22.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "shadcn": "^4.21.3",
-    "tw-animate-css": "^1.4.0"
+    "tw-animate-css": "^1.4.0",
+    "zustand": "^5.0.15"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -33,6 +44,7 @@
     "eslint-config-next": "16.3.8",
     "playwright": "^1.63.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

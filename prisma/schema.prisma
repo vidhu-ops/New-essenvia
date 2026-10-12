@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         String
+  name         String
+  phone        String?
+  repTerritory String?
+  createdAt    DateTime @default(now())
+  customer     Customer?
+}
+
+model Customer {
+  id              String         @id @default(cuid())
+  userId          String         @unique
+  user            User           @relation(fields: [userId], references: [id])
+  firstName       String
+  lastName        String
+  addressLine1    String
+  addressLine2    String?
+  city            String
+  province        String
+  postalCode      String
+  deliveryNotes   String?
+  acquiredByRepId String?
+  subscriptions   Subscription[]
+  orders          Order[]
+}
+
+model Category {
+  id        String       @id @default(cuid())
+  name      String
+  slug      String       @unique
+  sortOrder Int          @default(0)
+  active    Boolean      @default(true)
+  skus      ProductSku[]
+}
+
+model Brand {
+  id   String       @id @default(cuid())
+  name String       @unique
+  skus ProductSku[]
+}
+
+model ProductSku {
+  id                  String                 @id @default(cuid())
+  skuCode             String                 @unique
+  upc                 String?
+  categoryId          String
+  category            Category               @relation(fields: [categoryId], references: [id])
+  brandId             String
+  brand               Brand                  @relation(fields: [brandId], references: [id])
+  productName         String
+  sizeLabel           String
+  wholesaleCostCents  Int
+  customerDescription String
+  imageUrl            String?
+  inventoryOnHand     Int                    @default(0)
+  inventoryReserved   Int                    @default(0)
+  reorderThreshold    Int                    @default(10)
+  warehouseBin        String?
+  active              Boolean                @default(true)
+  substituteSkuId     String?
+  lineItems           SubscriptionLineItem[]
+  orderLines          OrderLineItem[]
+}
+
+model SubscriptionPackage {
+  id                   String         @id @default(cuid())
+  slug                 String         @unique
+  name                 String
+  priceCents           Int
+  minInternalCostCents Int
+  maxInternalCostCents Int
+  active               Boolean        @default(true)
+  sortOrder            Int            @default(0)
+  subscriptions        Subscription[]
+}
+
+model Subscription {
+  id                String                 @id @default(cuid())
+  customerId        String
+  customer          Customer               @relation(fields: [customerId], references: [id])
+  packageId         String
+  package           SubscriptionPackage    @relation(fields: [packageId], references: [id])
+  status            String                 @default("PENDING")
+  monthlyPriceCents Int
+  nextBillingDate   DateTime?
+  nextDeliveryDate  DateTime?
+  stripeCustomerId  String?
+  lineItems         SubscriptionLineItem[]
+  orders            Order[]
+  createdAt         DateTime               @default(now())
+}
+
+model SubscriptionLineItem {
+  id             String       @id @default(cuid())
+  subscriptionId String
+  subscription   Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  skuId          String
+  sku            ProductSku   @relation(fields: [skuId], references: [id])
+  quantity       Int
+}
+
+model Order {
+  id             String        @id @default(cuid())
+  orderNumber    String        @unique
+  customerId     String
+  customer       Customer      @relation(fields: [customerId], references: [id])
+  subscriptionId String?
+  subscription   Subscription? @relation(fields: [subscriptionId], references: [id])
+  status         String        @default("NEW")
+  deliveryDate   DateTime?
+  deliveryZone   String?
+  lines          OrderLineItem[]
+  createdAt      DateTime      @default(now())
+}
+
+model OrderLineItem {
+  id       String     @id @default(cuid())
+  orderId  String
+  order    Order      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  skuId    String
+  sku      ProductSku @relation(fields: [skuId], references: [id])
+  quantity Int
+}
+
+model SiteSetting {
+  key   String @id
+  value String
+}

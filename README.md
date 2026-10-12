@@ -1,11 +1,12 @@
-# Essentra — Design & Wireframes (Phase 0)
+# Essentra — Website & platform (V1)
 
-Subscription household essentials platform for **Canada**: design proposal, CAD pricing, service agreement template, brand preview, and interactive wireframes.
+Subscription household essentials for **Canada**: public site, **Build My Essentra Box**, package engine, checkout, admin, sales rep, and warehouse — one Next.js app + SQLite (see **`docs/PLATFORM-V1.md`**). Design proposals and wireframes remain in `docs/` and `/wireframes`.
 
 ## Quick start
 
 ```bash
 npm install
+npx prisma db push && npm run db:seed
 npm run dev -- -p 4321
 ```
 
