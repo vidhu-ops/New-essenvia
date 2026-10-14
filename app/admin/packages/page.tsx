@@ -1,6 +1,6 @@
+import { PackageEditor } from "@/components/admin/PackageEditor";
 import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { prisma } from "@/lib/prisma";
-import { formatCad } from "@/lib/package-engine";
 
 export default async function AdminPackagesPage() {
   const packages = await prisma.subscriptionPackage.findMany({ orderBy: { sortOrder: "asc" } });
@@ -17,16 +17,19 @@ export default async function AdminPackagesPage() {
             <th className="py-2">Customer price</th>
             <th className="py-2">Min internal ¢</th>
             <th className="py-2">Max internal ¢</th>
+            <th className="py-2">Save</th>
           </tr>
         </thead>
         <tbody>
           {packages.map((p) => (
-            <tr key={p.id} className="border-b border-line/80">
-              <td className="py-2">{p.name}</td>
-              <td className="py-2">${formatCad(p.priceCents)}</td>
-              <td className="py-2">{p.minInternalCostCents}</td>
-              <td className="py-2">{p.maxInternalCostCents}</td>
-            </tr>
+            <PackageEditor
+              key={p.id}
+              id={p.id}
+              name={p.name}
+              priceCents={p.priceCents}
+              minInternalCostCents={p.minInternalCostCents}
+              maxInternalCostCents={p.maxInternalCostCents}
+            />
           ))}
         </tbody>
       </table>

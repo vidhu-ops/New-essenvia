@@ -27,7 +27,8 @@ function LoginForm() {
       setError(data.error ?? "Login failed");
       return;
     }
-    router.push(data.redirect);
+    const next = searchParams.get("next");
+    router.push(next && next.startsWith("/") ? next : data.redirect);
     router.refresh();
   }
 
@@ -70,14 +71,65 @@ function LoginForm() {
   );
 }
 
+function MagicLinkForm() {
+  const searchParams = useSearchParams();
+  const emailDefault = searchParams.get("email")?.trim() ?? "";
+  const [message, setMessage] = useState("");
+  const [devLink, setDevLink] = useState("");
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setMessage("");
+    setDevLink("");
+    const fd = new FormData(e.currentTarget);
+    const email = String(fd.get("magic-email") ?? "").trim();
+    const res = await fetch("/api/auth/magic-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    const data = await res.json();
+    setMessage(data.message ?? "Check your email for a sign-in link.");
+    if (data.devLink) setDevLink(data.devLink);
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="mt-8 space-y-3 border-t border-line pt-8">
+      <h2 className="font-display text-lg text-ink">Customer magic link</h2>
+      <p className="text-sm text-ink-muted">We email a one-time link — no password needed after checkout.</p>
+      <input
+        name="magic-email"
+        type="email"
+        defaultValue={emailDefault}
+        required
+        placeholder="you@example.com"
+        className="w-full rounded-md border border-line bg-paper-warm px-3 py-2 text-ink"
+      />
+      <button type="submit" className="w-full rounded-md border border-line py-2.5 text-[15px] font-medium text-ink hover:bg-paper-warm">
+        Email sign-in link
+      </button>
+      {message && <p className="text-sm text-ink-muted">{message}</p>}
+      {devLink && (
+        <p className="text-xs text-ink-soft">
+          Dev link:{" "}
+          <a href={devLink} className="break-all text-green-light underline">
+            {devLink}
+          </a>
+        </p>
+      )}
+    </form>
+  );
+}
+
 export default function LoginPage() {
   return (
     <MarketingLayout>
       <div className="mx-auto max-w-md px-5 py-16">
         <h1 className="font-display text-3xl text-ink">Sign in</h1>
-        <p className="mt-2 text-[15px] text-ink-muted">Customers, reps, warehouse and admin use the same login.</p>
+        <p className="mt-2 text-[15px] text-ink-muted">Staff use password. Customers can use a magic link.</p>
         <Suspense fallback={<p className="mt-8 text-sm text-ink-muted">Loading form…</p>}>
           <LoginForm />
+          <MagicLinkForm />
         </Suspense>
         <p className="mt-6 text-sm text-ink-soft">
           Demo: <code className="rounded bg-paper-warm px-1">admin@essentra.ca</code>,{" "}

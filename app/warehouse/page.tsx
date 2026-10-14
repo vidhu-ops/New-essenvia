@@ -1,4 +1,5 @@
 import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
+import { OrderStatusButton } from "@/components/warehouse/OrderStatusButton";
 import { prisma } from "@/lib/prisma";
 
 export default async function WarehousePage() {
@@ -32,6 +33,7 @@ export default async function WarehousePage() {
                 </li>
               ))}
             </ul>
+            <OrderStatusButton orderId={o.id} status={o.status} />
           </li>
         ))}
         {orders.length === 0 && <p className="text-ink-muted">No orders yet — complete a test checkout on the website.</p>}

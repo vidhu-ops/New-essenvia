@@ -1,57 +1,62 @@
-# Essentra — Website & platform (V1)
+# Essentra — production website & web app
 
-Subscription household essentials for **Canada**: public site, **Build My Essentra Box**, package engine, checkout, admin, sales rep, and warehouse — one Next.js app + SQLite (see **`docs/PLATFORM-V1.md`**). Design proposals and wireframes remain in `docs/` and `/wireframes`.
+Canadian subscription household essentials: **marketing site**, **Build My Box**, **package engine**, **Stripe-ready checkout**, **customer account**, **admin console**, **sales rep** and **warehouse** tools — one deployable Next.js application.
 
 ## Quick start
 
 ```bash
+cp .env.example .env
 npm install
 npx prisma db push && npm run db:seed
 npm run dev -- -p 4321
 ```
 
-- **Brand preview:** [http://127.0.0.1:4321](http://127.0.0.1:4321)
-- **Client design pack (PDF):** [http://127.0.0.1:4321/design-pack](http://127.0.0.1:4321/design-pack)
-- **Wireframes hub:** [http://127.0.0.1:4321/wireframes](http://127.0.0.1:4321/wireframes)
+- **App:** [http://127.0.0.1:4321](http://127.0.0.1:4321)
+- **Requirements (detailed):** [docs/PRODUCTION-SPEC.md](docs/PRODUCTION-SPEC.md)
+- **Platform map:** [docs/PLATFORM-V1.md](docs/PLATFORM-V1.md)
+- **Design pack / contracts:** [http://127.0.0.1:4321/docs](http://127.0.0.1:4321/docs)
 
-## Documents (review & signature)
+## Production checklist
 
-| File | Description |
-|------|-------------|
-| `docs/Essentra-Platform-Design-Proposal-CAD.md` | Full architecture, journeys, Canadian competitors, CAD fees, FX table |
-| `docs/Essentra-Master-Service-Agreement-CAD.md` | Contract + SOW (Schedule A) + optional growth (Schedule B) |
+| Area | Status in repo |
+|------|----------------|
+| Marketing + SEO metadata | ✓ |
+| Build flow + package engine | ✓ |
+| Checkout (demo + Stripe) | ✓ with `STRIPE_*` env |
+| Customer account (skip/pause/cancel, address) | ✓ |
+| Magic-link sign-in | ✓ (email via Resend or console in dev) |
+| Middleware RBAC | ✓ |
+| Admin edit catalog & packages | ✓ |
+| Orders + warehouse status | ✓ |
+| Legal placeholders + checkout consent | ✓ |
+| Health check `/api/health` | ✓ |
+| PostgreSQL | Set `DATABASE_URL` (Prisma) |
+| NestJS / Expo / Terminal | Roadmap — see PRODUCTION-SPEC |
 
-**FX:** USD amounts from the October 1, 2026 proposal are converted at **1 USD = 1.4246 CAD** (Bank of Canada, October 2026).
+## Demo logins
 
-**Subscription list prices (CAD, admin-configurable):**
+| Email | Role | Password |
+|-------|------|----------|
+| `admin@essentra.ca` | Admin | `essentra-demo` |
+| `rep@essentra.ca` | Sales rep | `essentra-demo` |
+| `warehouse@essentra.ca` | Warehouse | `essentra-demo` |
 
-- Essentra Essential — **$120.99/mo** + tax (from US$84.99)
-- Essentra Family — **$134.99/mo** + tax (from US$94.99)
-- Essentra Plus — **$149.99/mo** + tax (from US$104.99)
+New customers: complete checkout → magic link (shown on confirmation page in dev).
 
-## What this repo is
+## Scripts
 
-This is the **approval package** before full platform development (NestJS API, PostgreSQL, Stripe, admin, warehouse, mobile app). Wireframes are lo-fi; the homepage demonstrates look & feel direction.
+| Command | Purpose |
+|---------|---------|
+| `npm run dev -- -p 4321` | Development server |
+| `npm run build` | Production build |
+| `npm run db:seed` | Reset demo catalog & staff users |
+| `npm run design-pack:pdf` | Client design pack PDF |
+| `npm run essenvia:pdf` | Essenvia contract PDF |
+
+## Deploy
+
+See [docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md). Set `AUTH_SECRET`, `DATABASE_URL` (Postgres recommended), `NEXT_PUBLIC_APP_URL`, and Stripe keys for live subscriptions.
 
 ## Repository
 
-**Create / link repo:** In this Cursor agent, use **Create repository** and name it `essentra-box` (see **[docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md)**).
-
-**Browse (after link):** [cursor.com/codebase/vidhu-gupta/essentra-box](https://cursor.com/codebase/vidhu-gupta/essentra-box)
-
-**Clone:**
-
-```bash
-origin auth login
-origin repo clone vidhu-gupta/essentra-box
-```
-
-## Deploy to Vercel (demo domain)
-
-See **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)** for import steps, project naming (`essentra-wireframes.vercel.app`), and stakeholder URL map.
-
-After GitHub exists: **Import** the repo in [Vercel New Project](https://vercel.com/new). No env vars needed for wireframes.
-
-## Next step
-
-Approve Phase 0 + Growth Foundation per the proposal, execute the Master Service Agreement, then begin fixed-price build phases.
+Link or create **`essentra-box`** in Cursor — [docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md).

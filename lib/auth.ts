@@ -12,6 +12,10 @@ export type SessionUser = { id: string; email: string; role: Role; name: string 
 export async function login(email: string, password: string): Promise<SessionUser | null> {
   const user = await prisma.user.findUnique({ where: { email: email.toLowerCase() } });
   if (!user || !(await bcrypt.compare(password, user.passwordHash))) return null;
+  return sessionFromUser(user);
+}
+
+export function sessionFromUser(user: { id: string; email: string; role: string; name: string }): SessionUser {
   return { id: user.id, email: user.email, role: user.role as Role, name: user.name };
 }
 

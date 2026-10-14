@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { getSession } from "@/lib/auth";
 
+const adminLinks = [
+  { href: "/admin", label: "Overview" },
+  { href: "/admin/catalog", label: "Catalog & costs" },
+  { href: "/admin/packages", label: "Packages" },
+  { href: "/admin/customers", label: "Customers" },
+  { href: "/admin/orders", label: "Orders" },
+];
+
 const nav: Record<string, { href: string; label: string }[]> = {
-  ADMIN: [
-    { href: "/admin", label: "Overview" },
-    { href: "/admin/catalog", label: "Catalog & costs" },
-    { href: "/admin/packages", label: "Packages" },
-    { href: "/admin/customers", label: "Customers" },
-  ],
+  ADMIN: adminLinks,
+  MANAGER: adminLinks,
   SALES_REP: [
     { href: "/rep", label: "Compare" },
     { href: "/rep/customize", label: "Customize" },

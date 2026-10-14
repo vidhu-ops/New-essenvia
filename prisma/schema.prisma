@@ -138,3 +138,23 @@ model SiteSetting {
   key   String @id
   value String
 }
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  actorEmail String?
+  action    String
+  entity    String
+  entityId  String?
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+model LoginToken {
+  id        String    @id @default(cuid())
+  email     String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+}

@@ -1,6 +1,6 @@
+import { CatalogSkuRow } from "@/components/admin/CatalogSkuRow";
 import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { prisma } from "@/lib/prisma";
-import { formatCad } from "@/lib/package-engine";
 
 export default async function AdminCatalogPage() {
   const skus = await prisma.productSku.findMany({
@@ -22,20 +22,21 @@ export default async function AdminCatalogPage() {
               <th className="py-2">Wholesale</th>
               <th className="py-2">On hand</th>
               <th className="py-2">Bin</th>
+              <th className="py-2">Edit</th>
             </tr>
           </thead>
           <tbody>
             {skus.map((s) => (
-              <tr key={s.id} className="border-b border-line/70">
-                <td className="py-2 font-mono text-xs">{s.skuCode}</td>
-                <td className="py-2">{s.category.name}</td>
-                <td className="py-2">
-                  {s.brand.name} · {s.customerDescription}
-                </td>
-                <td className="py-2">${formatCad(s.wholesaleCostCents)}</td>
-                <td className="py-2">{s.inventoryOnHand}</td>
-                <td className="py-2">{s.warehouseBin}</td>
-              </tr>
+              <CatalogSkuRow
+                key={s.id}
+                id={s.id}
+                skuCode={s.skuCode}
+                category={s.category.name}
+                label={`${s.brand.name} · ${s.customerDescription}`}
+                wholesaleCostCents={s.wholesaleCostCents}
+                inventoryOnHand={s.inventoryOnHand}
+                warehouseBin={s.warehouseBin}
+              />
             ))}
           </tbody>
         </table>
