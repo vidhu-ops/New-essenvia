@@ -16,6 +16,11 @@ function matchRule(pathname: string) {
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  if (pathname === "/Essentra-IIDATECH-Complete-Design-Pack.zip") {
+    return NextResponse.redirect(new URL("/design-pack", request.url));
+  }
+
   const rule = matchRule(pathname);
   if (!rule) return NextResponse.next();
 
@@ -33,5 +38,11 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/warehouse/:path*", "/account/:path*", "/rep/:path*"],
+  matcher: [
+    "/Essentra-IIDATECH-Complete-Design-Pack.zip",
+    "/admin/:path*",
+    "/warehouse/:path*",
+    "/account/:path*",
+    "/rep/:path*",
+  ],
 };

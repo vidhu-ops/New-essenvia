@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { FileDownloadButton } from "@/components/design-pack/FileDownloadButton";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
 
 const PDF = "/Essentra-IIDATECH-Complete-Design-Pack.pdf";
 const HTML = "/Essentra-IIDATECH-Complete-Design-Pack.html";
-const HTML_STANDALONE = "/Essentra-IIDATECH-Complete-Design-Pack-standalone.html";
-const ZIP = "/Essentra-IIDATECH-Complete-Design-Pack.zip";
+
+const btnOutline =
+  "inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC] disabled:opacity-60";
 
 export default function DesignPackPage() {
   return (
@@ -20,39 +22,25 @@ export default function DesignPackPage() {
         <div className="mt-10 flex flex-wrap gap-4">
           <a
             href={PDF}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center rounded-xl bg-[#1B4332] px-5 py-3 text-sm font-semibold text-white hover:bg-[#2d6a4f]"
           >
-            Download PDF for clients
+            Open PDF preview
           </a>
           <a
             href={PDF}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
+            className={btnOutline}
           >
-            Open PDF preview
+            View PDF in new tab
           </a>
-          <Link
-            href={HTML}
-            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
-          >
+          <Link href={HTML} className={btnOutline}>
             Open interactive HTML
           </Link>
-          <a
-            href={HTML_STANDALONE}
-            download="Essentra-IIDATECH-Complete-Design-Pack.html"
-            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
-          >
-            Download HTML (single file)
-          </a>
-          <a
-            href={ZIP}
-            download="Essentra-IIDATECH-Complete-Design-Pack.zip"
-            className="inline-flex items-center rounded-xl border border-[#E2E8F0] bg-white px-5 py-3 text-sm font-semibold text-[#1B4332] hover:bg-[#F8FAFC]"
-          >
-            Download HTML + logo (zip)
-          </a>
+          <FileDownloadButton apiType="html" label="Download HTML (single file)" className={btnOutline} />
+          <FileDownloadButton apiType="zip" label="Download HTML + logo (zip)" className={btnOutline} />
         </div>
 
         <section className="mt-12 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-sm">
@@ -66,7 +54,8 @@ export default function DesignPackPage() {
 
         <p className="mt-8 text-sm text-[#64748B]">
           Regenerate after edits: <code className="rounded bg-[#F1F5F9] px-1">npm run design-pack:merge</code> then{" "}
-          <code className="rounded bg-[#F1F5F9] px-1">npm run design-pack:pdf</code> (dev server on port 4321).
+          <code className="rounded bg-[#F1F5F9] px-1">npm run design-pack:pdf</code> and{" "}
+          <code className="rounded bg-[#F1F5F9] px-1">npm run design-pack:export</code>.
         </p>
       </div>
     </MarketingLayout>

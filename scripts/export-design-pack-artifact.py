@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC = ROOT / "public"
+STORAGE = ROOT / "storage" / "design-pack"
 ARTIFACTS = Path("/opt/cursor/artifacts")
 HTML_NAME = "Essentra-IIDATECH-Complete-Design-Pack.html"
 LOGO_NAME = "iidatech-logo.png"
@@ -34,12 +35,17 @@ def main() -> None:
             "Keep iidatech-logo.png in the same folder as the HTML file.\n",
         )
 
-    public_zip = PUBLIC / "Essentra-IIDATECH-Complete-Design-Pack.zip"
-    public_zip.write_bytes(out_zip.read_bytes())
+    STORAGE.mkdir(parents=True, exist_ok=True)
+    storage_zip = STORAGE / "Essentra-IIDATECH-Complete-Design-Pack.zip"
+    storage_zip.write_bytes(out_zip.read_bytes())
+
+    legacy_public_zip = PUBLIC / "Essentra-IIDATECH-Complete-Design-Pack.zip"
+    if legacy_public_zip.exists():
+        legacy_public_zip.unlink()
 
     print(f"Wrote {out_html} ({out_html.stat().st_size:,} bytes)")
     print(f"Wrote {out_zip} ({out_zip.stat().st_size:,} bytes)")
-    print(f"Wrote {standalone_public} and {public_zip}")
+    print(f"Wrote {standalone_public} and {storage_zip}")
 
 
 if __name__ == "__main__":
