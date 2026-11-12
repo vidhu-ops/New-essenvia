@@ -64,4 +64,9 @@ See [docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md). Set `AUTH_SECRET`, `DATABASE
 
 ## Repository
 
-Link or create **`essentra-box`** in Cursor — [docs/GITHUB-REPO-SETUP.md](docs/GITHUB-REPO-SETUP.md).
+| Remote | URL |
+|--------|-----|
+| **GitHub (Vercel)** | [vidhu-ops/New-essenvia](https://github.com/vidhu-ops/New-essenvia) |
+| **Cursor Origin** | `vidhu-gupta/essentra-box` |
+
+Push Origin → GitHub: [docs/GITHUB-NEW-ESSENVIA.md](docs/GITHUB-NEW-ESSENVIA.md)
