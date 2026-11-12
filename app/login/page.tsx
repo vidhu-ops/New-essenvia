@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Suspense, useState } from "react";
+import { LoginDemoHint } from "@/components/LoginDemoHint";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
 
 function LoginForm() {
@@ -131,12 +132,7 @@ export default function LoginPage() {
           <LoginForm />
           <MagicLinkForm />
         </Suspense>
-        <p className="mt-6 text-sm text-ink-soft">
-          Demo: <code className="rounded bg-paper-warm px-1">admin@essentra.ca</code>,{" "}
-          <code className="rounded bg-paper-warm px-1">rep@essentra.ca</code>,{" "}
-          <code className="rounded bg-paper-warm px-1">warehouse@essentra.ca</code> — password{" "}
-          <code className="rounded bg-paper-warm px-1">essentra-demo</code>
-        </p>
+        <LoginDemoHint />
         <p className="mt-4 text-sm">
           <Link href="/build/step-1" className="text-green-light underline">
             New here? Build your box

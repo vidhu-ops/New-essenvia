@@ -3,7 +3,9 @@ export async function sendMagicLinkEmail(to: string, signInUrl: string) {
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
-    console.info("[essentra] Magic link for", to, "→", signInUrl);
+    if (process.env.NODE_ENV !== "production") {
+      console.info("[essentra] Magic link email skipped (no RESEND_API_KEY)");
+    }
     return;
   }
 
@@ -28,7 +30,9 @@ export async function sendWelcomeEmail(to: string, signInUrl: string, orderNumbe
   const subject = `Your Essentra order ${orderNumber}`;
 
   if (!apiKey) {
-    console.info("[essentra] Welcome + magic link for", to, "order", orderNumber, "→", signInUrl);
+    if (process.env.NODE_ENV !== "production") {
+      console.info("[essentra] Welcome email skipped (no RESEND_API_KEY)");
+    }
     return;
   }
 

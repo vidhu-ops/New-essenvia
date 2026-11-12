@@ -16,9 +16,10 @@ export async function POST(req: Request) {
   const { url } = await createMagicLinkToken(normalized);
   await sendMagicLinkEmail(normalized, url);
 
+  const showDevLink = process.env.NODE_ENV !== "production" && process.env.ALLOW_DEMO_LOGIN_HINT === "true";
   return NextResponse.json({
     ok: true,
     message: "If an account exists, we sent a link.",
-    devLink: process.env.NODE_ENV === "production" ? undefined : url,
+    devLink: showDevLink ? url : undefined,
   });
 }

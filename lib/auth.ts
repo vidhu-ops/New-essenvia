@@ -1,11 +1,19 @@
 import bcrypt from "bcryptjs";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-export type Role = "CUSTOMER" | "SALES_REP" | "WAREHOUSE" | "SUPPORT" | "MANAGER" | "ADMIN";
+export type Role =
+  | "CUSTOMER"
+  | "SALES_REP"
+  | "WAREHOUSE"
+  | "DELIVERY"
+  | "SUPPORT"
+  | "MANAGER"
+  | "ADMIN";
 import { prisma } from "@/lib/prisma";
+import { getAuthSecretBytes } from "@/lib/auth-secret";
 
 const COOKIE = "essentra_session";
-const secret = () => new TextEncoder().encode(process.env.AUTH_SECRET ?? "essentra-dev-secret-change-in-prod");
+const secret = () => getAuthSecretBytes();
 
 export type SessionUser = { id: string; email: string; role: Role; name: string };
 
@@ -59,6 +67,8 @@ export function roleHome(role: Role): string {
       return "/rep";
     case "WAREHOUSE":
       return "/warehouse";
+    case "DELIVERY":
+      return "/delivery";
     case "CUSTOMER":
       return "/account";
     default:

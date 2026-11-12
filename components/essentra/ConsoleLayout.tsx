@@ -3,10 +3,10 @@ import { getSession } from "@/lib/auth";
 
 const adminLinks = [
   { href: "/admin", label: "Overview" },
-  { href: "/admin/catalog", label: "Catalog & costs" },
-  { href: "/admin/packages", label: "Packages" },
-  { href: "/admin/customers", label: "Customers" },
+  { href: "/admin/production", label: "Production" },
+  { href: "/admin/delivery", label: "Delivery" },
   { href: "/admin/orders", label: "Orders" },
+  { href: "/admin/catalog", label: "Catalog" },
 ];
 
 const nav: Record<string, { href: string; label: string }[]> = {
@@ -18,6 +18,7 @@ const nav: Record<string, { href: string; label: string }[]> = {
     { href: "/rep/signup", label: "Sign & pay" },
   ],
   WAREHOUSE: [{ href: "/warehouse", label: "Pick orders" }],
+  DELIVERY: [{ href: "/delivery", label: "My route" }],
   CUSTOMER: [
     { href: "/account", label: "My box" },
     { href: "/account/delivery", label: "Delivery" },

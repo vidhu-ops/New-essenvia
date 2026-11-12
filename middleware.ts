@@ -8,6 +8,7 @@ const rules: { prefix: string; roles: Role[] }[] = [
   { prefix: "/warehouse", roles: ["WAREHOUSE", "ADMIN", "MANAGER"] },
   { prefix: "/account", roles: ["CUSTOMER", "ADMIN", "MANAGER", "SUPPORT"] },
   { prefix: "/rep", roles: ["SALES_REP", "ADMIN", "MANAGER"] },
+  { prefix: "/delivery", roles: ["DELIVERY", "ADMIN", "MANAGER"] },
 ];
 
 function matchRule(pathname: string) {
@@ -44,5 +45,6 @@ export const config = {
     "/warehouse/:path*",
     "/account/:path*",
     "/rep/:path*",
+    "/delivery/:path*",
   ],
 };

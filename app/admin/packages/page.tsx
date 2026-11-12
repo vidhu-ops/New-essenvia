@@ -1,11 +1,11 @@
+import { AdminShell } from "@/components/admin/AdminShell";
 import { PackageEditor } from "@/components/admin/PackageEditor";
-import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminPackagesPage() {
   const packages = await prisma.subscriptionPackage.findMany({ orderBy: { sortOrder: "asc" } });
   return (
-    <ConsoleLayout title="Admin" allowed={["ADMIN", "MANAGER"]}>
+    <AdminShell title="Packages">
       <h1 className="font-display text-2xl text-ink">Package engine thresholds</h1>
       <p className="mt-2 text-sm text-ink-muted">
         Customer sees one price per plan. Backend sums wholesale cost of the basket and picks the qualifying package.
@@ -33,6 +33,6 @@ export default async function AdminPackagesPage() {
           ))}
         </tbody>
       </table>
-    </ConsoleLayout>
+    </AdminShell>
   );
 }

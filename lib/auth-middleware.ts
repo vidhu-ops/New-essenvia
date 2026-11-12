@@ -1,6 +1,7 @@
 import { jwtVerify } from "jose";
 import type { NextRequest } from "next/server";
 import type { Role } from "@/lib/auth";
+import { getAuthSecretBytes } from "@/lib/auth-secret";
 
 const COOKIE = "essentra_session";
 
@@ -9,7 +10,12 @@ export type EdgeSession = { id: string; email: string; role: Role; name: string 
 export async function getEdgeSession(request: NextRequest): Promise<EdgeSession | null> {
   const token = request.cookies.get(COOKIE)?.value;
   if (!token) return null;
-  const secret = new TextEncoder().encode(process.env.AUTH_SECRET ?? "essentra-dev-secret-change-in-prod");
+  let secret: Uint8Array;
+  try {
+    secret = getAuthSecretBytes();
+  } catch {
+    return null;
+  }
   try {
     const { payload } = await jwtVerify(token, secret);
     return {

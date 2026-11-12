@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
 import { NextResponse } from "next/server";
 import { resolveBasket } from "@/lib/build-resolver";
 import type { BuildSelections } from "@/lib/build-types";
@@ -6,6 +7,7 @@ import { createMagicLinkToken } from "@/lib/magic-link";
 import { sendWelcomeEmail } from "@/lib/email";
 import { qualifyPackage, totalWholesaleCents } from "@/lib/package-engine";
 import { getStripe, priceIdForPackageSlug, stripeEnabled } from "@/lib/stripe";
+import { ensureProductionJobForOrder } from "@/lib/ops";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
@@ -39,7 +41,7 @@ export async function POST(req: Request) {
   const internal = totalWholesaleCents(lines, skuMap);
   const pkg = qualifyPackage(internal, packages);
 
-  const tempPassword = await bcrypt.hash(`tmp-${Date.now()}`, 10);
+  const tempPassword = await bcrypt.hash(crypto.randomBytes(32).toString("base64url"), 10);
   const user = await prisma.user.create({
     data: {
       email,
@@ -83,7 +85,7 @@ export async function POST(req: Request) {
   });
 
   const orderNumber = `ES-${Date.now().toString(36).toUpperCase()}`;
-  await prisma.order.create({
+  const order = await prisma.order.create({
     data: {
       orderNumber,
       customerId: user.customer!.id,
@@ -94,6 +96,9 @@ export async function POST(req: Request) {
       lines: { create: lines.map((l) => ({ skuId: l.skuId, quantity: l.quantity })) },
     },
   });
+  if (!useStripe) {
+    await ensureProductionJobForOrder(order.id);
+  }
 
   const base = process.env.NEXT_PUBLIC_APP_URL ?? new URL(req.url).origin;
   const { url: magicUrl } = await createMagicLinkToken(email);
@@ -132,6 +137,7 @@ export async function POST(req: Request) {
     packageName: pkg.name,
     monthlyPriceCents: pkg.priceCents,
     customerId: user.customer!.id,
-    magicLink: process.env.NODE_ENV === "production" ? undefined : magicUrl,
+    magicLink:
+      process.env.NODE_ENV !== "production" && process.env.ALLOW_DEMO_LOGIN_HINT === "true" ? magicUrl : undefined,
   });
 }

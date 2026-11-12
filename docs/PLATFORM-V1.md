@@ -14,7 +14,10 @@ Josh’s October 2026 brief is implemented as a **production-oriented** Next.js 
 | Checkout | `/build/checkout` | Stripe Checkout when configured; demo DB otherwise |
 | Account | `/account`, `/account/delivery`, `/account/billing` | Skip/pause/cancel, address, billing |
 | Login | `/login` | Staff password + customer magic link |
-| Admin | `/admin`, `/admin/catalog`, `/admin/packages`, `/admin/customers`, `/admin/orders` | **Editable** catalog & thresholds |
+| Admin backend | `/admin` + sidebar modules | Production line, delivery, DB view, sales reps |
+| Admin | `/admin/catalog`, `/admin/packages`, `/admin/customers`, `/admin/orders` | **Editable** catalog & thresholds |
+| Production | `/admin/production` | Queue → pack → QC → dispatch (linked to orders) |
+| Delivery drivers | `/delivery` | Assigned stops + status updates |
 | Sales rep | `/rep`, `/rep/customize`, `/rep/signup` | Tablet-oriented flow (Terminal = Stripe env) |
 | Warehouse | `/warehouse` | Pick list + status progression |
 | Health | `/api/health` | Load balancer probe |

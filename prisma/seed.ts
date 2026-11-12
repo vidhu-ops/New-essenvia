@@ -16,15 +16,21 @@ async function main() {
   await prisma.category.deleteMany();
   await prisma.subscriptionPackage.deleteMany();
 
-  const hash = await bcrypt.hash("essentra-demo", 10);
-
-  await prisma.user.createMany({
-    data: [
-      { email: "admin@essentra.ca", passwordHash: hash, role: "ADMIN", name: "Admin Owner" },
-      { email: "rep@essentra.ca", passwordHash: hash, role: "SALES_REP", name: "Sam Rep", repTerritory: "Toronto 4" },
-      { email: "warehouse@essentra.ca", passwordHash: hash, role: "WAREHOUSE", name: "Warehouse Lead" },
-    ],
-  });
+  const staffPassword = process.env.SEED_STAFF_PASSWORD;
+  if (staffPassword && staffPassword.length >= 12) {
+    const hash = await bcrypt.hash(staffPassword, 10);
+    await prisma.user.createMany({
+      data: [
+        { email: "admin@essentra.ca", passwordHash: hash, role: "ADMIN", name: "Admin Owner" },
+        { email: "rep@essentra.ca", passwordHash: hash, role: "SALES_REP", name: "Sam Rep", repTerritory: "Toronto 4" },
+        { email: "warehouse@essentra.ca", passwordHash: hash, role: "WAREHOUSE", name: "Warehouse Lead" },
+        { email: "delivery@essentra.ca", passwordHash: hash, role: "DELIVERY", name: "Delivery Driver", phone: "416-555-0199" },
+      ],
+    });
+    console.log("Seeded staff users (admin, rep, warehouse, delivery) — password from SEED_STAFF_PASSWORD");
+  } else {
+    console.log("Skipped staff user seed — set SEED_STAFF_PASSWORD (min 12 chars) to create admin/rep/warehouse/delivery users");
+  }
 
   await prisma.subscriptionPackage.createMany({
     data: [
@@ -244,7 +250,7 @@ async function main() {
     await prisma.productSku.create({ data });
   }
 
-  console.log("Seeded Essentra platform (demo password: essentra-demo)");
+  console.log("Seeded Essentra platform catalog");
 }
 
 main()

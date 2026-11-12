@@ -1,4 +1,4 @@
-import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
+import { AdminShell } from "@/components/admin/AdminShell";
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminOrdersPage() {
@@ -9,7 +9,7 @@ export default async function AdminOrdersPage() {
   });
 
   return (
-    <ConsoleLayout title="Admin" allowed={["ADMIN", "MANAGER"]}>
+    <AdminShell title="Orders">
       <h1 className="font-display text-2xl text-ink">Orders</h1>
       <p className="mt-2 text-sm text-ink-muted">Fulfillment pipeline — warehouse updates status from the pick console.</p>
       <div className="mt-6 overflow-x-auto">
@@ -38,6 +38,6 @@ export default async function AdminOrdersPage() {
           </tbody>
         </table>
       </div>
-    </ConsoleLayout>
+    </AdminShell>
   );
 }

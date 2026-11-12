@@ -1,4 +1,4 @@
-import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
+import { AdminShell } from "@/components/admin/AdminShell";
 import { prisma } from "@/lib/prisma";
 import { formatCad } from "@/lib/package-engine";
 
@@ -8,7 +8,7 @@ export default async function AdminCustomersPage() {
     orderBy: { lastName: "asc" },
   });
   return (
-    <ConsoleLayout title="Admin" allowed={["ADMIN", "MANAGER"]}>
+    <AdminShell title="Customers">
       <h1 className="font-display text-2xl text-ink">Customers & subscriptions</h1>
       <ul className="mt-6 space-y-3 text-sm">
         {customers.map((c) => (
@@ -27,6 +27,6 @@ export default async function AdminCustomersPage() {
         ))}
         {customers.length === 0 && <p className="text-ink-muted">No customers yet — run a checkout on the website.</p>}
       </ul>
-    </ConsoleLayout>
+    </AdminShell>
   );
 }

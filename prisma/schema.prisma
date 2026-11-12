@@ -122,7 +122,33 @@ model Order {
   deliveryDate   DateTime?
   deliveryZone   String?
   lines          OrderLineItem[]
+  productionJob  ProductionJob?
+  deliveryRun    DeliveryRun?
   createdAt      DateTime      @default(now())
+}
+
+model ProductionJob {
+  id        String   @id @default(cuid())
+  orderId   String   @unique
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  stage     String   @default("QUEUED")
+  priority  Int      @default(0)
+  notes     String?
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+}
+
+model DeliveryRun {
+  id           String    @id @default(cuid())
+  orderId      String    @unique
+  order        Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  driverUserId String?
+  stage        String    @default("UNASSIGNED")
+  scheduledFor DateTime?
+  deliveredAt  DateTime?
+  proofNote    String?
+  updatedAt    DateTime  @updatedAt
+  createdAt    DateTime  @default(now())
 }
 
 model OrderLineItem {

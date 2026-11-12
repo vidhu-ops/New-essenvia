@@ -1,5 +1,5 @@
+import { AdminShell } from "@/components/admin/AdminShell";
 import { CatalogSkuRow } from "@/components/admin/CatalogSkuRow";
-import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { prisma } from "@/lib/prisma";
 
 export default async function AdminCatalogPage() {
@@ -9,7 +9,7 @@ export default async function AdminCatalogPage() {
   });
 
   return (
-    <ConsoleLayout title="Admin" allowed={["ADMIN", "MANAGER"]}>
+    <AdminShell title="Catalog">
       <h1 className="font-display text-2xl text-ink">Catalog & wholesale costs</h1>
       <p className="mt-2 text-sm text-ink-muted">Visible to management only — never shown to customers or reps.</p>
       <div className="mt-6 overflow-x-auto">
@@ -41,6 +41,6 @@ export default async function AdminCatalogPage() {
           </tbody>
         </table>
       </div>
-    </ConsoleLayout>
+    </AdminShell>
   );
 }

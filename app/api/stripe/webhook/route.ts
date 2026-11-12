@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripe, stripeEnabled } from "@/lib/stripe";
+import { ensureProductionJobForOrder } from "@/lib/ops";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
@@ -36,6 +37,7 @@ export async function POST(req: Request) {
       });
       if (order) {
         await prisma.order.update({ where: { id: order.id }, data: { status: "PAYMENT_CONFIRMED" } });
+        await ensureProductionJobForOrder(order.id);
       }
     }
   }
