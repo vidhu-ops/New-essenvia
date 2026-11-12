@@ -9,9 +9,9 @@ export default function HomePage() {
       <section className="mx-auto max-w-5xl px-5 pb-20 pt-12 md:pb-28 md:pt-16">
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
           <div>
-            <h1 className="font-display text-[2.4rem] leading-[1.1] text-ink md:text-[2.85rem]">
-              Less mental load.
-              <span className="block text-green">The same essentials, handled.</span>
+            <h1 className="font-display text-[2.2rem] leading-[1.12] text-ink md:text-[2.75rem]">
+              All your home and cleaning needs,
+              <span className="block text-green">delivered on schedule.</span>
             </h1>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-ink-muted">
               Tell us how many people live at home and how often you run laundry, dishes, and cleaning—we size your box.
