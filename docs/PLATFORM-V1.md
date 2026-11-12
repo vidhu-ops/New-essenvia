@@ -45,7 +45,7 @@ npm run dev -- -p 4321
 npm run build
 ```
 
-Demo staff passwords: `essentra-demo` for `admin@essentra.ca`, `rep@essentra.ca`, `warehouse@essentra.ca`.
+Staff logins: set `SEED_STAFF_PASSWORD`, run `npm run db:staff`. Admin email: `admin@essentra.ca`.
 
 ## Roadmap (outside this monolith)
 

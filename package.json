@@ -13,6 +13,7 @@
     "essenvia:html": "python3 scripts/build-essenvia-full-doc-html.py",
     "essenvia:pdf": "npm run essenvia:html && node scripts/generate-essenvia-contract-pdf.mjs",
     "db:seed": "npx tsx prisma/seed.ts",
+    "db:staff": "npx tsx scripts/ensure-staff-users.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {

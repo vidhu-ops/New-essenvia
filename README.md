@@ -33,13 +33,18 @@ npm run dev -- -p 4321
 | PostgreSQL | Set `DATABASE_URL` (Prisma) |
 | NestJS / Expo / Terminal | Roadmap — see PRODUCTION-SPEC |
 
-## Demo logins
+## Staff logins
 
-| Email | Role | Password |
-|-------|------|----------|
-| `admin@essentra.ca` | Admin | `essentra-demo` |
-| `rep@essentra.ca` | Sales rep | `essentra-demo` |
-| `warehouse@essentra.ca` | Warehouse | `essentra-demo` |
+Set `SEED_STAFF_PASSWORD` in `.env`, then run `npm run db:staff` (or full `db:seed`).
+
+| Email | Role |
+|-------|------|
+| `admin@essentra.ca` | Admin |
+| `rep@essentra.ca` | Sales rep |
+| `warehouse@essentra.ca` | Warehouse |
+| `delivery@essentra.ca` | Delivery |
+
+Password is whatever you set in `SEED_STAFF_PASSWORD` (configured for admin in your environment).
 
 New customers: complete checkout → magic link (shown on confirmation page in dev).
 
