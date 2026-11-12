@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { resolveBasket } from "@/lib/build-resolver";
 import type { BuildSelections } from "@/lib/build-types";
 import { formatCad, qualifyPackage, totalWholesaleCents } from "@/lib/package-engine";
+import { imageForSku } from "@/lib/product-images";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
@@ -15,10 +16,14 @@ export async function POST(req: Request) {
 
   const items = lines.map((l) => {
     const sku = skuMap.get(l.skuId)!;
+    const img = imageForSku(sku.skuCode, sku.customerDescription);
     return {
       description: sku.customerDescription,
       brand: sku.brand.name,
       quantity: l.quantity,
+      sizeLabel: sku.sizeLabel,
+      imageUrl: sku.imageUrl ?? img.src,
+      imageAlt: img.alt,
     };
   });
 

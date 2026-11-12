@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { productImageBySku } from "../lib/product-images";
 
 const prisma = new PrismaClient();
 
@@ -78,6 +79,8 @@ async function main() {
   const cat = async (slug: string) => prisma.category.findUniqueOrThrow({ where: { slug } });
   const brand = async (name: string) => prisma.brand.findUniqueOrThrow({ where: { name } });
 
+  const img = (code: string) => productImageBySku[code]?.src;
+
   const skus: Parameters<typeof prisma.productSku.create>[0]["data"][] = [
     {
       skuCode: "TD-L-LIQ",
@@ -87,6 +90,7 @@ async function main() {
       sizeLabel: "Large",
       wholesaleCostCents: 1249,
       customerDescription: "Tide liquid, large",
+      imageUrl: img("TD-L-LIQ"),
       inventoryOnHand: 120,
       warehouseBin: "A-04",
     },
@@ -98,8 +102,21 @@ async function main() {
       sizeLabel: "Large",
       wholesaleCostCents: 1099,
       customerDescription: "Gain liquid, large",
+      imageUrl: img("GN-L-LIQ"),
       inventoryOnHand: 80,
       warehouseBin: "A-05",
+    },
+    {
+      skuCode: "CH-12",
+      categoryId: (await cat("toilet-paper")).id,
+      brandId: (await brand("Charmin")).id,
+      productName: "Charmin Ultra Soft",
+      sizeLabel: "12 rolls",
+      wholesaleCostCents: 1199,
+      customerDescription: "Charmin Ultra Soft, 12 rolls",
+      imageUrl: img("CH-12"),
+      inventoryOnHand: 120,
+      warehouseBin: "B-10",
     },
     {
       skuCode: "CH-24",
@@ -109,6 +126,7 @@ async function main() {
       sizeLabel: "24 rolls",
       wholesaleCostCents: 1899,
       customerDescription: "Charmin Ultra Soft, 24 rolls",
+      imageUrl: img("CH-24"),
       inventoryOnHand: 200,
       warehouseBin: "B-11",
     },
@@ -120,19 +138,33 @@ async function main() {
       sizeLabel: "6 rolls",
       wholesaleCostCents: 899,
       customerDescription: "Bounty, 6 rolls",
+      imageUrl: img("BN-6"),
       inventoryOnHand: 150,
       warehouseBin: "B-14",
     },
     {
-      skuCode: "CS-POD",
+      skuCode: "CS-POD-14",
       categoryId: (await cat("dishwasher")).id,
       brandId: (await brand("Cascade")).id,
       productName: "Cascade pods",
-      sizeLabel: "Large pack",
-      wholesaleCostCents: 749,
-      customerDescription: "Cascade pods, large pack",
+      sizeLabel: "14 count",
+      wholesaleCostCents: 449,
+      customerDescription: "Cascade pods, 14 count",
+      imageUrl: img("CS-POD-14"),
       inventoryOnHand: 90,
       warehouseBin: "C-02",
+    },
+    {
+      skuCode: "CS-POD-43",
+      categoryId: (await cat("dishwasher")).id,
+      brandId: (await brand("Cascade")).id,
+      productName: "Cascade pods",
+      sizeLabel: "43 count",
+      wholesaleCostCents: 999,
+      customerDescription: "Cascade pods, 43 count",
+      imageUrl: img("CS-POD-43"),
+      inventoryOnHand: 70,
+      warehouseBin: "C-03",
     },
     {
       skuCode: "DW-STD",
@@ -142,6 +174,7 @@ async function main() {
       sizeLabel: "Standard",
       wholesaleCostCents: 399,
       customerDescription: "Dawn dish soap",
+      imageUrl: img("DW-STD"),
       inventoryOnHand: 110,
       warehouseBin: "C-09",
     },
@@ -153,6 +186,7 @@ async function main() {
       sizeLabel: "Large box",
       wholesaleCostCents: 549,
       customerDescription: "Glad large garbage bags",
+      imageUrl: img("GL-LG"),
       inventoryOnHand: 70,
       warehouseBin: "D-03",
     },
@@ -164,6 +198,7 @@ async function main() {
       sizeLabel: "Medium",
       wholesaleCostCents: 449,
       customerDescription: "Glad kitchen bags",
+      imageUrl: img("GL-KT"),
       inventoryOnHand: 85,
       warehouseBin: "D-04",
     },
@@ -175,6 +210,7 @@ async function main() {
       sizeLabel: "Large",
       wholesaleCostCents: 599,
       customerDescription: "Gain fabric softener",
+      imageUrl: img("SF-LS"),
       inventoryOnHand: 60,
       warehouseBin: "A-08",
     },
@@ -186,6 +222,7 @@ async function main() {
       sizeLabel: "Spray",
       wholesaleCostCents: 349,
       customerDescription: "All-purpose cleaner",
+      imageUrl: img("CL-AP"),
       inventoryOnHand: 95,
       warehouseBin: "E-01",
     },
@@ -197,6 +234,7 @@ async function main() {
       sizeLabel: "80 count",
       wholesaleCostCents: 499,
       customerDescription: "Disinfecting wipes, 80 count",
+      imageUrl: img("WP-80"),
       inventoryOnHand: 100,
       warehouseBin: "E-02",
     },

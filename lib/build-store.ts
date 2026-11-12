@@ -17,6 +17,6 @@ export const useBuildStore = create<BuildState>()(
       setSelections: (partial) => set((s) => ({ selections: { ...s.selections, ...partial } })),
       reset: () => set({ selections: defaultBuildSelections }),
     }),
-    { name: "essentra-build" },
+    { name: "essentra-build-v2" },
   ),
 );
