@@ -6,7 +6,7 @@
 |--------|---------|
 | Vercel **Source → `vercel deploy`** | One-off CLI upload, **not** connected to Git |
 | Deploy by **anonymousdeploys** | Temporary deploy, not tied to your repo |
-| GitHub **New-essenvia** has **no files** | Nothing for Vercel to build from `main` |
+| GitHub **New-essenvia** empty | Nothing for Vercel to build from `main` (fixed once `main` has commits) |
 | Live site copy (“mental load” / **essenvia+**) | Old or different build than current **Essentra** in Cursor Origin |
 
 Current app code (hero: *“All your home and cleaning needs, delivered on schedule”*, 3-step build) lives on **Cursor Origin** `vidhu-gupta/essentra-box` only until you push to GitHub.

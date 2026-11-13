@@ -69,4 +69,4 @@ See [docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md). Set `AUTH_SECRET`, `DATABASE
 | **GitHub (Vercel)** | [vidhu-ops/New-essenvia](https://github.com/vidhu-ops/New-essenvia) |
 | **Cursor Origin** | `vidhu-gupta/essentra-box` |
 
-Push Origin → GitHub: [docs/GITHUB-NEW-ESSENVIA.md](docs/GITHUB-NEW-ESSENVIA.md)
+Push Origin → GitHub: [docs/GITHUB-NEW-ESSENVIA.md](docs/GITHUB-NEW-ESSENVIA.md) · `npm run git:sync`

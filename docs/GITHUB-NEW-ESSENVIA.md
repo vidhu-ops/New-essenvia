@@ -2,12 +2,28 @@
 
 Canonical GitHub remote for production deploys (Vercel).
 
+If Vercel still shows **Source: `vercel deploy`** (not a commit), follow **[VERCEL-GIT-FIX.md](./VERCEL-GIT-FIX.md)** Step 2.
+
 | Item | Value |
 |------|--------|
 | GitHub | [https://github.com/vidhu-ops/New-essenvia](https://github.com/vidhu-ops/New-essenvia) |
 | Cursor Origin (dev) | `vidhu-gupta/essentra-box` |
 | Framework | Next.js 16 (`vercel.json` present) |
 | Database on Vercel | Postgres via `cursor-app.json` or set `DATABASE_URL` |
+
+## Keep GitHub in sync (after every agent push)
+
+Cloud Agents push **Origin** automatically. GitHub updates when you either:
+
+1. **Recommended:** Add a personal **`GH_TOKEN`** (repo write on `New-essenvia`) to your [Cloud Agent environment secrets](https://cursor.com/docs/cloud-agent), then agents can run `bash scripts/sync-remotes.sh`.
+2. **Manual:** On your machine with `gh auth login`: `bash scripts/push-to-github.sh` or `git push github main`.
+
+Verify both remotes match:
+
+```bash
+git fetch origin github
+git rev-parse origin/main github/main   # SHAs should match
+```
 
 ## One-time: replace GitHub repo with this codebase
 

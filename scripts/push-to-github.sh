@@ -18,5 +18,11 @@ cd "$WORKDIR"
 git remote remove github 2>/dev/null || true
 git remote add github "$GITHUB_REPO"
 echo "Force-pushing main to GitHub (replaces empty/old content)…"
-git push github main --force
+if [[ -n "${GH_TOKEN:-}" ]]; then
+  git -c credential.helper= push \
+    "https://x-access-token:${GH_TOKEN}@github.com/vidhu-ops/New-essenvia.git" \
+    main --force
+else
+  git push github main --force
+fi
 echo "Done. Open $GITHUB_REPO and confirm files appear on main."
