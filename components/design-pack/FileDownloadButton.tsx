@@ -19,7 +19,11 @@ export function FileDownloadButton({
     setBusy(true);
     setError("");
     try {
-      const res = await fetch(`/api/design-pack/download?type=${apiType}`);
+      const fetchUrl =
+        apiType === "html"
+          ? "/Essentra-IIDATECH-Complete-Design-Pack-standalone.html"
+          : `/api/design-pack/download?type=${apiType}`;
+      const res = await fetch(fetchUrl);
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error ?? "Download failed");
@@ -27,16 +31,20 @@ export function FileDownloadButton({
       const blob = await res.blob();
       const disposition = res.headers.get("Content-Disposition") ?? "";
       const match = disposition.match(/filename="([^"]+)"/);
-      const filename = match?.[1] ?? (apiType === "zip" ? "design-pack.zip" : "design-pack.html");
-      const url = URL.createObjectURL(blob);
+      const filename =
+        match?.[1] ??
+        (apiType === "zip"
+          ? "Essentra-IIDATECH-Complete-Design-Pack.zip"
+          : "Essentra-IIDATECH-Complete-Design-Pack.html");
+      const blobUrl = URL.createObjectURL(blob);
       const a = document.createElement("a");
-      a.href = url;
+      a.href = blobUrl;
       a.download = filename;
       a.rel = "noopener";
       document.body.appendChild(a);
       a.click();
       a.remove();
-      URL.revokeObjectURL(url);
+      URL.revokeObjectURL(blobUrl);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Download failed");
     } finally {
