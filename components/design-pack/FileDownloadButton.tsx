@@ -22,7 +22,7 @@ export function FileDownloadButton({
       const fetchUrl =
         apiType === "html"
           ? "/Essentra-IIDATECH-Complete-Design-Pack-standalone.html"
-          : `/api/design-pack/download?type=${apiType}`;
+          : "/downloads/Essentra-IIDATECH-Complete-Design-Pack.zip";
       const res = await fetch(fetchUrl);
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));

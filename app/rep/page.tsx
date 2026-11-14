@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { HumanCta } from "@/components/essentra/HumanCta";

@@ -39,6 +39,11 @@ def main() -> None:
     storage_zip = STORAGE / "Essentra-IIDATECH-Complete-Design-Pack.zip"
     storage_zip.write_bytes(out_zip.read_bytes())
 
+    downloads = PUBLIC / "downloads"
+    downloads.mkdir(parents=True, exist_ok=True)
+    vercel_zip = downloads / "Essentra-IIDATECH-Complete-Design-Pack.zip"
+    vercel_zip.write_bytes(out_zip.read_bytes())
+
     legacy_public_zip = PUBLIC / "Essentra-IIDATECH-Complete-Design-Pack.zip"
     if legacy_public_zip.exists():
         legacy_public_zip.unlink()

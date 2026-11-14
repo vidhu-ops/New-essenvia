@@ -2,15 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { HumanCta } from "@/components/essentra/HumanCta";
 import { MarketingLayout } from "@/components/essentra/MarketingLayout";
+import { loadActiveProductSkus } from "@/lib/load-product-skus";
 import { imageForSku } from "@/lib/product-images";
-import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
-  const skus = await prisma.productSku.findMany({
-    where: { active: true },
-    include: { brand: true, category: true },
-    orderBy: [{ category: { sortOrder: "asc" } }, { skuCode: "asc" }],
-  });
+  const skus = await loadActiveProductSkus();
 
   return (
     <MarketingLayout>

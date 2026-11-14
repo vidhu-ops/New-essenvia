@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "prisma generate && npm run build",
     "start": "next start",
     "lint": "eslint",
     "design-pack:merge": "python3 scripts/merge_essentra_docs.py",

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { ConsoleLayout } from "@/components/essentra/ConsoleLayout";
 import { OrderStatusButton } from "@/components/warehouse/OrderStatusButton";
 import { prisma } from "@/lib/prisma";
