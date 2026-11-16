@@ -91,7 +91,7 @@ export default function ConsolesPage() {
           <Link href="/docs" className="underline">
             /docs
           </Link>{" "}
-          · Full Vercel steps in repo;" "}
+          · Full Vercel steps in repo:{" "}
           <span className="font-mono text-xs">docs/PREVIEW-CONSOLES.md</span>
         </p>
       </article>
