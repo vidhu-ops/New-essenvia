@@ -11,7 +11,15 @@ async function main() {
     return;
   }
 
-  execSync("npx prisma db push --accept-data-loss", { stdio: "inherit" });
+  try {
+    execSync("npx prisma db push --accept-data-loss", { stdio: "inherit" });
+  } catch (e) {
+    console.error("vercel-deploy-db: prisma db push failed — check DATABASE_URL is Postgres", e);
+    if (process.env.REQUIRE_DATABASE_ON_DEPLOY === "1") {
+      process.exit(1);
+    }
+    return;
+  }
 
   const prisma = new PrismaClient();
   try {
