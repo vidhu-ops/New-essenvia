@@ -53,19 +53,5 @@ Set in the Vercel project linked to **New-essenvia**:
 
 | Variable | Required |
 |----------|----------|
-| `AUTH_SECRET` | Yes (long random string) |
-| `DATABASE_URL` | Yes (Postgres; Vercel Postgres or Neon) |
-| `NEXT_PUBLIC_APP_URL` | Yes (your `*.vercel.app` or custom domain) |
-| `STRIPE_*` | Optional until live payments |
-| `RESEND_API_KEY` | Optional (magic-link email) |
-| `SEED_STAFF_PASSWORD` | Only when running staff seed in prod |
-
-**Do not** run `npm run db:seed` in production without setting `SEED_STAFF_PASSWORD`; staff accounts are not created from a public demo password.
-
-## Build settings (Vercel)
-
-- **Build command:** `npm run build`
-- **Install command:** `npm install`
-- **Output:** default for Next.js
-
-After each push to `main`, Vercel redeploys automatically.
+| `AUTH_SECRET` | **Yes** â€” min 32 characters (build/runtime; omitting fails middleware in production) |
+| `DATABASE_URL` | **Yes for consoles** â€” Postgres (Neon / Vercel Postgres]). Homepage works without DHì…‘µ¥¸½İ…É•¡½ÕÍ”½É•À¹••A½ÍÑÉ•Ì¸ğ)ğ9aQ}AU	1%}AA}UI1€ğe•Ì€¡å½ÕÈ€¨¹Ù•É•°¹…ÁÁ€½ÈÕÍÑ½´‘½µ…¥¸¤ğ)ğIU9}	}M€ğM•Ğ€Å€½¸™¥ÉÍĞ‘•Á±½äÑ¼Í••…Ñ…±½œğ)ğM}MQ}AMM]=I€ğ5¥¸€ÄÈ¡…ÉÌƒŠPÍ¡…É•ÍÑ…™˜Á…ÍÍİ½É™½ÈÁÉ•Ù¥•Ü±½¥¹Ìğ)ğMQI%A|©€ğ=ÁÑ¥½¹…°Õ¹Ñ¥°±¥Ù”Á…åµ•¹ÑÌğ)ğIM9}A%}-e€ğ=ÁÑ¥½¹…°€¡µ…¥Œµ±¥¹¬•µ…¥°¤ğ)ğM}MQ}AMM]=I€ğ=¹±äİ¡•¸ÉÕ¹¹¥¹œÍÑ…™˜Í••¥¸ÁÉ½ğ((¨©¼¹½Ğ¨¨ÉÕ¸¹Á´ÉÕ¸‘ˆéÍ••‘€¥¸ÁÉ½‘ÕÑ¥½¸İ¥Ñ¡½ÕĞÍ•ÑÑ¥¹œM}MQ}AMM]=I€ìÍÑ…™˜…½Õ¹ÑÌ…É”¹½ĞÉ•…Ñ•™É½´„ÁÕ‰±¥Œ‘•µ¼Á…ÍÍİ½É¸((ŒŒ	Õ¥±Í•ÑÑ¥¹Ì€¡Y•É•°¤((´€¨©	Õ¥±½µµ…¹è¨¨¹Á´ÉÕ¸‰Õ¥±‘€(´€¨©%¹ÍÑ…±°½µµ…¹è¨¨¹Á´¥¹ÍÑ…±±€(´€¨©=ÕÑÁÕĞè¨¨‘•™…Õ±Ğ™½È9•áĞ¹©Ì()™Ñ•È•… ÁÕÍ Ñ¼µ…¥¹€°Y•É•°É•‘•Á±½åÌ…ÕÑ½µ…Ñ¥…±±ä¸(

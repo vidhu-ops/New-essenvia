@@ -6,6 +6,7 @@ import { useState } from "react";
 const links = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/plans", label: "Pricing" },
+  { href: "/consoles", label: "Consoles" },
 ];
 
 export function SiteHeader() {

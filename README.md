@@ -12,14 +12,15 @@ npm run dev -- -p 4321
 ```
 
 - **App:** [http://127.0.0.1:4321](http://127.0.0.1:4321)
+- **All consoles (preview map):** [http://127.0.0.1:4321/consoles](http://127.0.0.1:4321/consoles) — see [docs/PREVIEW-CONSOLES.md](docs/PREVIEW-CONSOLES.md) for Vercel
 - **Requirements (detailed):** [docs/PRODUCTION-SPEC.md](docs/PRODUCTION-SPEC.md)
 - **Platform map:** [docs/PLATFORM-V1.md](docs/PLATFORM-V1.md)
-- **Design pack / contracts:** [http://127.0.0.1:4321/docs](http://127.0.0.1:4321/docs)
+- **Design pack / contracts:** [http:///127.0.0.1:4321/docs](http://127.0.0.1:4321/docs)
 
 ## Production checklist
 
 | Area | Status in repo |
-|------|----------------|
+|-----|-------------|
 | Marketing + SEO metadata | ✓ |
 | Build flow + package engine | ✓ |
 | Checkout (demo + Stripe) | ✓ with `STRIPE_*` env |
@@ -31,7 +32,7 @@ npm run dev -- -p 4321
 | Legal placeholders + checkout consent | ✓ |
 | Health check `/api/health` | ✓ |
 | PostgreSQL | Set `DATABASE_URL` (Prisma) |
-| NestJS / Expo / Terminal | Roadmap — see PRODUCTION-SPEC |
+| NextJS / Expo / Terminal | Roadmap — see PRODUCTION-SPEC |
 
 ## Staff logins
 
