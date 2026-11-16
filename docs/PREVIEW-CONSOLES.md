@@ -28,6 +28,8 @@ Optional: `RESEND_API_KEY` for magic-link email; Stripe vars when testing paymen
 
 ## 2. Build
 
+**Do not** set `DATABASE_URL` to `file:./dev.db` on Vercel — use **Postgres** only. SQLite path URLs are skipped (or fail if `REQUIRE_DATABASE_ON_DEPLOY=1`).
+
 `vercel.json` runs `npm run vercel-build`, which:
 
 1. Sets Prisma to **postgresql** when `DATABASE_URL` is Postgres  

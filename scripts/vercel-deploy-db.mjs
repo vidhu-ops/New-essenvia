@@ -1,5 +1,5 @@
 /**
- * Vercel build hook: apply schema + seed catalog/staff when env flags are set.
+ * Vercel build hook (plain Node — no tsx). Applies schema + optional seed/staff.
  */
 import { execSync } from "node:child_process";
 import { PrismaClient } from "@prisma/client";
@@ -11,10 +11,20 @@ async function main() {
     return;
   }
 
+  if (databaseUrl.startsWith("file:")) {
+    console.warn(
+      "vercel-deploy-db: SQLite file URLs do not work on Vercel. Use Postgres DATABASE_URL — see docs/PREVIEW-CONSOLES.md",
+    );
+    if (process.env.REQUIRE_DATABASE_ON_DEPLOY === "1") {
+      process.exit(1);
+    }
+    return;
+  }
+
   try {
     execSync("npx prisma db push --accept-data-loss", { stdio: "inherit" });
   } catch (e) {
-    console.error("vercel-deploy-db: prisma db push failed — check DATABASE_URL is Postgres", e);
+    console.error("vercel-deploy-db: prisma db push failed", e);
     if (process.env.REQUIRE_DATABASE_ON_DEPLOY === "1") {
       process.exit(1);
     }
@@ -28,22 +38,18 @@ async function main() {
 
     if (skuCount === 0 && runSeed) {
       console.log("vercel-deploy-db: seeding catalog…");
-      execSync("npm run db:seed", { stdio: "inherit", env: process.env });
+      execSync("npx prisma db seed", { stdio: "inherit", env: process.env });
     } else if (skuCount === 0) {
-      console.warn(
-        "vercel-deploy-db: catalog empty — set RUN_DB_SEED=1 on Vercel to seed SKUs/packages on deploy",
-      );
-    } else {
-      console.log(`vercel-deploy-db: catalog ready (${skuCount} SKUs)`);
+      console.warn("vercel-deploy-db: catalog empty — set RUN_DB_SEED=1 to seed on deploy");
     }
 
     const staffPassword = process.env.SEED_STAFF_PASSWORD?.trim();
     if (staffPassword && staffPassword.length >= 12) {
       console.log("vercel-deploy-db: upserting staff logins…");
-      execSync("npm run db:staff", { stdio: "inherit", env: process.env });
+      execSync("npx --yes tsx scripts/ensure-staff-users.ts", { stdio: "inherit", env: process.env });
     } else {
       console.warn(
-        "vercel-deploy-db: set SEED_STAFF_PASSWORD (min 12 chars) to enable admin/warehouse/rep/delivery preview logins",
+        "vercel-deploy-db: set SEED_STAFF_PASSWORD (min 12 chars) for admin/warehouse/rep/delivery preview logins",
       );
     }
   } finally {
