@@ -31,6 +31,12 @@ export function SiteFooter() {
           <Link href="/login" className="hover:text-ink">
             Sign in
           </Link>
+          <Link href="/consoles" className="hover:text-ink">
+            Platform preview
+          </Link>
+          <Link href="/wireframes" className="hover:text-ink">
+            Wireframes
+          </Link>
         </div>
         <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-ink-soft">
           {legal.map((l) => (
