@@ -13,7 +13,7 @@ const PERSON_HEADER = "x-cursor-identity";
 const IDENTITY_VERSION = 2;
 const CLOCK_TOLERANCE_SECONDS = 60;
 const FETCH_TIMEOUT_MS = 5000;
-const JWKS_REFETCH_COOLD_WN_MS = 60000;
+const JWKS_REFETCH_COOLDOWN_MS = 60000;
 const DEV_VIEWER_TTL_MS = 300000;
 
 /** The shape ./identity.dev exports: the viewer a local dev server simulates, or null for the signed-out state. */
@@ -397,7 +397,8 @@ function parseToken(token: string): ParsedToken | undefined {
     return undefined;
   }
   const [headerPart, payloadPart, signaturePart] = parts;
-  const header = decodeJson(headerPart);  const claims = decodeJson(payloadPart);
+  const header = decodeJson(headerPart);
+  const claims = decodeJson(payloadPart);
   const signature = decodeBase64Url(signaturePart);
   if (header === undefined || claims === undefined || signature === undefined) {
     return undefined;
@@ -496,7 +497,8 @@ function loadKeySet(issuer: string): Promise<KeySet> {
 
 async function fetchKeySet(issuer: string): Promise<KeySet> {
   const jwks = await fetchJson(issuer + "/keys");
-  if (!Array.isArray(jwks.keys)) {    throw new Error("identity issuer JWKS has no keys");
+  if (!Array.isArray(jwks.keys)) {
+    throw new Error("identity issuer JWKS has no keys");
   }
   const keys = new Map<string, CryptoKey>();
   for (const candidate of jwks.keys as unknown[]) {
@@ -595,7 +597,8 @@ function identityFromClaims(token: string, claims: IdentityClaims, source: Token
   } else if (claims.ver !== IDENTITY_VERSION) {
     return { verified: false, reason: "invalid_claims" };
   } else if (claims.kind === "key") {
-    return keyIdentityFromClaims(base, claims);  } else if (claims.kind !== "person") {
+    return keyIdentityFromClaims(base, claims);
+  } else if (claims.kind !== "person") {
     return { verified: false, reason: "invalid_claims" };
   }
   const userId = /^user:(\d+)$/.exec(sub);
